@@ -24,7 +24,7 @@ project:
   output-dir: _site   # built HTML goes here; git-ignored, deployed by CI
 
 website:
-  title: "Jules G Org"
+  title: "MrG's Org"
   description: >
     The home of julesg-org — open-source projects, data science,
     and technical writing.
@@ -39,7 +39,7 @@ website:
   navbar:
     background: light
     logo: "images/logo.png"          # 40 × 40 px PNG recommended
-    logo-alt: "Jules G Org logo"
+    logo-alt: "MrG's Org logo"
     left:
       - text: "Home"
         href: index.qmd
@@ -75,7 +75,7 @@ website:
   # ── Footer ────────────────────────────────────────────────────────────────
   page-footer:
     left: |
-      © 2024 Jules G Org · Built with [Quarto](https://quarto.org)
+      © 2024 MrG's Org · Built with [Quarto](https://quarto.org)
     right:
       - icon: github
         href: https://github.com/julesg-org
