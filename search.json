@@ -1,0 +1,276 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jules G Org",
+    "section": "",
+    "text": "We build open-source tools, share data science insights, and document experiments in software engineering.\nExplore the blog for tutorials and write-ups, or browse projects to see what we’re working on.\n\nRead the Blog   About Us\n\n\n\n\n🚀"
+  },
+  {
+    "objectID": "index.html#recent-posts",
+    "href": "index.html#recent-posts",
+    "title": "Jules G Org",
+    "section": "Recent Posts",
+    "text": "Recent Posts\n\n\n\n\n\n\n\n\nSetting Up a Quarto Website for Your GitHub Organisation\n\n\n\nquarto\n\n\ngithub-pages\n\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n\n\nannouncement\n\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nSee all posts on the Blog page."
+  },
+  {
+    "objectID": "index.html#featured-projects",
+    "href": "index.html#featured-projects",
+    "title": "Jules G Org",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n\nSample Project\nA demonstration of how a separate GitHub repository in the julesg-org organisation can contribute a page to this site.\n→ View project\n\n\nAdd Your Project Here\nFollow the instructions in projects/sample-project/index.qmd to add your own project page.\n→ Browse all projects\n\n\n\nBuilt with Quarto · Hosted on GitHub Pages"
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html",
+    "href": "blog/posts/quarto-setup/index.html",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "",
+    "text": "Quarto makes it straightforward to publish a polished organisation website directly from a GitHub repository. This post walks through the setup used for this very site."
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#introduction",
+    "href": "blog/posts/quarto-setup/index.html#introduction",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "",
+    "text": "Quarto makes it straightforward to publish a polished organisation website directly from a GitHub repository. This post walks through the setup used for this very site."
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#prerequisites",
+    "href": "blog/posts/quarto-setup/index.html#prerequisites",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nA GitHub account / organisation\nQuarto CLI installed locally\nBasic familiarity with Markdown"
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#step-1-create-the-repository",
+    "href": "blog/posts/quarto-setup/index.html#step-1-create-the-repository",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Step 1 — Create the Repository",
+    "text": "Step 1 — Create the Repository\nOn GitHub, create a repository named &lt;org&gt;.github.io (for organisations) or &lt;username&gt;.github.io (for personal sites). This special naming convention tells GitHub Pages to serve the repo at https://&lt;org&gt;.github.io.\nFor example:\nOrganisation: julesg-org\nRepository:   julesg-org.github.io   ← served at https://julesg-org.github.io"
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#step-2-initialise-a-quarto-website",
+    "href": "blog/posts/quarto-setup/index.html#step-2-initialise-a-quarto-website",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Step 2 — Initialise a Quarto Website",
+    "text": "Step 2 — Initialise a Quarto Website\n# In your cloned repository folder:\nquarto create project website .\nThis creates the minimal _quarto.yml and index.qmd scaffold."
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#step-3-customise-_quarto.yml",
+    "href": "blog/posts/quarto-setup/index.html#step-3-customise-_quarto.yml",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Step 3 — Customise _quarto.yml",
+    "text": "Step 3 — Customise _quarto.yml\nOpen _quarto.yml and set at minimum:\nproject:\n  type: website\n\nwebsite:\n  title: \"Your Org Name\"\n  site-url: https://your-org.github.io\n  navbar:\n    left:\n      - text: \"Home\"\n        href: index.qmd\n      - text: \"About\"\n        href: about.qmd"
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#step-4-add-github-actions",
+    "href": "blog/posts/quarto-setup/index.html#step-4-add-github-actions",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Step 4 — Add GitHub Actions",
+    "text": "Step 4 — Add GitHub Actions\nCreate .github/workflows/deploy.yml to automate builds on push:\nname: Deploy\non:\n  push:\n    branches: [main]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: quarto-dev/quarto-actions/setup@v2\n      - run: quarto render\n      - uses: peaceiris/actions-gh-pages@v4\n        with:\n          github_token: ${{ secrets.GITHUB_TOKEN }}\n          publish_dir: ./_site"
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#step-5-enable-github-pages",
+    "href": "blog/posts/quarto-setup/index.html#step-5-enable-github-pages",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Step 5 — Enable GitHub Pages",
+    "text": "Step 5 — Enable GitHub Pages\nIn your repository: Settings → Pages → Source → gh-pages branch.\nPush to main and the site deploys automatically! 🎉"
+  },
+  {
+    "objectID": "blog/posts/quarto-setup/index.html#next-steps",
+    "href": "blog/posts/quarto-setup/index.html#next-steps",
+    "title": "Setting Up a Quarto Website for Your GitHub Organisation",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nAdd blog posts under blog/posts/&lt;post-name&gt;/index.qmd\nAdd project pages under projects/&lt;project-name&gt;/index.qmd\nCustomise colours in styles.css"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Jules G Org",
+    "section": "",
+    "text": "Jules G Org is an open-source organisation focused on data science, software engineering, and making technical knowledge more accessible.\nWe publish reproducible analyses, reusable tooling, and detailed write-ups on everything from exploratory data analysis to deployment pipelines."
+  },
+  {
+    "objectID": "about.html#who-we-are",
+    "href": "about.html#who-we-are",
+    "title": "About Jules G Org",
+    "section": "",
+    "text": "Jules G Org is an open-source organisation focused on data science, software engineering, and making technical knowledge more accessible.\nWe publish reproducible analyses, reusable tooling, and detailed write-ups on everything from exploratory data analysis to deployment pipelines."
+  },
+  {
+    "objectID": "about.html#what-we-do",
+    "href": "about.html#what-we-do",
+    "title": "About Jules G Org",
+    "section": "What We Do",
+    "text": "What We Do\n\n📊 Data Science — reproducible notebooks, statistical analyses, and visualisation libraries.\n🛠️ Open-Source Tools — small, focused packages and utilities available on GitHub.\n✍️ Technical Writing — in-depth blog posts and tutorials that walk through real problems step by step."
+  },
+  {
+    "objectID": "about.html#how-this-site-works",
+    "href": "about.html#how-this-site-works",
+    "title": "About Jules G Org",
+    "section": "How This Site Works",
+    "text": "How This Site Works\nThis site is built with Quarto and deployed automatically to GitHub Pages via a GitHub Actions workflow every time changes are pushed to the main branch.\nEach project in the julesg-org GitHub organisation can contribute its own page here by following the pattern demonstrated in projects/sample-project."
+  },
+  {
+    "objectID": "about.html#get-involved",
+    "href": "about.html#get-involved",
+    "title": "About Jules G Org",
+    "section": "Get Involved",
+    "text": "Get Involved\nWe welcome contributions! Open an issue or pull request on any of our repositories, or reach out via the links above."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Sample Project\n\n\n\ntemplate\n\n\nopen-source\n\n\n\nA template project demonstrating how a separate julesg-org repository can display a page on julesg-org.github.io.\n\n\n\nJan 15, 2024\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Projects"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html",
+    "href": "projects/sample-project/index.html",
+    "title": "Sample Project",
+    "section": "",
+    "text": "🏠 Jules G Org · ← Back to home · All Projects",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#about-this-project",
+    "href": "projects/sample-project/index.html#about-this-project",
+    "title": "Sample Project",
+    "section": "About This Project",
+    "text": "About This Project\nSample Project is a demonstration repository that shows how any repository in the julesg-org GitHub organisation can contribute a page to the main organisation website at julesg-org.github.io.\nThis page was generated from content inside the main website repository (julesg-org.github.org). In a real workflow, the content on this page would mirror or embed information from the sample-project repository.",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#features",
+    "href": "projects/sample-project/index.html#features",
+    "title": "Sample Project",
+    "section": "Features",
+    "text": "Features\n\n✅ Clean, reproducible structure (Quarto + Markdown)\n✅ Links back to the Jules G Org home page\n✅ Integrated into the main site’s navigation and search\n✅ Automatic dark / light mode support\n✅ Category tags for filtering on the Projects listing",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#getting-started",
+    "href": "projects/sample-project/index.html#getting-started",
+    "title": "Sample Project",
+    "section": "Getting Started",
+    "text": "Getting Started\n# Clone the sample project repository\ngit clone https://github.com/julesg-org/sample-project.git\ncd sample-project\n\n# Install dependencies (example for a Python project)\npip install -r requirements.txt\n\n# Run the project\npython main.py",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#project-structure",
+    "href": "projects/sample-project/index.html#project-structure",
+    "title": "Sample Project",
+    "section": "Project Structure",
+    "text": "Project Structure\nsample-project/\n├── README.md          # Overview and quick-start guide\n├── main.py            # Entry point\n├── src/               # Source code\n│   └── analysis.py\n├── data/              # Input data (not committed — see .gitignore)\n├── notebooks/         # Jupyter / Quarto notebooks\n└── tests/             # Unit tests",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#usage-example",
+    "href": "projects/sample-project/index.html#usage-example",
+    "title": "Sample Project",
+    "section": "Usage Example",
+    "text": "Usage Example\n# Example: loading and analysing data with this project\nfrom src.analysis import load_data, summarise\n\ndf = load_data(\"data/sample.csv\")\nsummary = summarise(df)\nprint(summary)",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#results-outputs",
+    "href": "projects/sample-project/index.html#results-outputs",
+    "title": "Sample Project",
+    "section": "Results & Outputs",
+    "text": "Results & Outputs\nThis section would normally contain visualisations or key findings. For a real project, embed Quarto code cells here so that outputs are reproduced automatically every time the site is built:\n```{python}\n# Uncomment the lines below and add real code for live output\n# import pandas as pd\n# df = pd.read_csv(\"data/sample.csv\")\n# df.describe()\n```",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "projects/sample-project/index.html#links",
+    "href": "projects/sample-project/index.html#links",
+    "title": "Sample Project",
+    "section": "Links",
+    "text": "Links\n\n\n\nResource\nURL\n\n\n\n\nSource code\ngithub.com/julesg-org/sample-project\n\n\nIssues\nGitHub Issues\n\n\nMain site\njulesg-org.github.io\n\n\n\n\n\n\n\n\n\n\nHow to add your own project\n\n\n\n\nCreate a new folder in projects/ inside the main repo.\nCopy this file (projects/sample-project/index.qmd) as a starting template.\nFill in your project’s title, description, and content.\nOpen a pull request — once merged, your project page appears automatically.\n\n\n\n\n\nPart of Jules G Org · Built with Quarto",
+    "crumbs": [
+      "Home",
+      "Projects",
+      "Sample Project"
+    ]
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html",
+    "href": "blog/posts/welcome/index.html",
+    "title": "Welcome to Jules G Org",
+    "section": "",
+    "text": "Welcome to the Jules G Org blog! This is the first post on our new Quarto- powered website, so let’s use it to explain what this place is all about."
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#hello-world",
+    "href": "blog/posts/welcome/index.html#hello-world",
+    "title": "Welcome to Jules G Org",
+    "section": "",
+    "text": "Welcome to the Jules G Org blog! This is the first post on our new Quarto- powered website, so let’s use it to explain what this place is all about."
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#what-is-jules-g-org",
+    "href": "blog/posts/welcome/index.html#what-is-jules-g-org",
+    "title": "Welcome to Jules G Org",
+    "section": "What Is Jules G Org?",
+    "text": "What Is Jules G Org?\nJules G Org is a GitHub organisation that collects open-source projects spanning data science, tooling, and technical writing."
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#how-this-site-is-built",
+    "href": "blog/posts/welcome/index.html#how-this-site-is-built",
+    "title": "Welcome to Jules G Org",
+    "section": "How This Site Is Built",
+    "text": "How This Site Is Built\nThe site is generated using Quarto — an open-source scientific and technical publishing system that can render .qmd files (Markdown + optional code cells) into polished HTML websites, PDFs, and more.\n\n\n\n\n\n\nflowchart LR\n    A[Edit .qmd files] --&gt; B[git push to main]\n    B --&gt; C[GitHub Actions]\n    C --&gt; D[quarto render]\n    D --&gt; E[gh-pages branch]\n    E --&gt; F[julesg-org.github.io]\n\n\n\n\nFigure 1: How the site is built and deployed\n\n\n\n\n\n\nEditing Content\nAll content lives in .qmd files at the root of the julesg-org.github.org repository:\n\n\n\nPath\nWhat it controls\n\n\n\n\n_quarto.yml\nSite-wide config (navbar, theme, footer)\n\n\nindex.qmd\nHome / landing page\n\n\nabout.qmd\nAbout page\n\n\nblog/posts/&lt;post&gt;/index.qmd\nIndividual blog posts\n\n\nprojects/sample-project/index.qmd\nSub-project page\n\n\nstyles.css\nCustom CSS overrides"
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#whats-next",
+    "href": "blog/posts/welcome/index.html#whats-next",
+    "title": "Welcome to Jules G Org",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nLook out for posts on:\n\n🐍 Python and R data science workflows\n📦 Building reusable packages\n🔧 DevOps and CI/CD for data projects\n\nStay tuned, and feel free to open an issue or pull request on GitHub!"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Setting Up a Quarto Website for Your GitHub Organisation\n\n\n2 min\n\n\n\nquarto\n\n\ngithub-pages\n\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n\n2 min\n\n\n\nannouncement\n\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "Blog",
+      "Blog"
+    ]
+  }
+]
