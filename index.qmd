@@ -20,7 +20,7 @@
 # Full options: https://quarto.org/docs/websites/website-listings.html
 #
 # =============================================================================
-title: "Jules G Org"
+title: "MrG's Org"
 description: "Open-source projects, data science, and technical writing."
 page-layout: full   # full-width layout (no sidebar on this page)
 toc: false          # table of contents is distracting on the home page
