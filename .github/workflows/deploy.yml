@@ -54,7 +54,7 @@ jobs:
       # `submodules: recursive` fetches any Git submodules that bring in
       # content from other julesg-org repositories.
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive   # pulls in sub-repo content (if any)
           fetch-depth: 0          # full history (needed for git-based dates)
