@@ -1,0 +1,112 @@
+---
+# =============================================================================
+# index.qmd — Home / Landing page
+# =============================================================================
+#
+# HOW TO EDIT THIS PAGE
+# ---------------------
+# • Change `title` and `description` below to update the page metadata.
+# • The hero section is written in Quarto div syntax (::: .hero-section).
+#   Edit the h1, p, and button link text to introduce your organisation.
+# • The "Recent Posts" listing is auto-generated from blog/posts/*.
+#   Adjust `max-items` to show more/fewer posts.
+# • The "Featured Projects" section links to the projects page.
+#
+# LISTING CONFIGURATION
+# ---------------------
+# The `listing:` block below tells Quarto to scan blog/posts/ for .qmd files
+# and render them as a card grid with id "recent-posts". The grid is inserted
+# into the page body via the `:::{#recent-posts}` div below.
+# Full options: https://quarto.org/docs/websites/website-listings.html
+#
+# =============================================================================
+title: "Jules G Org"
+description: "Open-source projects, data science, and technical writing."
+page-layout: full   # full-width layout (no sidebar on this page)
+toc: false          # table of contents is distracting on the home page
+listing:
+  - id: recent-posts          # must match the div id below (:::{#recent-posts})
+    contents: blog/posts      # scan this folder for .qmd files
+    sort: "date desc"
+    type: grid
+    max-items: 3              # show only the 3 most recent posts; increase as needed
+    categories: false
+    fields: [title, date, description, categories]
+---
+
+<!-- ── Hero ────────────────────────────────────────────────────────────────── -->
+<!-- Edit the h1 text, subtitle paragraph, and button links to customise
+     the hero section. The styling comes from .hero-section in styles.css.  -->
+
+::: {.hero-section}
+
+::: {.columns}
+
+::: {.column width="65%"}
+# Welcome to Jules G Org 👋
+
+We build open-source tools, share data science insights, and document
+experiments in software engineering.
+
+Explore the **blog** for tutorials and write-ups, or browse **projects** to
+see what we're working on.
+
+<br>
+
+<a href="blog/index.qmd" class="btn-brand">Read the Blog</a>&nbsp;&nbsp;
+<a href="about.qmd" class="btn-outline-brand">About Us</a>
+:::
+
+::: {.column width="35%"}
+<!-- Replace the emoji with a real image once you have one:
+     ![Hero illustration](images/hero.png){fig-alt="Decorative illustration"}
+     Recommended size: 400 × 400 px, transparent PNG or SVG.               -->
+<div style="font-size:8rem; text-align:center; line-height:1;">🚀</div>
+:::
+
+:::
+
+:::
+
+<!-- ── Recent Posts ─────────────────────────────────────────────────────────── -->
+
+## Recent Posts
+
+<!-- Quarto replaces this div with the listing defined in the front matter above.
+     Do not remove the #recent-posts id — it links this div to the listing config. -->
+
+:::{#recent-posts}
+:::
+
+::: {.callout-note appearance="minimal"}
+See all posts on the [Blog page](blog/index.qmd).
+:::
+
+<!-- ── Featured Projects ───────────────────────────────────────────────────── -->
+
+## Featured Projects
+
+<!-- Add more project cards here by copying the .g-col block below.
+     Each card should link to a page under projects/<project-name>/index.qmd -->
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### [Sample Project](projects/sample-project/index.qmd)
+A demonstration of how a separate GitHub repository in the `julesg-org`
+organisation can contribute a page to this site.  
+[→ View project](projects/sample-project/index.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Add Your Project Here
+Follow the instructions in `projects/sample-project/index.qmd` to add your
+own project page.  
+[→ Browse all projects](projects/index.qmd)
+:::
+
+:::
+
+---
+
+*Built with [Quarto](https://quarto.org) · Hosted on [GitHub Pages](https://pages.github.com)*

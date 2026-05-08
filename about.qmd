@@ -1,0 +1,65 @@
+---
+# =============================================================================
+# about.qmd — About page
+# =============================================================================
+#
+# HOW TO EDIT THIS PAGE
+# ---------------------
+# • Change the `image` field to update the profile photo.
+#   Place the image in the images/ folder and adjust the path accordingly.
+# • Edit the `links` list to add or remove social/professional links.
+# • The text below the YAML front matter is the page body — edit it freely.
+# • Quarto's built-in `about` template supports several layouts:
+#   jolla, trestles, solana, marquee, broadside
+#   Change `template: trestles` to try a different layout.
+#
+# =============================================================================
+title: "About Jules G Org"
+image: images/profile.png     # Replace with your own photo (400×400 px recommended)
+about:
+  template: trestles          # Try: jolla | solana | marquee | broadside
+  image-width: 12em
+  image-shape: round
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/julesg-org
+    - icon: twitter
+      text: Twitter / X
+      href: https://twitter.com/julesg_org
+    - icon: envelope
+      text: Email
+      href: mailto:hello@julesg-org.example.com
+---
+
+## Who We Are
+
+**Jules G Org** is an open-source organisation focused on data science,
+software engineering, and making technical knowledge more accessible.
+
+We publish reproducible analyses, reusable tooling, and detailed write-ups on
+everything from exploratory data analysis to deployment pipelines.
+
+## What We Do
+
+- 📊 **Data Science** — reproducible notebooks, statistical analyses, and
+  visualisation libraries.
+- 🛠️ **Open-Source Tools** — small, focused packages and utilities available
+  on GitHub.
+- ✍️ **Technical Writing** — in-depth blog posts and tutorials that walk
+  through real problems step by step.
+
+## How This Site Works
+
+This site is built with **[Quarto](https://quarto.org)** and deployed
+automatically to **GitHub Pages** via a GitHub Actions workflow every time
+changes are pushed to the `main` branch.
+
+Each project in the `julesg-org` GitHub organisation can contribute its own
+page here by following the pattern demonstrated in
+[projects/sample-project](projects/sample-project/index.qmd).
+
+## Get Involved
+
+We welcome contributions!  Open an issue or pull request on any of our
+repositories, or reach out via the links above.

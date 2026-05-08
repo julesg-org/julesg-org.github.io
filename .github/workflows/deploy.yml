@@ -1,0 +1,104 @@
+# =============================================================================
+# .github/workflows/deploy.yml — Build and deploy the Quarto site
+# =============================================================================
+#
+# HOW THIS WORKFLOW WORKS
+# -----------------------
+# 1. Triggered on every push to `main` (or manually via the Actions UI).
+# 2. Checks out the repository (including any Git submodules that hold
+#    content from other org repos).
+# 3. Installs Quarto CLI.
+# 4. Runs `quarto render` to generate the static site into _site/.
+# 5. Deploys _site/ to the `gh-pages` branch using the peaceiris action.
+#    GitHub Pages then serves this branch at julesg-org.github.io.
+#
+# PREREQUISITES (one-time setup)
+# --------------------------------
+# 1. In your repository go to Settings → Pages and set:
+#      Source: Deploy from a branch
+#      Branch: gh-pages / root
+# 2. The workflow uses `GITHUB_TOKEN` (provided automatically) — no extra
+#    secrets are needed for the default case.
+#
+# HOW TO CHANGE THE QUARTO VERSION
+# ----------------------------------
+# Update the `version` field in the "Set up Quarto" step below.
+# Find the latest release at https://github.com/quarto-dev/quarto-cli/releases
+#
+# HOW TO ADD PYTHON / R DEPENDENCIES
+# ------------------------------------
+# Uncomment and edit the relevant step in the "Install dependencies" section.
+#
+# =============================================================================
+
+name: Build and Deploy Quarto Site
+
+on:
+  push:
+    branches:
+      - main          # run on every push to main
+  workflow_dispatch:  # allow manual runs from the GitHub Actions UI
+
+# Grant read access to the repo contents and write access to GitHub Pages
+permissions:
+  contents: write     # needed to push to gh-pages branch
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Check out the repository ───────────────────────────────────────
+      # `submodules: recursive` fetches any Git submodules that bring in
+      # content from other julesg-org repositories.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive   # pulls in sub-repo content (if any)
+          fetch-depth: 0          # full history (needed for git-based dates)
+
+      # ── 2. Install Quarto CLI ─────────────────────────────────────────────
+      # HOW TO CHANGE VERSION: update the `version` field below.
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.5.57"       # pin a specific version for reproducibility
+
+      # ── 3. (Optional) Install Python dependencies ──────────────────────────
+      # Uncomment this block if any .qmd files contain Python code cells.
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.11"
+      # - name: Install Python dependencies
+      #   run: pip install -r requirements.txt
+
+      # ── 4. (Optional) Install R dependencies ──────────────────────────────
+      # Uncomment this block if any .qmd files contain R code cells.
+      # - name: Set up R
+      #   uses: r-lib/actions/setup-r@v2
+      # - name: Install R packages
+      #   run: Rscript -e 'install.packages(c("rmarkdown", "knitr"))'
+
+      # ── 5. Render the site ────────────────────────────────────────────────
+      # `quarto render` reads _quarto.yml and converts all .qmd files to HTML.
+      # The output goes into _site/ (as configured in _quarto.yml).
+      - name: Render Quarto site
+        run: quarto render
+
+      # ── 6. Deploy to GitHub Pages ─────────────────────────────────────────
+      # Pushes the contents of _site/ to the `gh-pages` branch.
+      # GitHub Pages serves that branch at https://julesg-org.github.io
+      #
+      # HOW TO CHANGE THE COMMIT MESSAGE: edit `commit_message` below.
+      # HOW TO USE A CUSTOM DOMAIN: add a `cname` field pointing to your domain.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site      # deploy the rendered output
+          publish_branch: gh-pages  # target branch on GitHub Pages
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
+          # cname: julesg-org.example.com   # uncomment for a custom domain
