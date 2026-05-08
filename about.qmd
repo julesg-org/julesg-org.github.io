@@ -15,7 +15,7 @@
 #
 # =============================================================================
 title: "About Jules G Org"
-image: images/profile.png     # Replace with your own photo (400×400 px recommended)
+image: images/lupin.png     # Replace with your own photo (400×400 px recommended)
 about:
   template: trestles          # Try: jolla | solana | marquee | broadside
   image-width: 12em
