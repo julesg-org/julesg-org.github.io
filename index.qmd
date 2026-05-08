@@ -43,7 +43,7 @@ listing:
 ::: {.columns}
 
 ::: {.column width="65%"}
-# Welcome to Jules G Org 👋
+# Welcome to MrG's Org 👋
 
 We build open-source tools, share data science insights, and document
 experiments in software engineering.
