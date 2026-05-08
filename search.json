@@ -2,21 +2,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Jules G Org",
+    "title": "MrG’s Org",
     "section": "",
     "text": "We build open-source tools, share data science insights, and document experiments in software engineering.\nExplore the blog for tutorials and write-ups, or browse projects to see what we’re working on.\n\nRead the Blog   About Us\n\n\n\n\n🚀"
   },
   {
     "objectID": "index.html#recent-posts",
     "href": "index.html#recent-posts",
-    "title": "Jules G Org",
+    "title": "MrG’s Org",
     "section": "Recent Posts",
     "text": "Recent Posts\n\n\n\n\n\n\n\n\nSetting Up a Quarto Website for Your GitHub Organisation\n\n\n\nquarto\n\n\ngithub-pages\n\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n\n\nannouncement\n\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nSee all posts on the Blog page."
   },
   {
     "objectID": "index.html#featured-projects",
     "href": "index.html#featured-projects",
-    "title": "Jules G Org",
+    "title": "MrG’s Org",
     "section": "Featured Projects",
     "text": "Featured Projects\n\n\n\nSample Project\nA demonstration of how a separate GitHub repository in the julesg-org organisation can contribute a page to this site.\n→ View project\n\n\nAdd Your Project Here\nFollow the instructions in projects/sample-project/index.qmd to add your own project page.\n→ Browse all projects\n\n\n\nBuilt with Quarto · Hosted on GitHub Pages"
   },
