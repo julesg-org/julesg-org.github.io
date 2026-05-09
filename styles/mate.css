@@ -1,0 +1,373 @@
+/* =============================================================================
+   styles/mate.css — M@TE visual design
+   Translating from ModelAtlasofTheEarth/website src/components/atlas.sass
+   ============================================================================= */
+
+/* Google Fonts — Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Primary colour tokens */
+:root {
+  --mate-primary: #D64000;
+  --mate-link: #2c8ec7;
+  --mate-navbar-bg: rgba(240, 248, 250, 0.85);
+  --mate-body: #333;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--mate-body);
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+
+a {
+  color: var(--mate-link);
+}
+
+a:hover {
+  color: var(--mate-primary);
+}
+
+/* ── Navbar ───────────────────────────────────────────────────────────────── */
+.navbar {
+  background: var(--mate-navbar-bg) !important;
+  border-bottom: 1px solid lightgray;
+  backdrop-filter: blur(4px);
+}
+
+.navbar-brand img {
+  height: 32px;
+  width: auto;
+}
+
+/* ── Hero section ─────────────────────────────────────────────────────────── */
+.mate-hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: var(--mate-navbar-bg);
+}
+
+.mate-hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  margin-bottom: 0.25rem;
+}
+
+.mate-hero .mate-subtitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.mate-hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 10px;
+  color: var(--mate-body);
+}
+
+/* ── Section headings ─────────────────────────────────────────────────────── */
+.mate-section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Highlights list ──────────────────────────────────────────────────────── */
+.mate-highlights {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.mate-highlights li {
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--mate-primary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+/* ── Badges ───────────────────────────────────────────────────────────────── */
+.badge-tag {
+  background-color: var(--mate-link);
+  color: #eee;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 2px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.badge-creator {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 2px;
+  display: inline-block;
+}
+
+.badge-doi {
+  display: inline-flex;
+  margin: 4px 0;
+  text-decoration: none;
+}
+
+.badge-doi-left {
+  background-color: #555;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 5px 0 0 5px;
+  font-size: 13px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+.badge-doi-right {
+  background-color: #007ec6;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 0 5px 5px 0;
+  font-size: 13px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+/* ── Model cards ──────────────────────────────────────────────────────────── */
+.mc-card-container {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mc-card-container:hover {
+  box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.mc-card-container img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.mc-card-container h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #222;
+  line-height: 1.3;
+}
+
+.mc-card-meta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.mc-card-abstract {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* ── Models grid ──────────────────────────────────────────────────────────── */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 1rem 0;
+}
+
+/* ── Search box ───────────────────────────────────────────────────────────── */
+.model-search-box {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ── About page ───────────────────────────────────────────────────────────── */
+.about-page {
+  font-size: 18px;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-page h1 {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--mate-primary);
+  margin-bottom: 1.5rem;
+}
+
+.about-page h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  margin-top: 2rem;
+}
+
+.about-page h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.about-page ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.about-page li {
+  margin-bottom: 0.75rem;
+}
+
+/* ── Model detail page ────────────────────────────────────────────────────── */
+.model-page {
+  font-size: 18px;
+  text-align: left;
+}
+
+.model-page h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.model-page h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+.model-page a {
+  color: var(--mate-link);
+}
+
+.model-page .model-meta-block {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 15px;
+}
+
+/* ── Full-width image ─────────────────────────────────────────────────────── */
+.full-width-image {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+/* ── Animation container ──────────────────────────────────────────────────── */
+.animation-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  overflow: hidden;
+  max-height: 700px;
+}
+
+/* ── Contact form ─────────────────────────────────────────────────────────── */
+.contact-section {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.contact-section h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ── News page ────────────────────────────────────────────────────────────── */
+.news-section {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.news-section h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.nav-footer {
+  border-top: 1px solid #dadce0;
+  background: #f8f9fa;
+  color: #555;
+  font-size: 14px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mate-hero h1 {
+    font-size: 42px;
+  }
+
+  .mate-hero .mate-subtitle {
+    font-size: 20px;
+  }
+
+  .mate-hero p {
+    font-size: 17px;
+  }
+
+  .models-grid {
+    grid-template-columns: 1fr;
+  }
+}

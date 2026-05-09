@@ -1,109 +1,49 @@
 # =============================================================================
-# _quarto.yml — Main Quarto site configuration
+# _quarto.yml — M@TE Quarto site configuration
 # =============================================================================
 #
-# HOW TO EDIT THIS FILE
-# ---------------------
-# This file controls the global look-and-feel and structure of the whole site.
-#
-# Key sections to customise:
-#   - `website > title`          → displayed in the browser tab and navbar
-#   - `website > description`    → used in social-media meta tags (Open Graph)
-#   - `website > navbar`         → add / remove top-navigation links here
-#   - `website > footer`         → edit the left/right footer text or social icons
-#   - `website > open-graph`     → controls how links to the site appear when shared
-#   - `format > theme`           → change the Bootstrap theme (e.g. cosmo, flatly, litera…)
-#   - `format > css`             → point to one or more custom CSS files
-#
-# After editing, run `quarto render` locally to preview changes, or push to
-# GitHub and the Actions workflow will rebuild and deploy automatically.
+# Quarto-based replica of the M@TE (Model Atlas of the Earth) website
+# Original site: https://mate.science/
+# Original source: https://github.com/ModelAtlasofTheEarth/website
 # =============================================================================
 
 project:
   type: website
-  output-dir: _site   # built HTML goes here; git-ignored, deployed by CI
+  output-dir: _site
 
 website:
-  title: "MrG's Org"
-  description: >
-    The home of julesg-org — open-source projects, data science,
-    and technical writing.
-  favicon: "images/favicon.png"
-  site-url: https://julesg-org.github.io
-  repo-url: https://github.com/julesg-org/julesg-org.github.org
-  repo-actions: [edit, issue]   # show "Edit this page" and "Report an issue" links
+  title: "M@TE"
+  description: "Model Atlas of the Earth (M@TE)."
 
   # ── Top navigation bar ────────────────────────────────────────────────────
-  # Add new pages by inserting another `- text / href` pair under `left:`.
-  # Use `menu:` for a drop-down group.
   navbar:
-    background: light
-    logo: "images/logo.png"          # 40 × 40 px PNG recommended
-    logo-alt: "MrG's Org logo"
+    background: "#F0F8FA"
+    logo: images/atlas-icon.svg
+    logo-alt: "M@TE logo"
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Models"
+        href: models/index.qmd
+      - text: "News"
+        href: news/index.qmd
       - text: "About"
         href: about.qmd
-      - text: "Blog"
-        href: blog/index.qmd
-      - text: "Projects"
-        href: projects/index.qmd
+      - text: "Contact"
+        href: contact.qmd
     right:
-      # Social-media icon links — replace hrefs with real profiles
       - icon: github
-        href: https://github.com/julesg-org
+        href: https://github.com/ModelAtlasofTheEarth
         aria-label: GitHub
-      - icon: twitter
-        href: https://twitter.com/julesg_org
-        aria-label: Twitter / X
-
-  # ── Sidebar (appears on blog / project listing pages) ─────────────────────
-  # Remove this block if you don't want a sidebar.
-  sidebar:
-    style: "docked"
-    search: true
-    contents:
-      - section: "Blog"
-        contents:
-          - blog/index.qmd
-      - section: "Projects"
-        contents:
-          - projects/index.qmd
-          - projects/sample-project/index.qmd
 
   # ── Footer ────────────────────────────────────────────────────────────────
   page-footer:
-    left: |
-      © 2024 MrG's Org · Built with [Quarto](https://quarto.org)
-    right:
-      - icon: github
-        href: https://github.com/julesg-org
-      - icon: twitter
-        href: https://twitter.com/julesg_org
-
-  # ── Open Graph / Twitter Card metadata ────────────────────────────────────
-  open-graph:
-    image: "images/og-card.png"    # 1200 × 630 px recommended
-  twitter-card:
-    image: "images/og-card.png"
-    card-style: summary_large_image
+    left: "© M@TE — Model Atlas of the Earth"
+    right: "Built with [Quarto](https://quarto.org)"
 
 # ── Output format ─────────────────────────────────────────────────────────────
-# html is the default for websites; adjust options as needed.
 format:
   html:
-    # Theme — pick any Bootswatch theme: cosmo, flatly, litera, lumen, minty…
-    # To use a completely custom theme, replace the string with a path to a
-    # .scss file (e.g. "custom-theme.scss") and define CSS variables there.
-    theme:
-      light: cosmo
-      dark: darkly
-    css: styles.css          # custom tweaks on top of the theme
-    toc: true                # table of contents on long pages
-    toc-depth: 3
-    smooth-scroll: true
-    code-copy: true          # copy button on code blocks
-    highlight-style: github  # syntax highlighting style
-    link-external-icon: true
-    link-external-newwindow: true
+    theme: cosmo
+    css: styles/mate.css
+    toc: false

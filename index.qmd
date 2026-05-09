@@ -1,112 +1,151 @@
 ---
 # =============================================================================
-# index.qmd — Home / Landing page
+# index.qmd — M@TE Home / Landing page
 # =============================================================================
-#
-# HOW TO EDIT THIS PAGE
-# ---------------------
-# • Change `title` and `description` below to update the page metadata.
-# • The hero section is written in Quarto div syntax (::: .hero-section).
-#   Edit the h1, p, and button link text to introduce your organisation.
-# • The "Recent Posts" listing is auto-generated from blog/posts/*.
-#   Adjust `max-items` to show more/fewer posts.
-# • The "Featured Projects" section links to the projects page.
-#
-# LISTING CONFIGURATION
-# ---------------------
-# The `listing:` block below tells Quarto to scan blog/posts/ for .qmd files
-# and render them as a card grid with id "recent-posts". The grid is inserted
-# into the page body via the `:::{#recent-posts}` div below.
-# Full options: https://quarto.org/docs/websites/website-listings.html
-#
-# =============================================================================
-title: "MrG's Org"
-description: "Open-source projects, data science, and technical writing."
-page-layout: full   # full-width layout (no sidebar on this page)
-toc: false          # table of contents is distracting on the home page
-listing:
-  - id: recent-posts          # must match the div id below (:::{#recent-posts})
-    contents: blog/posts      # scan this folder for .qmd files
-    sort: "date desc"
-    type: grid
-    max-items: 3              # show only the 3 most recent posts; increase as needed
-    categories: false
-    fields: [title, date, description, categories]
+title: "M@TE — Model Atlas of the Earth"
+page-layout: full
+toc: false
 ---
 
-<!-- ── Hero ────────────────────────────────────────────────────────────────── -->
-<!-- Edit the h1 text, subtitle paragraph, and button links to customise
-     the hero section. The styling comes from .hero-section in styles.css.  -->
-
-::: {.hero-section}
-
-::: {.columns}
-
-::: {.column width="65%"}
-# Welcome to MrG's Org 👋
-
-We build open-source tools, share data science insights, and document
-experiments in software engineering.
-
-Explore the **blog** for tutorials and write-ups, or browse **projects** to
-see what we're working on.
-
-<br>
-
-<a href="blog/index.qmd" class="btn-brand">Read the Blog</a>&nbsp;&nbsp;
-<a href="about.qmd" class="btn-outline-brand">About Us</a>
-:::
-
-::: {.column width="35%"}
-<!-- Replace the emoji with a real image once you have one:
-     ![Hero illustration](images/hero.png){fig-alt="Decorative illustration"}
-     Recommended size: 400 × 400 px, transparent PNG or SVG.               -->
-<div style="font-size:8rem; text-align:center; line-height:1;">🚀</div>
-:::
-
-:::
-
-:::
-
-<!-- ── Recent Posts ─────────────────────────────────────────────────────────── -->
-
-## Recent Posts
-
-<!-- Quarto replaces this div with the listing defined in the front matter above.
-     Do not remove the #recent-posts id — it links this div to the listing config. -->
-
-:::{#recent-posts}
-:::
-
-::: {.callout-note appearance="minimal"}
-See all posts on the [Blog page](blog/index.qmd).
-:::
-
-<!-- ── Featured Projects ───────────────────────────────────────────────────── -->
-
-## Featured Projects
-
-<!-- Add more project cards here by copying the .g-col block below.
-     Each card should link to a page under projects/<project-name>/index.qmd -->
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-6}
-### [Sample Project](projects/sample-project/index.qmd)
-A demonstration of how a separate GitHub repository in the `julesg-org`
-organisation can contribute a page to this site.  
-[→ View project](projects/sample-project/index.qmd)
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### Add Your Project Here
-Follow the instructions in `projects/sample-project/index.qmd` to add your
-own project page.  
-[→ Browse all projects](projects/index.qmd)
-:::
-
-:::
+```{=html}
+<!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+<div class="mate-hero">
+  <h1>M@TE</h1>
+  <p class="mate-subtitle">Model Atlas of the Earth</p>
+  <p>
+    A curated, open atlas of geoscientific numerical models — reproducible,
+    reusable, and FAIR.
+  </p>
+  <br/>
+  <a href="models/index.html" class="btn btn-primary" style="background:#D64000; border-color:#D64000; font-size:18px; padding:0.5rem 1.5rem;">
+    Browse Models
+  </a>
+  &nbsp;
+  <a href="about.html" class="btn btn-outline-secondary" style="font-size:18px; padding:0.5rem 1.5rem;">
+    Learn More
+  </a>
+</div>
+```
 
 ---
 
-*Built with [Quarto](https://quarto.org) · Hosted on [GitHub Pages](https://pages.github.com)*
+## What is M@TE?
+
+**M@TE** (Model Atlas of the Earth) is designed to meet geoscientists where they are: from educators
+and students using visualizations in the classroom to researchers developing and benchmarking new
+numerical models. It lowers the learning curve of numerical models and bridges the gap between
+traditional geology and numerical geosciences.
+
+**M@TE enables you to:**
+
+- **Explore and visualize models** through an intuitive web interface: play animations, use them in your teaching or to better understand Earth system concepts.
+- **Download and build on models** by accessing input files and configuration scripts to reproduce or expand upon simulations on your own.
+- **Analyze and benchmark model outputs** by comparing results across models and datasets without having to recreate simulations from scratch.
+- **Upload your own models** using streamlined tools for packaging code, metadata and outputs — stored, preserved and assigned a DOI for citation.
+
+---
+
+## Featured Models
+
+```{=html}
+<div class="models-grid">
+
+  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
+  <a href="models/mather-2022-groundwater.html" class="mc-card-container">
+    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
+         alt="Groundwater flow model"
+         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
+    <p class="mc-card-abstract">
+      A highly scalable numerical framework to model continental groundwater flow, capturing
+      flow pathways between deep aquifers and the near-surface using a Bayesian framework.
+    </p>
+    <div class="mc-card-meta">
+      <span class="badge-creator">Ben Mather</span>
+      <span class="badge-creator">Dietmar Müller</span>
+      <br/>
+      <span class="badge-tag">groundwater</span>
+      <span class="badge-tag">thermal-hydraulic</span>
+      <span class="badge-tag">Bayesian</span>
+      <br/>
+      <span class="badge-doi">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.25914/t2mn-bk81</span>
+      </span>
+    </div>
+  </a>
+
+  <!-- ── Placeholder card 2 ──────────────────────────────────────────────── -->
+  <div class="mc-card-container">
+    <img src="https://placehold.co/600x300/2c8ec7/white?text=Subduction+Model"
+         alt="Subduction zone model placeholder" />
+    <h3>Subduction zone dynamics — a numerical simulation (example)</h3>
+    <p class="mc-card-abstract">
+      A high-resolution 3D model of subduction zone dynamics exploring the interplay between
+      slab geometry, mantle flow, and surface topography across geological timescales.
+    </p>
+    <div class="mc-card-meta">
+      <span class="badge-creator">Jane Doe</span>
+      <span class="badge-creator">John Smith</span>
+      <br/>
+      <span class="badge-tag">subduction</span>
+      <span class="badge-tag">tectonics</span>
+      <span class="badge-tag">geodynamics</span>
+      <br/>
+      <span class="badge-doi">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.xxxxx/placeholder</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ── Placeholder card 3 ──────────────────────────────────────────────── -->
+  <div class="mc-card-container">
+    <img src="https://placehold.co/600x300/555/white?text=Mantle+Convection"
+         alt="Mantle convection model placeholder" />
+    <h3>Mantle convection and thermal evolution of the Earth (example)</h3>
+    <p class="mc-card-abstract">
+      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,
+      constrained by seismic tomography and geochemical data from ocean island basalts.
+    </p>
+    <div class="mc-card-meta">
+      <span class="badge-creator">Alice Johnson</span>
+      <span class="badge-creator">Bob Williams</span>
+      <br/>
+      <span class="badge-tag">mantle</span>
+      <span class="badge-tag">convection</span>
+      <span class="badge-tag">thermal evolution</span>
+      <br/>
+      <span class="badge-doi">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.xxxxx/placeholder</span>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<div style="text-align:center; margin-top:1.5rem;">
+  <a href="models/index.html" class="btn btn-outline-primary" style="border-color:#D64000; color:#D64000;">
+    View all models →
+  </a>
+</div>
+```
+
+---
+
+## Why M@TE?
+
+```{=html}
+<ul class="mate-highlights">
+  <li>✅ Open source and free</li>
+  <li>🔎 FAIR data principles</li>
+  <li>♻️ Reproducible models</li>
+  <li>🏗️ Built on sustainable infrastructure</li>
+  <li>📦 RO-Crate packaging</li>
+  <li>🆔 DOI-assigned datasets</li>
+</ul>
+```
+
+**Together we build reproducible, reusable, robust models — it takes a village — so please cite the models you use.**
+
