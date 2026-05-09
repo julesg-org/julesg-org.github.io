@@ -153,7 +153,7 @@ title: "Constraining the response of continental-scale groundwater flow to clima
   <!-- ── Citation ─────────────────────────────────────────────────────────── -->
   <h2>Citation</h2>
   <blockquote>
-    Mather, B., Müller, R. Dietmar., O'Neill, C., Beall, A., Vervoort, R. Willem., &amp; Moresi, Louis. (2024).
+    Mather, B., Müller, R.D., O'Neill, C., Beall, A., Vervoort, R.W., &amp; Moresi, L. (2024).
     Constraining the response of continental-scale groundwater flow to climate change [Data set].
     AuScope, National Computational Infrastructure.
     <a href="https://doi.org/10.25914/t2mn-bk81">https://doi.org/10.25914/t2mn-bk81</a>

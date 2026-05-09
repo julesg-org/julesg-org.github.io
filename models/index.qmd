@@ -96,16 +96,16 @@ title: "Models"
 
 <script>
 function filterModels(query) {
-  var q = query.toLowerCase().trim();
-  var cards = document.querySelectorAll('#models-grid > [data-title]');
-  var visible = 0;
+  const q = query.toLowerCase().trim();
+  const cards = document.querySelectorAll('#models-grid > [data-title]');
+  let visible = 0;
   cards.forEach(function(card) {
-    var text = (
+    const text = (
       (card.dataset.title || '') + ' ' +
       (card.dataset.tags  || '') + ' ' +
       (card.dataset.creators || '')
     ).toLowerCase();
-    var show = !q || text.includes(q);
+    const show = !q || text.includes(q);
     card.style.display = show ? '' : 'none';
     if (show) visible++;
   });

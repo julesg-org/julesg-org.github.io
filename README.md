@@ -91,6 +91,11 @@ Deployment is fully automatic via GitHub Actions:
 3. The `_site/` directory is pushed to the `gh-pages` branch
 4. GitHub Pages serves it at **https://julesg-org.github.io**
 
+> **Note:** The `main` branch deploys the original organisation site via `.github/workflows/deploy.yml`.
+> The `jmate` branch deploys the M@TE replica via `.github/workflows/publish.yml`.
+> If both branches are active, the last push wins on the shared `gh-pages` branch.
+> To deploy both independently, consider using a subdirectory (e.g., `gh-pages:/jmate/`) or a separate GitHub Pages deployment environment.
+
 See **[.github/workflows/publish.yml](.github/workflows/publish.yml)** for the workflow.
 
 ### One-time GitHub setup

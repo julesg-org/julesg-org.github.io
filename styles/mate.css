@@ -18,7 +18,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: var(--mate-body);
-  scrollbar-width: none;
+  scrollbar-width: thin;
   overflow-y: scroll;
 }
 
