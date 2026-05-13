@@ -1,74 +1,66 @@
-# julesg-org.github.io — Source Repository
+# julesg-org.github.io — M@TE Quarto Replica (`jmate` branch)
 
-[![Deploy Quarto Site](https://github.com/julesg-org/julesg-org.github.org/actions/workflows/deploy.yml/badge.svg)](https://github.com/julesg-org/julesg-org.github.org/actions/workflows/deploy.yml)
+[![Publish Quarto Site (jmate)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml/badge.svg)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml)
 
-The source repository for **[julesg-org.github.io](https://julesg-org.github.io)** — built with [Quarto](https://quarto.org) and deployed automatically to GitHub Pages.
+A **Quarto-based static website** that replicates the design and structure of the
+[M@TE (Model Atlas of the Earth)](https://mate.science/) website.
+
+> **Branch:** `jmate` — all M@TE files live here. The `main` branch contains the original organisation site.
+
+Original M@TE site: <https://mate.science/>  
+Original M@TE source: <https://github.com/ModelAtlasofTheEarth/website>
 
 ---
 
 ## 🗂️ Repository Structure
 
 ```
-julesg-org.github.org/
-├── _quarto.yml                     # ← Site-wide config (navbar, theme, footer)
-├── index.qmd                       # ← Home page
-├── about.qmd                       # ← About page
-├── styles.css                      # ← Custom CSS overrides
-├── images/                         # ← Logos, profile photos, cover images
-│   └── README.md                   #   (placeholder instructions)
-├── blog/
-│   ├── index.qmd                   # ← Blog listing page
-│   └── posts/
-│       └── welcome/
-│           └── index.qmd           # ← Sample "Welcome" blog post
-├── projects/
-│   ├── index.qmd                   # ← Projects listing page
-│   └── sample-project/
-│       └── index.qmd               # ← Dummy "other org repo" project page
+julesg-org.github.io/           (jmate branch)
+├── _quarto.yml                 # ← M@TE site config (navbar, theme, footer)
+├── index.qmd                   # ← Hero landing page with model cards
+├── about.qmd                   # ← About M@TE page
+├── contact.qmd                 # ← Contact / model submission info
+├── styles/
+│   └── mate.css                # ← M@TE visual design (colours, badges, cards)
+├── images/
+│   └── atlas-icon.svg          # ← M@TE navbar logo (SVG)
+├── models/
+│   ├── index.qmd               # ← Searchable model listing page
+│   └── mather-2022-groundwater.qmd  # ← Full model detail page
+├── news/
+│   └── index.qmd               # ← News listing page
 └── .github/
     └── workflows/
-        └── deploy.yml              # ← CI/CD: build & deploy on push to main
+        └── publish.yml         # ← CI/CD: build & deploy on push to jmate
 ```
 
 ---
 
-## ✏️ How to Edit the Site
+## 🎨 Design
 
-### 1 — Edit global settings
+The M@TE design is replicated from the original Gatsby/Netlify site:
 
-Open **`_quarto.yml`** to change:
-- Site title, description, and URL
-- Navbar links (add new pages here)
-- Theme (Bootswatch: `cosmo`, `flatly`, `litera`, etc.)
-- Footer text and social-media links
+| Element | Value |
+|---------|-------|
+| Primary colour | `#D64000` (rust/orange-red) |
+| Link colour | `#2c8ec7` (blue) |
+| Navbar background | `rgba(240, 248, 250, 0.85)` semi-transparent |
+| Font | Open Sans Bold, sans-serif |
+| Tag badges | Blue (`#2c8ec7`) |
+| DOI badges | Two-part: grey `#555` + blue `#007ec6` |
 
-### 2 — Edit page content
+---
 
-Each `.qmd` file is a page.  Every file contains a YAML front matter block
-(between `---` markers) with per-page settings, followed by Markdown content.
+## 📄 Pages
 
-| Page | File |
-|------|------|
-| Home | `index.qmd` |
-| About | `about.qmd` |
-| Blog listing | `blog/index.qmd` |
-| Welcome post | `blog/posts/welcome/index.qmd` |
-| Projects listing | `projects/index.qmd` |
-| Sample project | `projects/sample-project/index.qmd` |
-
-### 3 — Add a new blog post
-
-```bash
-mkdir -p blog/posts/my-new-post
-cp blog/posts/welcome/index.qmd blog/posts/my-new-post/index.qmd
-# Edit blog/posts/my-new-post/index.qmd — update title, date, content
-```
-
-### 4 — Customise styles
-
-Edit **`styles.css`** to tweak colours, fonts, spacing, and card layouts.
-The file uses CSS custom properties (design tokens) at the top — change the
-hex values there to restyle the whole site instantly.
+| Page | File | Description |
+|------|------|-------------|
+| Home | `index.qmd` | Hero section + model card grid + highlights |
+| Models | `models/index.qmd` | Searchable/filterable model listing |
+| Model detail | `models/mather-2022-groundwater.qmd` | Full model page (example) |
+| News | `news/index.qmd` | News listing placeholder |
+| About | `about.qmd` | What M@TE is and how it works |
+| Contact | `contact.qmd` | Model submission info |
 
 ---
 
@@ -90,39 +82,21 @@ quarto render
 
 ---
 
-## 🤝 Adding Content from Another Org Repository
-
-Other repositories in the `julesg-org` organisation can contribute pages to
-this site.  See **[projects/sample-project/index.qmd](projects/sample-project/index.qmd)**
-for a worked example and full instructions.
-
-**Quick summary:**
-
-1. Create `projects/<your-repo-name>/index.qmd` in *this* repo.
-2. Fill it with your project's title, description, and content.
-3. Open a pull request — the page appears on the site after merge.
-
-For **live sync** with the source repo, add it as a Git submodule:
-
-```bash
-git submodule add https://github.com/julesg-org/your-repo projects/your-repo/repo
-```
-
-The CI workflow already runs `git submodule update --init --recursive` so
-submodule content is fetched automatically on every build.
-
----
-
 ## 📦 Deployment
 
-Deployment is fully automatic:
+Deployment is fully automatic via GitHub Actions:
 
-1. Push to `main`
+1. Push to the `jmate` branch
 2. GitHub Actions builds the site with `quarto render`
 3. The `_site/` directory is pushed to the `gh-pages` branch
 4. GitHub Pages serves it at **https://julesg-org.github.io**
 
-See **[.github/workflows/deploy.yml](.github/workflows/deploy.yml)** for the full workflow and customisation notes.
+> **Note:** The `main` branch deploys the original organisation site via `.github/workflows/deploy.yml`.
+> The `jmate` branch deploys the M@TE replica via `.github/workflows/publish.yml`.
+> If both branches are active, the last push wins on the shared `gh-pages` branch.
+> To deploy both independently, consider using a subdirectory (e.g., `gh-pages:/jmate/`) or a separate GitHub Pages deployment environment.
+
+See **[.github/workflows/publish.yml](.github/workflows/publish.yml)** for the workflow.
 
 ### One-time GitHub setup
 
@@ -130,3 +104,18 @@ In your repository go to **Settings → Pages** and set:
 
 - **Source:** Deploy from a branch
 - **Branch:** `gh-pages` / `root`
+
+---
+
+## 🔄 M@TE Content Ingestion Mechanism
+
+The original M@TE website uses an automated mechanism to pull model content from individual repositories:
+
+1. Each scientific model has its own GitHub repository in the `ModelAtlasofTheEarth` organisation
+2. Each model repo contains a `.website_material/` folder with graphics and an `index.md` with rich YAML metadata
+3. When a GitHub issue is labelled `"model published"`, a GitHub Actions workflow fires automatically
+4. It copies the `.website_material/` contents into the website repo and opens a pull request
+5. After merge, the site rebuilds and the new model appears at mate.science
+
+This Quarto replica can adopt a similar workflow — model repositories could contribute `.qmd` files to the `models/` directory via pull requests.
+
