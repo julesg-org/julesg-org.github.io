@@ -39,7 +39,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Setting Up a Quarto Website for Your GitHub Organisation\n\n2 min\n\n\nquarto\n\ngithub-pages\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n2 min\n\n\nannouncement\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Setting Up a Quarto Website for Your GitHub Organisation\n\n\n2 min\n\n\n\nquarto\n\n\ngithub-pages\n\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n\n2 min\n\n\n\nannouncement\n\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/welcome/index.html",
@@ -88,7 +88,7 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Sample Project\n\n\n\ntemplate\n\nopen-source\n\n\n\nA template project demonstrating how a separate julesg-org repository can display a page on julesg-org.github.io.\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Sample Project\n\n\n\ntemplate\n\n\nopen-source\n\n\n\nA template project demonstrating how a separate julesg-org repository can display a page on julesg-org.github.io.\n\n\n\nJan 15, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/sample-project/index.html",
@@ -144,7 +144,7 @@
     "href": "projects/sample-project/index.html#links",
     "title": "Sample Project",
     "section": "Links",
-    "text": "Links\n\n\n\nResource\nURL\n\n\n\n\nSource code\ngithub.com/julesg-org/sample-project\n\n\nIssues\nGitHub Issues\n\n\nMain site\njulesg-org.github.io\n\n\n\n\n\n\n\n\n\n\nTipHow to add your own project\n\n\n\n\nCreate a new folder in projects/ inside the main repo.\nCopy this file (projects/sample-project/index.qmd) as a starting template.\nFill in your project’s title, description, and content.\nOpen a pull request — once merged, your project page appears automatically.\n\n\n\n\n\nPart of Jules G Org · Built with Quarto"
+    "text": "Links\n\n\n\nResource\nURL\n\n\n\n\nSource code\ngithub.com/julesg-org/sample-project\n\n\nIssues\nGitHub Issues\n\n\nMain site\njulesg-org.github.io\n\n\n\n\n\n\n\n\n\n\nHow to add your own project\n\n\n\n\nCreate a new folder in projects/ inside the main repo.\nCopy this file (projects/sample-project/index.qmd) as a starting template.\nFill in your project’s title, description, and content.\nOpen a pull request — once merged, your project page appears automatically.\n\n\n\n\n\nPart of Jules G Org · Built with Quarto"
   },
   {
     "objectID": "about.html",
