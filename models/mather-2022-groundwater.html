@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Tutorials, write-ups, and data science insights from Jules G Org.">
 
-<title>Blog – M@TE</title>
+<title>Constraining the response of continental-scale groundwater flow to climate change – M@TE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -34,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,73 +70,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-date','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles/mate.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -192,108 +131,191 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Blog</h1>
-                  <div>
-        <div class="description">
-          Tutorials, write-ups, and data science insights from Jules G Org.
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YW5ub3VuY2VtZW50">announcement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2l0aHViLXBhZ2Vz">github-pages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dHV0b3JpYWw=">tutorial <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Constraining the response of continental-scale groundwater flow to climate change</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<div class="model-page">
 
+  <!-- ── Title & DOI ──────────────────────────────────────────────────────── -->
+  <h1>Constraining the response of continental-scale groundwater flow to climate change</h1>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="cXVhcnRvJTJDZ2l0aHViLXBhZ2VzJTJDdHV0b3JpYWw=" data-listing-date-sort="1706745600000" data-listing-file-modified-sort="1778633981255" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
-<a href="../blog/posts/quarto-setup/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/quarto-setup/cover.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Setting Up a Quarto Website for Your GitHub Organisation
-</h5>
-<div class="listing-reading-time card-text text-muted">2 min</div>
-<div class="listing-categories">
+  <div class="model-meta-block">
+    <strong>DOI:</strong>
+    <a class="badge-doi" href="https://doi.org/10.25914/t2mn-bk81">
+      <span class="badge-doi-left">DOI</span>
+      <span class="badge-doi-right">10.25914/t2mn-bk81</span>
+    </a>
+    <br><br>
+    <strong>Creators:</strong>
+    <span class="badge-creator">Ben Mather</span>
+    <span class="badge-creator">Dietmar Müller</span>
+    <span class="badge-creator">Craig O'Neill</span>
+    <span class="badge-creator">Adam Beall</span>
+    <span class="badge-creator">R.Willem Vervoort</span>
+    <span class="badge-creator">Louis-Noel Moresi</span>
+    <br><br>
+    <strong>Tags:</strong>
+    <span class="badge-tag">groundwater</span>
+    <span class="badge-tag">thermal-hydraulic</span>
+    <span class="badge-tag">Bayesian</span>
+    <span class="badge-tag">water-management</span>
+    <span class="badge-tag">Python</span>
+  </div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+  <!-- ── Landing image ────────────────────────────────────────────────────── -->
+  <div class="full-width-image">
+    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png" alt="Coupled heat-groundwater flow model of the Sydney–Gunnedah–Bowen Basin" style="width:100%; border-radius:6px;" onerror="this.src='https://placehold.co/1200x500/D64000/white?text=M%40TE+Model';">
+  </div>
+  <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">
+    Coupled heat-groundwater flow model of the Sydney–Gunnedah–Bowen Basin based on the MAP estimate of material properties and boundary conditions.
+  </p>
 
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHViLXBhZ2Vz'); return false;">github-pages</div>
+  <!-- ── Abstract ─────────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Abstract</h2>
+  <p>
+    Numerical models of groundwater flow play a critical role for water management scenarios under climate extremes.
+    Large-scale models play a key role in determining long range flow pathways from continental interiors to the
+    oceans, yet struggle to simulate the local flow patterns offered by small-scale models. We have developed a
+    highly scalable numerical framework to model continental groundwater flow which captures the intricate flow
+    pathways between deep aquifers and the near-surface. The coupled thermal-hydraulic basin structure is inferred
+    from hydraulic head measurements, recharge estimates from geochemical proxies, and borehole temperature data
+    using a Bayesian framework. We use it to model the deep groundwater flow beneath the Sydney–Gunnedah–Bowen
+    Basin, part of Australia's largest aquifer system. Coastal aquifers have flow rates of up to 0.3 m/day, and a
+    corresponding groundwater residence time of just 2,000 years. In contrast, our model predicts slow flow rates
+    of 0.005 m/day for inland aquifers, resulting in a groundwater residence time of 400,000 years. Perturbing the
+    model to account for a drop in borehole water levels since 2000, we find that lengthened inland flow pathways
+    depart significantly from pre-2000 streamlines as groundwater is drawn further from recharge zones in a drying
+    climate. Our results illustrate that progressively increasing water extraction from inland aquifers may
+    permanently alter long-range flow pathways. Our open-source modelling approach can be extended to any basin
+    and may help inform policies on the sustainable management of groundwater.
+  </p>
 
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+  <!-- ── Description ──────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Description</h2>
+  <p>
+    This model was developed in order to study groundwater flow on a continental scale, focusing on the
+    Sydney–Gunnedah–Bowen Basin in Australia. Using data such as hydraulic head measurements and borehole
+    temperatures, it predicts how water moves through deep aquifers to the surface. Coastal aquifers show fast
+    water flow, while inland aquifers have much slower flow. The study shows that increased water extraction
+    from inland areas could permanently change water flow patterns. This open-source model can be used for other
+    regions and aims to support sustainable groundwater management policies.
+  </p>
+
+  <!-- ── Model Setup ───────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Model Setup</h2>
+  <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/figure_2.png" alt="3D stratigraphy of the Sydney–Gunnedah–Bowen Basin" style="width:100%; border-radius:6px; margin-bottom:0.5rem;" onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';">
+  <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">
+    3D stratigraphy of the Sydney–Gunnedah–Bowen Basin. The vertical spacing of layers has been exaggerated for visual clarity.
+  </p>
+  <p>
+    We apply our numerical framework to the Sydney–Gunnedah–Bowen (SGB) Basin in eastern Australia. The SGB
+    Basin covers about 1.5 million square kilometers, and we model it in high-resolution 3D using over 10 million
+    cells (6 × 6 × 0.6 km, in the x, y, z directions, respectively) to detail flow patterns down to 12 km
+    beneath the crust. By adjusting the model to match real-world data, it provides accurate insights into water
+    and heat movement through deep aquifers in large areas. Temperature advection due to groundwater flow is
+    described by the advection-diffusion equation. Darcy flux is calculated from the groundwater flow equation.
+    Groundwater recharge and discharge are driven by changes in hydraulic head, set to the height of the water
+    table at the top boundary surface.
+  </p>
+
+  <!-- ── Software ─────────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Software</h2>
+  <p>
+    <strong>Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud</strong><br>
+    <a href="https://github.com/underworldcode/underworld2">https://github.com/underworldcode/underworld2</a><br>
+    DOI: <a href="https://doi.org/10.5281/zenodo.7455999">10.5281/zenodo.7455999</a>
+  </p>
+
+  <!-- ── Compute Tags ──────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Compute Tags</h2>
+  <p>
+    <span class="badge-tag">Python</span>
+    <span class="badge-tag">C</span>
+    <span class="badge-tag">finite element</span>
+    <span class="badge-tag">heat equation</span>
+    <span class="badge-tag">advection-diffusion</span>
+  </p>
+
+  <!-- ── Dataset ──────────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Dataset</h2>
+  <p>
+    Model files and outputs are available via NCI (National Computational Infrastructure):<br>
+    <a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/mather-2022-groundwater/catalog.html">
+      https://thredds.nci.org.au/thredds/catalog/nm08/MATE/mather-2022-groundwater/catalog.html
+    </a>
+  </p>
+  <p>
+    Model scripts are also available on GitHub:<br>
+    <a href="https://github.com/brmather/Sydney_Basin/tree/master">
+      https://github.com/brmather/Sydney_Basin/tree/master
+    </a>
+  </p>
+  <p>
+    The model output data contains: <code>.h5</code> (Underworld2 data files), <code>.xdmf</code> (Underworld2 xdmf header files),
+    <code>.csv</code>, <code>.npz</code>, <code>.png</code>, <code>.pvsm</code> (Paraview state files), <code>.txt</code>.
+  </p>
+
+  <!-- ── Associated Publication ────────────────────────────────────────────── -->
+  <h2 class="anchored">Associated Publication</h2>
+  <p>
+    Mather, B., Müller, R.D., O'Neill, C., Beall, A., Vervoort, R.W., &amp; Moresi, L. (2022).
+    <em>Constraining the response of continental-scale groundwater flow to climate change.</em>
+    <strong>Scientific Reports</strong>, Springer Nature.<br>
+    DOI: <a href="https://doi.org/10.1038/s41598-022-08384-w">10.1038/s41598-022-08384-w</a>
+  </p>
+
+  <!-- ── Licence ───────────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Licence</h2>
+  <p>
+    <a href="https://creativecommons.org/licenses/by/4.0/legalcode">
+      Creative Commons Attribution 4.0 International (CC BY 4.0)
+    </a>
+  </p>
+
+  <!-- ── Citation ─────────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Citation</h2>
+  <blockquote class="blockquote">
+    Mather, B., Müller, R.D., O'Neill, C., Beall, A., Vervoort, R.W., &amp; Moresi, L. (2024).
+    Constraining the response of continental-scale groundwater flow to climate change [Data set].
+    AuScope, National Computational Infrastructure.
+    <a href="https://doi.org/10.25914/t2mn-bk81">https://doi.org/10.25914/t2mn-bk81</a>
+  </blockquote>
+
+  <!-- ── Funder ────────────────────────────────────────────────────────────── -->
+  <h2 class="anchored">Funders</h2>
+  <ul>
+    <li>NSW Department of Industry</li>
+    <li>AuScope — <a href="https://ror.org/04s1m4564">https://ror.org/04s1m4564</a></li>
+  </ul>
 
 </div>
-<div class="card-text listing-description delink">
-<p>A step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 1, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="YW5ub3VuY2VtZW50JTJDcXVhcnRv" data-listing-date-sort="1704067200000" data-listing-file-modified-sort="1778633981255" data-listing-date-modified-sort="1778633981000" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
-<a href="../blog/posts/welcome/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/welcome/cover.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Welcome to Jules G Org
-</h5>
-<div class="listing-reading-time card-text text-muted">2 min</div>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('YW5ub3VuY2VtZW50'); return false;">announcement</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
 
-</div>
-<div class="card-text listing-description delink">
-<p>Introducing the Jules G Org website — what we do, how the site works, and what to expect from us.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jan 1, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

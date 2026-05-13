@@ -1,24 +1,171 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MrG’s Org",
+    "objectID": "models/index.html",
+    "href": "models/index.html",
+    "title": "Models",
     "section": "",
-    "text": "We build open-source tools, share data science insights, and document experiments in software engineering.\nExplore the blog for tutorials and write-ups, or browse projects to see what we’re working on.\n\nRead the Blog   About Us\n\n\n\n\n🚀"
+    "text": "Constraining the response of continental-scale groundwater flow to climate change\n    \n      Numerical models of groundwater flow play a critical role for water management scenarios under climate extremes. We developed a highly scalable numerical framework to model continental groundwater flow, capturing flow pathways between deep aquifers and the near-surface.\n    \n    \n      Ben Mather\n      Dietmar Müller\n      Craig O'Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      Python\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n\n  \n  \n    \n    Subduction zone dynamics — a numerical simulation (example placeholder)\n    \n      A high-resolution 3D numerical model of subduction zone dynamics exploring the interplay between slab geometry, mantle flow, and surface topography across geological timescales.\n    \n    \n      Jane Doe\n      John Smith\n      \n      subduction\n      tectonics\n      geodynamics\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n  \n  \n    \n    Mantle convection and thermal evolution of the Earth (example placeholder)\n    \n      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution, constrained by seismic tomography and geochemical data from ocean island basalts.\n    \n    \n      Alice Johnson\n      Bob Williams\n      \n      mantle\n      convection\n      thermal evolution\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n\n\nNo models matched your search."
   },
   {
-    "objectID": "index.html#recent-posts",
-    "href": "index.html#recent-posts",
-    "title": "MrG’s Org",
-    "section": "Recent Posts",
-    "text": "Recent Posts\n\n\n\n\n\n\n\n\nSetting Up a Quarto Website for Your GitHub Organisation\n\n\n\nquarto\n\n\ngithub-pages\n\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n\n\nannouncement\n\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nSee all posts on the Blog page."
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "M@TE accepts model submissions via GitHub. To submit your geoscientific model, open an issue in the submission repository:\n👉 Model Submission Repository\nUse the structured issue template to provide metadata about your model, including:\n\nModel title, abstract, and description\nCreator ORCID identifiers\nAssociated publication DOI\nSoftware used\nResearch tags\nLinks to model files (code, inputs, outputs)\n\nSubmissions are currently by invitation only as M@TE is being intentional about showcasing a diverse and representative set of models.\n\n\n\n\nFor general enquiries about M@TE, please open a GitHub Discussion or Issue in the main repository:\n👉 ModelAtlasofTheEarth/website\n\n\n\n\nJoin the growing community of researchers building reproducible, reusable geoscientific models. Together we make Earth science more open and accessible."
   },
   {
-    "objectID": "index.html#featured-projects",
-    "href": "index.html#featured-projects",
-    "title": "MrG’s Org",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\n\n\nSample Project\nA demonstration of how a separate GitHub repository in the julesg-org organisation can contribute a page to this site.\n→ View project\n\n\nAdd Your Project Here\nFollow the instructions in projects/sample-project/index.qmd to add your own project page.\n→ Browse all projects\n\n\n\nBuilt with Quarto · Hosted on GitHub Pages"
+    "objectID": "contact.html#submit-a-model",
+    "href": "contact.html#submit-a-model",
+    "title": "Contact",
+    "section": "",
+    "text": "M@TE accepts model submissions via GitHub. To submit your geoscientific model, open an issue in the submission repository:\n👉 Model Submission Repository\nUse the structured issue template to provide metadata about your model, including:\n\nModel title, abstract, and description\nCreator ORCID identifiers\nAssociated publication DOI\nSoftware used\nResearch tags\nLinks to model files (code, inputs, outputs)\n\nSubmissions are currently by invitation only as M@TE is being intentional about showcasing a diverse and representative set of models."
+  },
+  {
+    "objectID": "contact.html#get-in-touch",
+    "href": "contact.html#get-in-touch",
+    "title": "Contact",
+    "section": "",
+    "text": "For general enquiries about M@TE, please open a GitHub Discussion or Issue in the main repository:\n👉 ModelAtlasofTheEarth/website"
+  },
+  {
+    "objectID": "contact.html#community",
+    "href": "contact.html#community",
+    "title": "Contact",
+    "section": "",
+    "text": "Join the growing community of researchers building reproducible, reusable geoscientific models. Together we make Earth science more open and accessible."
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Setting Up a Quarto Website for Your GitHub Organisation\n\n2 min\n\n\nquarto\n\ngithub-pages\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n2 min\n\n\nannouncement\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html",
+    "href": "blog/posts/welcome/index.html",
+    "title": "Welcome to Jules G Org",
+    "section": "",
+    "text": "Welcome to the Jules G Org blog! This is the first post on our new Quarto- powered website, so let’s use it to explain what this place is all about."
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#hello-world",
+    "href": "blog/posts/welcome/index.html#hello-world",
+    "title": "Welcome to Jules G Org",
+    "section": "",
+    "text": "Welcome to the Jules G Org blog! This is the first post on our new Quarto- powered website, so let’s use it to explain what this place is all about."
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#what-is-jules-g-org",
+    "href": "blog/posts/welcome/index.html#what-is-jules-g-org",
+    "title": "Welcome to Jules G Org",
+    "section": "What Is Jules G Org?",
+    "text": "What Is Jules G Org?\nJules G Org is a GitHub organisation that collects open-source projects spanning data science, tooling, and technical writing."
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#how-this-site-is-built",
+    "href": "blog/posts/welcome/index.html#how-this-site-is-built",
+    "title": "Welcome to Jules G Org",
+    "section": "How This Site Is Built",
+    "text": "How This Site Is Built\nThe site is generated using Quarto — an open-source scientific and technical publishing system that can render .qmd files (Markdown + optional code cells) into polished HTML websites, PDFs, and more.\n\n\n\n\n\n\nflowchart LR\n    A[Edit .qmd files] --&gt; B[git push to main]\n    B --&gt; C[GitHub Actions]\n    C --&gt; D[quarto render]\n    D --&gt; E[gh-pages branch]\n    E --&gt; F[julesg-org.github.io]\n\n\n\n\nFigure 1: How the site is built and deployed\n\n\n\n\n\n\nEditing Content\nAll content lives in .qmd files at the root of the julesg-org.github.org repository:\n\n\n\nPath\nWhat it controls\n\n\n\n\n_quarto.yml\nSite-wide config (navbar, theme, footer)\n\n\nindex.qmd\nHome / landing page\n\n\nabout.qmd\nAbout page\n\n\nblog/posts/&lt;post&gt;/index.qmd\nIndividual blog posts\n\n\nprojects/sample-project/index.qmd\nSub-project page\n\n\nstyles.css\nCustom CSS overrides"
+  },
+  {
+    "objectID": "blog/posts/welcome/index.html#whats-next",
+    "href": "blog/posts/welcome/index.html#whats-next",
+    "title": "Welcome to Jules G Org",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nLook out for posts on:\n\n🐍 Python and R data science workflows\n📦 Building reusable packages\n🔧 DevOps and CI/CD for data projects\n\nStay tuned, and feel free to open an issue or pull request on GitHub!"
+  },
+  {
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "News",
+    "section": "",
+    "text": "News\nStay up to date with the latest announcements, publications, and events from the M@TE community.\n\n\nComing Soon\nNews and blog posts will appear here as the M@TE platform grows. Check back for:\n\nNew model announcements — when new geoscientific models are added to the atlas\nCommunity updates — workshops, conferences, and collaborations\nFeature releases — improvements to the M@TE platform and tooling\nPublications — peer-reviewed papers associated with M@TE models\n\n\nIn the meantime, follow the M@TE project on GitHub: ModelAtlasofTheEarth"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Sample Project\n\n\n\ntemplate\n\nopen-source\n\n\n\nA template project demonstrating how a separate julesg-org repository can display a page on julesg-org.github.io.\n\n\n\nJan 15, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/sample-project/index.html",
+    "href": "projects/sample-project/index.html",
+    "title": "Sample Project",
+    "section": "",
+    "text": "🏠 Jules G Org · ← Back to home · All Projects"
+  },
+  {
+    "objectID": "projects/sample-project/index.html#about-this-project",
+    "href": "projects/sample-project/index.html#about-this-project",
+    "title": "Sample Project",
+    "section": "About This Project",
+    "text": "About This Project\nSample Project is a demonstration repository that shows how any repository in the julesg-org GitHub organisation can contribute a page to the main organisation website at julesg-org.github.io.\nThis page was generated from content inside the main website repository (julesg-org.github.org). In a real workflow, the content on this page would mirror or embed information from the sample-project repository."
+  },
+  {
+    "objectID": "projects/sample-project/index.html#features",
+    "href": "projects/sample-project/index.html#features",
+    "title": "Sample Project",
+    "section": "Features",
+    "text": "Features\n\n✅ Clean, reproducible structure (Quarto + Markdown)\n✅ Links back to the Jules G Org home page\n✅ Integrated into the main site’s navigation and search\n✅ Automatic dark / light mode support\n✅ Category tags for filtering on the Projects listing"
+  },
+  {
+    "objectID": "projects/sample-project/index.html#getting-started",
+    "href": "projects/sample-project/index.html#getting-started",
+    "title": "Sample Project",
+    "section": "Getting Started",
+    "text": "Getting Started\n# Clone the sample project repository\ngit clone https://github.com/julesg-org/sample-project.git\ncd sample-project\n\n# Install dependencies (example for a Python project)\npip install -r requirements.txt\n\n# Run the project\npython main.py"
+  },
+  {
+    "objectID": "projects/sample-project/index.html#project-structure",
+    "href": "projects/sample-project/index.html#project-structure",
+    "title": "Sample Project",
+    "section": "Project Structure",
+    "text": "Project Structure\nsample-project/\n├── README.md          # Overview and quick-start guide\n├── main.py            # Entry point\n├── src/               # Source code\n│   └── analysis.py\n├── data/              # Input data (not committed — see .gitignore)\n├── notebooks/         # Jupyter / Quarto notebooks\n└── tests/             # Unit tests"
+  },
+  {
+    "objectID": "projects/sample-project/index.html#usage-example",
+    "href": "projects/sample-project/index.html#usage-example",
+    "title": "Sample Project",
+    "section": "Usage Example",
+    "text": "Usage Example\n# Example: loading and analysing data with this project\nfrom src.analysis import load_data, summarise\n\ndf = load_data(\"data/sample.csv\")\nsummary = summarise(df)\nprint(summary)"
+  },
+  {
+    "objectID": "projects/sample-project/index.html#results-outputs",
+    "href": "projects/sample-project/index.html#results-outputs",
+    "title": "Sample Project",
+    "section": "Results & Outputs",
+    "text": "Results & Outputs\nThis section would normally contain visualisations or key findings. For a real project, embed Quarto code cells here so that outputs are reproduced automatically every time the site is built:\n```{python}\n# Uncomment the lines below and add real code for live output\n# import pandas as pd\n# df = pd.read_csv(\"data/sample.csv\")\n# df.describe()\n```"
+  },
+  {
+    "objectID": "projects/sample-project/index.html#links",
+    "href": "projects/sample-project/index.html#links",
+    "title": "Sample Project",
+    "section": "Links",
+    "text": "Links\n\n\n\nResource\nURL\n\n\n\n\nSource code\ngithub.com/julesg-org/sample-project\n\n\nIssues\nGitHub Issues\n\n\nMain site\njulesg-org.github.io\n\n\n\n\n\n\n\n\n\n\nTipHow to add your own project\n\n\n\n\nCreate a new folder in projects/ inside the main repo.\nCopy this file (projects/sample-project/index.qmd) as a starting template.\nFill in your project’s title, description, and content.\nOpen a pull request — once merged, your project page appears automatically.\n\n\n\n\n\nPart of Jules G Org · Built with Quarto"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About M@TE",
+    "section": "",
+    "text": "M@TE is designed to meet geoscientists where they are: from educators and students using visualizations in the classroom to researchers developing and benchmarking new numerical models. It lowers the learning curve of numerical models and bridges the gap between traditional geology and numerical geosciences.\nM@TE enables you to:\n\nExplore and visualize models through an intuitive web interface: play animations, use them in your teaching or to better understand Earth system concepts.\nDownload and build on models by accessing input files and configuration scripts to reproduce or expand upon simulations on your own.\nAnalyze and benchmark model outputs by comparing results across models and datasets without having to recreate simulations from scratch.\nUpload your own models using streamlined tools for packaging code, metadata and outputs. These are stored, preserved and assigned a DOI for citation. (Currently by invitation only, as we are being intentional about showcasing a diverse and representative set of models.)\n\nTogether we build reproducible, reusable, robust models — it takes a village — so please cite the models you use.\n\n\n\nM@TE combines a user-friendly experience with a robust backend built on widely adopted, sustainable infrastructure. Users browse model summaries through the website, which links to GitHub and NCI repositories for downloading code and outputs. Behind the scenes, carefully chosen tools ensure consistency, accessibility and long-term preservation.\nKey design choices include:\n\n\nModel metadata is packaged using the RO-Crate standard, a lightweight JSON-LD format that captures rich metadata and references model components (e.g. code, inputs, outputs, publications, authors and persistent identifiers). This ensures models are machine-readable and FAIR (Findable, Accessible, Interoperable, Reusable).\n\n\n\nModels are submitted through structured GitHub issue templates. Metadata is automatically validated and enriched via GitHub Actions, which connect to external services such as Crossref, DataCite and ORCID.\n\n\n\nThis replica of the M@TE website is built with Quarto, a scientific publishing system that delivers a fast, lightweight interface for browsing models. It integrates figures, animations and interactive content to make models discoverable and usable across different audiences. (The original M@TE site uses Gatsby, a React-based static-site generator.)\n\n\n\nModel outputs are stored and preserved through the National Computational Infrastructure (NCI) GeoNetwork. This system supports terabyte-scale data, assigns persistent DOIs and ensures discoverability through standard catalog services.\n\n\n\n\n\nEach scientific model has its own repository in the ModelAtlasofTheEarth GitHub organisation. When a model is ready for publication, a GitHub Actions workflow automatically:\n\nUpdates the DOI in the model repository\nCreates a new branch in the website repository named after the model\nCopies the .website_material/ folder contents into models/&lt;model-name&gt;.qmd in the Quarto site\nUpdates the model submission issue tracker\n\nThe branch is then merged and the site rebuilds automatically — no manual file copying required."
+  },
+  {
+    "objectID": "about.html#how-does-mte-work",
+    "href": "about.html#how-does-mte-work",
+    "title": "About M@TE",
+    "section": "",
+    "text": "M@TE combines a user-friendly experience with a robust backend built on widely adopted, sustainable infrastructure. Users browse model summaries through the website, which links to GitHub and NCI repositories for downloading code and outputs. Behind the scenes, carefully chosen tools ensure consistency, accessibility and long-term preservation.\nKey design choices include:\n\n\nModel metadata is packaged using the RO-Crate standard, a lightweight JSON-LD format that captures rich metadata and references model components (e.g. code, inputs, outputs, publications, authors and persistent identifiers). This ensures models are machine-readable and FAIR (Findable, Accessible, Interoperable, Reusable).\n\n\n\nModels are submitted through structured GitHub issue templates. Metadata is automatically validated and enriched via GitHub Actions, which connect to external services such as Crossref, DataCite and ORCID.\n\n\n\nThis replica of the M@TE website is built with Quarto, a scientific publishing system that delivers a fast, lightweight interface for browsing models. It integrates figures, animations and interactive content to make models discoverable and usable across different audiences. (The original M@TE site uses Gatsby, a React-based static-site generator.)\n\n\n\nModel outputs are stored and preserved through the National Computational Infrastructure (NCI) GeoNetwork. This system supports terabyte-scale data, assigns persistent DOIs and ensures discoverability through standard catalog services."
+  },
+  {
+    "objectID": "about.html#content-ingestion-mechanism",
+    "href": "about.html#content-ingestion-mechanism",
+    "title": "About M@TE",
+    "section": "",
+    "text": "Each scientific model has its own repository in the ModelAtlasofTheEarth GitHub organisation. When a model is ready for publication, a GitHub Actions workflow automatically:\n\nUpdates the DOI in the model repository\nCreates a new branch in the website repository named after the model\nCopies the .website_material/ folder contents into models/&lt;model-name&gt;.qmd in the Quarto site\nUpdates the model submission issue tracker\n\nThe branch is then merged and the site rebuilds automatically — no manual file copying required."
   },
   {
     "objectID": "blog/posts/quarto-setup/index.html",
@@ -84,193 +231,38 @@
     "text": "Next Steps\n\nAdd blog posts under blog/posts/&lt;post-name&gt;/index.qmd\nAdd project pages under projects/&lt;project-name&gt;/index.qmd\nCustomise colours in styles.css"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Jules G Org",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "M@TE — Model Atlas of the Earth",
     "section": "",
-    "text": "Jules G Org is an open-source organisation focused on data science, software engineering, and making technical knowledge more accessible.\nWe publish reproducible analyses, reusable tooling, and detailed write-ups on everything from exploratory data analysis to deployment pipelines."
+    "text": "Model Atlas of the Earth\n  \n    A curated, open atlas of geoscientific numerical models — reproducible,\n    reusable, and FAIR.\n  \n  \n  \n    Browse Models\n  \n   \n  \n    Learn More"
   },
   {
-    "objectID": "about.html#who-we-are",
-    "href": "about.html#who-we-are",
-    "title": "About Jules G Org",
+    "objectID": "index.html#what-is-mte",
+    "href": "index.html#what-is-mte",
+    "title": "M@TE — Model Atlas of the Earth",
+    "section": "What is M@TE?",
+    "text": "What is M@TE?\nM@TE (Model Atlas of the Earth) is designed to meet geoscientists where they are: from educators and students using visualizations in the classroom to researchers developing and benchmarking new numerical models. It lowers the learning curve of numerical models and bridges the gap between traditional geology and numerical geosciences.\nM@TE enables you to:\n\nExplore and visualize models through an intuitive web interface: play animations, use them in your teaching or to better understand Earth system concepts.\nDownload and build on models by accessing input files and configuration scripts to reproduce or expand upon simulations on your own.\nAnalyze and benchmark model outputs by comparing results across models and datasets without having to recreate simulations from scratch.\nUpload your own models using streamlined tools for packaging code, metadata and outputs — stored, preserved and assigned a DOI for citation."
+  },
+  {
+    "objectID": "index.html#featured-models",
+    "href": "index.html#featured-models",
+    "title": "M@TE — Model Atlas of the Earth",
+    "section": "Featured Models",
+    "text": "Featured Models\n\n\n  \n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      A highly scalable numerical framework to model continental groundwater flow, capturing\n      flow pathways between deep aquifers and the near-surface using a Bayesian framework.\n    \n    \n      Ben Mather\n      Dietmar Müller\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n\n  \n  \n    \n    Subduction zone dynamics — a numerical simulation (example)\n    \n      A high-resolution 3D model of subduction zone dynamics exploring the interplay between\n      slab geometry, mantle flow, and surface topography across geological timescales.\n    \n    \n      Jane Doe\n      John Smith\n      \n      subduction\n      tectonics\n      geodynamics\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n  \n  \n    \n    Mantle convection and thermal evolution of the Earth (example)\n    \n      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,\n      constrained by seismic tomography and geochemical data from ocean island basalts.\n    \n    \n      Alice Johnson\n      Bob Williams\n      \n      mantle\n      convection\n      thermal evolution\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n\n\n\n  \n    View all models →"
+  },
+  {
+    "objectID": "index.html#why-mte",
+    "href": "index.html#why-mte",
+    "title": "M@TE — Model Atlas of the Earth",
+    "section": "Why M@TE?",
+    "text": "Why M@TE?\n\n  ✅ Open source and free\n  🔎 FAIR data principles\n  ♻️ Reproducible models\n  🏗️ Built on sustainable infrastructure\n  📦 RO-Crate packaging\n  🆔 DOI-assigned datasets\n\nTogether we build reproducible, reusable, robust models — it takes a village — so please cite the models you use."
+  },
+  {
+    "objectID": "models/mather-2022-groundwater.html",
+    "href": "models/mather-2022-groundwater.html",
+    "title": "Constraining the response of continental-scale groundwater flow to climate change",
     "section": "",
-    "text": "Jules G Org is an open-source organisation focused on data science, software engineering, and making technical knowledge more accessible.\nWe publish reproducible analyses, reusable tooling, and detailed write-ups on everything from exploratory data analysis to deployment pipelines."
-  },
-  {
-    "objectID": "about.html#what-we-do",
-    "href": "about.html#what-we-do",
-    "title": "About Jules G Org",
-    "section": "What We Do",
-    "text": "What We Do\n\n📊 Data Science — reproducible notebooks, statistical analyses, and visualisation libraries.\n🛠️ Open-Source Tools — small, focused packages and utilities available on GitHub.\n✍️ Technical Writing — in-depth blog posts and tutorials that walk through real problems step by step."
-  },
-  {
-    "objectID": "about.html#how-this-site-works",
-    "href": "about.html#how-this-site-works",
-    "title": "About Jules G Org",
-    "section": "How This Site Works",
-    "text": "How This Site Works\nThis site is built with Quarto and deployed automatically to GitHub Pages via a GitHub Actions workflow every time changes are pushed to the main branch.\nEach project in the julesg-org GitHub organisation can contribute its own page here by following the pattern demonstrated in projects/sample-project."
-  },
-  {
-    "objectID": "about.html#get-involved",
-    "href": "about.html#get-involved",
-    "title": "About Jules G Org",
-    "section": "Get Involved",
-    "text": "Get Involved\nWe welcome contributions! Open an issue or pull request on any of our repositories, or reach out via the links above."
-  },
-  {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Sample Project\n\n\n\ntemplate\n\n\nopen-source\n\n\n\nA template project demonstrating how a separate julesg-org repository can display a page on julesg-org.github.io.\n\n\n\nJan 15, 2024\n\n\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Projects"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html",
-    "href": "projects/sample-project/index.html",
-    "title": "Sample Project",
-    "section": "",
-    "text": "🏠 Jules G Org · ← Back to home · All Projects",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#about-this-project",
-    "href": "projects/sample-project/index.html#about-this-project",
-    "title": "Sample Project",
-    "section": "About This Project",
-    "text": "About This Project\nSample Project is a demonstration repository that shows how any repository in the julesg-org GitHub organisation can contribute a page to the main organisation website at julesg-org.github.io.\nThis page was generated from content inside the main website repository (julesg-org.github.org). In a real workflow, the content on this page would mirror or embed information from the sample-project repository.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#features",
-    "href": "projects/sample-project/index.html#features",
-    "title": "Sample Project",
-    "section": "Features",
-    "text": "Features\n\n✅ Clean, reproducible structure (Quarto + Markdown)\n✅ Links back to the Jules G Org home page\n✅ Integrated into the main site’s navigation and search\n✅ Automatic dark / light mode support\n✅ Category tags for filtering on the Projects listing",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#getting-started",
-    "href": "projects/sample-project/index.html#getting-started",
-    "title": "Sample Project",
-    "section": "Getting Started",
-    "text": "Getting Started\n# Clone the sample project repository\ngit clone https://github.com/julesg-org/sample-project.git\ncd sample-project\n\n# Install dependencies (example for a Python project)\npip install -r requirements.txt\n\n# Run the project\npython main.py",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#project-structure",
-    "href": "projects/sample-project/index.html#project-structure",
-    "title": "Sample Project",
-    "section": "Project Structure",
-    "text": "Project Structure\nsample-project/\n├── README.md          # Overview and quick-start guide\n├── main.py            # Entry point\n├── src/               # Source code\n│   └── analysis.py\n├── data/              # Input data (not committed — see .gitignore)\n├── notebooks/         # Jupyter / Quarto notebooks\n└── tests/             # Unit tests",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#usage-example",
-    "href": "projects/sample-project/index.html#usage-example",
-    "title": "Sample Project",
-    "section": "Usage Example",
-    "text": "Usage Example\n# Example: loading and analysing data with this project\nfrom src.analysis import load_data, summarise\n\ndf = load_data(\"data/sample.csv\")\nsummary = summarise(df)\nprint(summary)",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#results-outputs",
-    "href": "projects/sample-project/index.html#results-outputs",
-    "title": "Sample Project",
-    "section": "Results & Outputs",
-    "text": "Results & Outputs\nThis section would normally contain visualisations or key findings. For a real project, embed Quarto code cells here so that outputs are reproduced automatically every time the site is built:\n```{python}\n# Uncomment the lines below and add real code for live output\n# import pandas as pd\n# df = pd.read_csv(\"data/sample.csv\")\n# df.describe()\n```",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "projects/sample-project/index.html#links",
-    "href": "projects/sample-project/index.html#links",
-    "title": "Sample Project",
-    "section": "Links",
-    "text": "Links\n\n\n\nResource\nURL\n\n\n\n\nSource code\ngithub.com/julesg-org/sample-project\n\n\nIssues\nGitHub Issues\n\n\nMain site\njulesg-org.github.io\n\n\n\n\n\n\n\n\n\n\nHow to add your own project\n\n\n\n\nCreate a new folder in projects/ inside the main repo.\nCopy this file (projects/sample-project/index.qmd) as a starting template.\nFill in your project’s title, description, and content.\nOpen a pull request — once merged, your project page appears automatically.\n\n\n\n\n\nPart of Jules G Org · Built with Quarto",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Sample Project"
-    ]
-  },
-  {
-    "objectID": "blog/posts/welcome/index.html",
-    "href": "blog/posts/welcome/index.html",
-    "title": "Welcome to Jules G Org",
-    "section": "",
-    "text": "Welcome to the Jules G Org blog! This is the first post on our new Quarto- powered website, so let’s use it to explain what this place is all about."
-  },
-  {
-    "objectID": "blog/posts/welcome/index.html#hello-world",
-    "href": "blog/posts/welcome/index.html#hello-world",
-    "title": "Welcome to Jules G Org",
-    "section": "",
-    "text": "Welcome to the Jules G Org blog! This is the first post on our new Quarto- powered website, so let’s use it to explain what this place is all about."
-  },
-  {
-    "objectID": "blog/posts/welcome/index.html#what-is-jules-g-org",
-    "href": "blog/posts/welcome/index.html#what-is-jules-g-org",
-    "title": "Welcome to Jules G Org",
-    "section": "What Is Jules G Org?",
-    "text": "What Is Jules G Org?\nJules G Org is a GitHub organisation that collects open-source projects spanning data science, tooling, and technical writing."
-  },
-  {
-    "objectID": "blog/posts/welcome/index.html#how-this-site-is-built",
-    "href": "blog/posts/welcome/index.html#how-this-site-is-built",
-    "title": "Welcome to Jules G Org",
-    "section": "How This Site Is Built",
-    "text": "How This Site Is Built\nThe site is generated using Quarto — an open-source scientific and technical publishing system that can render .qmd files (Markdown + optional code cells) into polished HTML websites, PDFs, and more.\n\n\n\n\n\n\nflowchart LR\n    A[Edit .qmd files] --&gt; B[git push to main]\n    B --&gt; C[GitHub Actions]\n    C --&gt; D[quarto render]\n    D --&gt; E[gh-pages branch]\n    E --&gt; F[julesg-org.github.io]\n\n\n\n\nFigure 1: How the site is built and deployed\n\n\n\n\n\n\nEditing Content\nAll content lives in .qmd files at the root of the julesg-org.github.org repository:\n\n\n\nPath\nWhat it controls\n\n\n\n\n_quarto.yml\nSite-wide config (navbar, theme, footer)\n\n\nindex.qmd\nHome / landing page\n\n\nabout.qmd\nAbout page\n\n\nblog/posts/&lt;post&gt;/index.qmd\nIndividual blog posts\n\n\nprojects/sample-project/index.qmd\nSub-project page\n\n\nstyles.css\nCustom CSS overrides"
-  },
-  {
-    "objectID": "blog/posts/welcome/index.html#whats-next",
-    "href": "blog/posts/welcome/index.html#whats-next",
-    "title": "Welcome to Jules G Org",
-    "section": "What’s Next?",
-    "text": "What’s Next?\nLook out for posts on:\n\n🐍 Python and R data science workflows\n📦 Building reusable packages\n🔧 DevOps and CI/CD for data projects\n\nStay tuned, and feel free to open an issue or pull request on GitHub!"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Setting Up a Quarto Website for Your GitHub Organisation\n\n\n2 min\n\n\n\nquarto\n\n\ngithub-pages\n\n\ntutorial\n\n\n\nA step-by-step guide to creating a Quarto-powered static site for a GitHub organisation, including automatic deployment with GitHub Actions.\n\n\n\nFeb 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Jules G Org\n\n\n2 min\n\n\n\nannouncement\n\n\nquarto\n\n\n\nIntroducing the Jules G Org website — what we do, how the site works, and what to expect from us.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Home",
-      "Blog",
-      "Blog"
-    ]
+    "text": "Constraining the response of continental-scale groundwater flow to climate change\n\n  \n    DOI:\n    \n      DOI\n      10.25914/t2mn-bk81\n    \n    \n    Creators:\n    Ben Mather\n    Dietmar Müller\n    Craig O'Neill\n    Adam Beall\n    R.Willem Vervoort\n    Louis-Noel Moresi\n    \n    Tags:\n    groundwater\n    thermal-hydraulic\n    Bayesian\n    water-management\n    Python\n  \n\n  \n  \n    \n  \n  \n    Coupled heat-groundwater flow model of the Sydney–Gunnedah–Bowen Basin based on the MAP estimate of material properties and boundary conditions.\n  \n\n  \n  Abstract\n  \n    Numerical models of groundwater flow play a critical role for water management scenarios under climate extremes.\n    Large-scale models play a key role in determining long range flow pathways from continental interiors to the\n    oceans, yet struggle to simulate the local flow patterns offered by small-scale models. We have developed a\n    highly scalable numerical framework to model continental groundwater flow which captures the intricate flow\n    pathways between deep aquifers and the near-surface. The coupled thermal-hydraulic basin structure is inferred\n    from hydraulic head measurements, recharge estimates from geochemical proxies, and borehole temperature data\n    using a Bayesian framework. We use it to model the deep groundwater flow beneath the Sydney–Gunnedah–Bowen\n    Basin, part of Australia's largest aquifer system. Coastal aquifers have flow rates of up to 0.3 m/day, and a\n    corresponding groundwater residence time of just 2,000 years. In contrast, our model predicts slow flow rates\n    of 0.005 m/day for inland aquifers, resulting in a groundwater residence time of 400,000 years. Perturbing the\n    model to account for a drop in borehole water levels since 2000, we find that lengthened inland flow pathways\n    depart significantly from pre-2000 streamlines as groundwater is drawn further from recharge zones in a drying\n    climate. Our results illustrate that progressively increasing water extraction from inland aquifers may\n    permanently alter long-range flow pathways. Our open-source modelling approach can be extended to any basin\n    and may help inform policies on the sustainable management of groundwater.\n  \n\n  \n  Description\n  \n    This model was developed in order to study groundwater flow on a continental scale, focusing on the\n    Sydney–Gunnedah–Bowen Basin in Australia. Using data such as hydraulic head measurements and borehole\n    temperatures, it predicts how water moves through deep aquifers to the surface. Coastal aquifers show fast\n    water flow, while inland aquifers have much slower flow. The study shows that increased water extraction\n    from inland areas could permanently change water flow patterns. This open-source model can be used for other\n    regions and aims to support sustainable groundwater management policies.\n  \n\n  \n  Model Setup\n  \n  \n    3D stratigraphy of the Sydney–Gunnedah–Bowen Basin. The vertical spacing of layers has been exaggerated for visual clarity.\n  \n  \n    We apply our numerical framework to the Sydney–Gunnedah–Bowen (SGB) Basin in eastern Australia. The SGB\n    Basin covers about 1.5 million square kilometers, and we model it in high-resolution 3D using over 10 million\n    cells (6 × 6 × 0.6 km, in the x, y, z directions, respectively) to detail flow patterns down to 12 km\n    beneath the crust. By adjusting the model to match real-world data, it provides accurate insights into water\n    and heat movement through deep aquifers in large areas. Temperature advection due to groundwater flow is\n    described by the advection-diffusion equation. Darcy flux is calculated from the groundwater flow equation.\n    Groundwater recharge and discharge are driven by changes in hydraulic head, set to the height of the water\n    table at the top boundary surface.\n  \n\n  \n  Software\n  \n    Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud\n    https://github.com/underworldcode/underworld2\n    DOI: 10.5281/zenodo.7455999\n  \n\n  \n  Compute Tags\n  \n    Python\n    C\n    finite element\n    heat equation\n    advection-diffusion\n  \n\n  \n  Dataset\n  \n    Model files and outputs are available via NCI (National Computational Infrastructure):\n    \n      https://thredds.nci.org.au/thredds/catalog/nm08/MATE/mather-2022-groundwater/catalog.html\n    \n  \n  \n    Model scripts are also available on GitHub:\n    \n      https://github.com/brmather/Sydney_Basin/tree/master\n    \n  \n  \n    The model output data contains: .h5 (Underworld2 data files), .xdmf (Underworld2 xdmf header files),\n    .csv, .npz, .png, .pvsm (Paraview state files), .txt.\n  \n\n  \n  Associated Publication\n  \n    Mather, B., Müller, R.D., O'Neill, C., Beall, A., Vervoort, R.W., & Moresi, L. (2022).\n    Constraining the response of continental-scale groundwater flow to climate change.\n    Scientific Reports, Springer Nature.\n    DOI: 10.1038/s41598-022-08384-w\n  \n\n  \n  Licence\n  \n    \n      Creative Commons Attribution 4.0 International (CC BY 4.0)\n    \n  \n\n  \n  Citation\n  \n    Mather, B., Müller, R.D., O'Neill, C., Beall, A., Vervoort, R.W., & Moresi, L. (2024).\n    Constraining the response of continental-scale groundwater flow to climate change [Data set].\n    AuScope, National Computational Infrastructure.\n    https://doi.org/10.25914/t2mn-bk81\n  \n\n  \n  Funders\n  \n    NSW Department of Industry\n    AuScope — https://ror.org/04s1m4564"
   }
 ]

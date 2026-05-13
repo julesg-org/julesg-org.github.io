@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/blog/index.html",
     "items": [
       "/blog/posts/quarto-setup/index.html",
       "/blog/posts/welcome/index.html"
@@ -10,13 +10,6 @@
     "listing": "/projects/index.html",
     "items": [
       "/projects/sample-project/index.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/posts/quarto-setup/index.html",
-      "/blog/posts/welcome/index.html"
     ]
   }
 ]
