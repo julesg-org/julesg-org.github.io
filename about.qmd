@@ -1,65 +1,90 @@
 ---
 # =============================================================================
-# about.qmd — About page
+# about.qmd — About M@TE page
 # =============================================================================
-#
-# HOW TO EDIT THIS PAGE
-# ---------------------
-# • Change the `image` field to update the profile photo.
-#   Place the image in the images/ folder and adjust the path accordingly.
-# • Edit the `links` list to add or remove social/professional links.
-# • The text below the YAML front matter is the page body — edit it freely.
-# • Quarto's built-in `about` template supports several layouts:
-#   jolla, trestles, solana, marquee, broadside
-#   Change `template: trestles` to try a different layout.
-#
-# =============================================================================
-title: "About Jules G Org"
-image: images/lupin.png     # Replace with your own photo (400×400 px recommended)
-about:
-  template: trestles          # Try: jolla | solana | marquee | broadside
-  image-width: 12em
-  image-shape: round
-  links:
-    - icon: github
-      text: GitHub
-      href: https://github.com/julesg-org
-    - icon: twitter
-      text: Twitter / X
-      href: https://twitter.com/julesg_org
-    - icon: envelope
-      text: Email
-      href: mailto:hello@julesg-org.example.com
+title: "About M@TE"
 ---
 
-## Who We Are
+```{=html}
+<div class="about-page">
+```
 
-**Jules G Org** is an open-source organisation focused on data science,
-software engineering, and making technical knowledge more accessible.
+# About M@TE
 
-We publish reproducible analyses, reusable tooling, and detailed write-ups on
-everything from exploratory data analysis to deployment pipelines.
+M@TE is designed to meet geoscientists where they are: from educators
+and students using visualizations in the classroom to researchers
+developing and benchmarking new numerical models. It lowers the
+learning curve of numerical models and bridges the gap between
+traditional geology and numerical geosciences.
 
-## What We Do
+**M@TE enables you to:**
 
-- 📊 **Data Science** — reproducible notebooks, statistical analyses, and
-  visualisation libraries.
-- 🛠️ **Open-Source Tools** — small, focused packages and utilities available
-  on GitHub.
-- ✍️ **Technical Writing** — in-depth blog posts and tutorials that walk
-  through real problems step by step.
+- **Explore and visualize models** through an intuitive web interface: play animations, use them in your teaching or to better understand Earth system concepts.
+- **Download and build on models** by accessing input files and configuration scripts to reproduce or expand upon simulations on your own.
+- **Analyze and benchmark model outputs** by comparing results across models and datasets without having to recreate simulations from scratch.
+- **Upload your own models** using streamlined tools for packaging code, metadata and outputs. These are stored, preserved and assigned a DOI for citation. *(Currently by invitation only, as we are being intentional about showcasing a diverse and representative set of models.)*
 
-## How This Site Works
+**Together we build reproducible, reusable, robust models — it takes a village — so please cite the models you use.**
 
-This site is built with **[Quarto](https://quarto.org)** and deployed
-automatically to **GitHub Pages** via a GitHub Actions workflow every time
-changes are pushed to the `main` branch.
+---
 
-Each project in the `julesg-org` GitHub organisation can contribute its own
-page here by following the pattern demonstrated in
-[projects/sample-project](projects/sample-project/index.qmd).
+## How does M@TE work?
 
-## Get Involved
+M@TE combines a user-friendly experience with a robust backend built
+on widely adopted, sustainable infrastructure. Users browse model
+summaries through the website, which links to GitHub and NCI
+repositories for downloading code and outputs. Behind the scenes,
+carefully chosen tools ensure consistency, accessibility and
+long-term preservation.
 
-We welcome contributions!  Open an issue or pull request on any of our
-repositories, or reach out via the links above.
+**Key design choices include:**
+
+### RO-Crates for packaging
+
+Model metadata is packaged using the [RO-Crate standard](https://www.researchobject.org/ro-crate/),
+a lightweight JSON-LD format that captures rich metadata and
+references model components (e.g. code, inputs, outputs,
+publications, authors and persistent identifiers). This
+ensures models are machine-readable and FAIR (Findable,
+Accessible, Interoperable, Reusable).
+
+### GitHub for submission and validation
+
+Models are submitted through structured
+[GitHub issue templates](https://github.com/ModelAtlasofTheEarth/model_submission).
+Metadata is automatically validated and enriched
+via GitHub Actions, which connect to external services such as
+Crossref, DataCite and ORCID.
+
+### Quarto for showcasing
+
+This replica of the M@TE website is built with [Quarto](https://quarto.org),
+a scientific publishing system that delivers a fast, lightweight interface for
+browsing models. It integrates figures, animations and interactive content to
+make models discoverable and usable across different audiences.
+*(The original M@TE site uses Gatsby, a React-based static-site generator.)*
+
+### NCI GeoNetwork for storage and preservation
+
+Model outputs are stored and preserved through the National Computational Infrastructure (NCI)
+[GeoNetwork](https://geonetwork.nci.org.au/). This system supports terabyte-scale data,
+assigns persistent DOIs and ensures discoverability through standard catalog services.
+
+---
+
+## Content ingestion mechanism
+
+Each scientific model has its own repository in the `ModelAtlasofTheEarth` GitHub organisation.
+When a model is ready for publication, a GitHub Actions workflow automatically:
+
+1. Updates the DOI in the model repository
+2. Creates a new branch in the website repository named after the model
+3. Copies the `.website_material/` folder contents into `models/<model-name>.qmd` in the Quarto site
+4. Updates the model submission issue tracker
+
+The branch is then merged and the site rebuilds automatically — no manual file copying required.
+
+```{=html}
+</div>
+```
+

@@ -1,0 +1,115 @@
+---
+# =============================================================================
+# models/index.qmd — Models listing page
+# =============================================================================
+title: "Models"
+---
+
+```{=html}
+<div style="padding: 1rem 0;">
+  <input
+    class="model-search-box"
+    id="model-search"
+    type="text"
+    placeholder="&#x1F50D; Search models by title, creator, or tag…"
+    oninput="filterModels(this.value)"
+  />
+</div>
+
+<div class="models-grid" id="models-grid">
+
+  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
+  <a href="mather-2022-groundwater.html" class="mc-card-container" data-title="constraining the response of continental-scale groundwater flow to climate change" data-tags="groundwater thermal-hydraulic bayesian water-management python" data-creators="ben mather dietmar müller craig o'neill adam beall r.willem vervoort louis-noel moresi">
+    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
+         alt="Groundwater flow model figure"
+         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
+    <p class="mc-card-abstract">
+      Numerical models of groundwater flow play a critical role for water management scenarios under climate extremes. We developed a highly scalable numerical framework to model continental groundwater flow, capturing flow pathways between deep aquifers and the near-surface.
+    </p>
+    <div class="mc-card-meta">
+      <span class="badge-creator">Ben Mather</span>
+      <span class="badge-creator">Dietmar Müller</span>
+      <span class="badge-creator">Craig O'Neill</span>
+      <br/>
+      <span class="badge-tag">groundwater</span>
+      <span class="badge-tag">thermal-hydraulic</span>
+      <span class="badge-tag">Bayesian</span>
+      <span class="badge-tag">Python</span>
+      <br/>
+      <a class="badge-doi" href="https://doi.org/10.25914/t2mn-bk81" onclick="event.stopPropagation()">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.25914/t2mn-bk81</span>
+      </a>
+    </div>
+  </a>
+
+  <!-- ── Model card: placeholder 2 ──────────────────────────────────────── -->
+  <div class="mc-card-container" data-title="subduction zone dynamics numerical simulation" data-tags="subduction tectonics geodynamics python" data-creators="jane doe john smith">
+    <img src="https://placehold.co/600x300/2c8ec7/white?text=Subduction+Model"
+         alt="Subduction model placeholder" />
+    <h3>Subduction zone dynamics — a numerical simulation (example placeholder)</h3>
+    <p class="mc-card-abstract">
+      A high-resolution 3D numerical model of subduction zone dynamics exploring the interplay between slab geometry, mantle flow, and surface topography across geological timescales.
+    </p>
+    <div class="mc-card-meta">
+      <span class="badge-creator">Jane Doe</span>
+      <span class="badge-creator">John Smith</span>
+      <br/>
+      <span class="badge-tag">subduction</span>
+      <span class="badge-tag">tectonics</span>
+      <span class="badge-tag">geodynamics</span>
+      <br/>
+      <span class="badge-doi">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.xxxxx/placeholder</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ── Model card: placeholder 3 ──────────────────────────────────────── -->
+  <div class="mc-card-container" data-title="mantle convection thermal evolution earth" data-tags="mantle convection thermal evolution fortran" data-creators="alice johnson bob williams">
+    <img src="https://placehold.co/600x300/555/white?text=Mantle+Convection"
+         alt="Mantle convection model placeholder" />
+    <h3>Mantle convection and thermal evolution of the Earth (example placeholder)</h3>
+    <p class="mc-card-abstract">
+      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution, constrained by seismic tomography and geochemical data from ocean island basalts.
+    </p>
+    <div class="mc-card-meta">
+      <span class="badge-creator">Alice Johnson</span>
+      <span class="badge-creator">Bob Williams</span>
+      <br/>
+      <span class="badge-tag">mantle</span>
+      <span class="badge-tag">convection</span>
+      <span class="badge-tag">thermal evolution</span>
+      <br/>
+      <span class="badge-doi">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.xxxxx/placeholder</span>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<p id="no-results" style="display:none; color:#888; font-size:16px;">No models matched your search.</p>
+
+<script>
+function filterModels(query) {
+  const q = query.toLowerCase().trim();
+  const cards = document.querySelectorAll('#models-grid > [data-title]');
+  let visible = 0;
+  cards.forEach(function(card) {
+    const text = (
+      (card.dataset.title || '') + ' ' +
+      (card.dataset.tags  || '') + ' ' +
+      (card.dataset.creators || '')
+    ).toLowerCase();
+    const show = !q || text.includes(q);
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('no-results').style.display = (visible === 0) ? '' : 'none';
+}
+</script>
+```

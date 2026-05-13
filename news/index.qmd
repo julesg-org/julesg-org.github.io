@@ -1,0 +1,30 @@
+---
+# =============================================================================
+# news/index.qmd — News listing page
+# =============================================================================
+title: "News"
+---
+
+::: {.news-section}
+
+# News
+
+Stay up to date with the latest announcements, publications, and events from the M@TE community.
+
+---
+
+### Coming Soon
+
+News and blog posts will appear here as the M@TE platform grows. Check back for:
+
+- **New model announcements** — when new geoscientific models are added to the atlas
+- **Community updates** — workshops, conferences, and collaborations
+- **Feature releases** — improvements to the M@TE platform and tooling
+- **Publications** — peer-reviewed papers associated with M@TE models
+
+---
+
+In the meantime, follow the M@TE project on GitHub:
+[ModelAtlasofTheEarth](https://github.com/ModelAtlasofTheEarth)
+
+:::
