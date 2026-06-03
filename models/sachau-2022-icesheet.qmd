@@ -18,7 +18,7 @@ title: "ISMIP-HOM benchmark experiments using Underworld"
     <a class="badge-creator" href="/creators/till-sachau.html">Till Sachau</a>
     <a class="badge-creator" href="/creators/haibin-yang.html">Haibin Yang</a>
     <a class="badge-creator" href="/creators/paul-d-bons.html">Paul D. Bons</a>
-    <a class="badge-creator" href="/creators/louis-noel-moresi.html">Louis-Noel Moresi</a>
+    <a class="badge-creator" href="/creators/louis-moresi.html">Louis Moresi</a>
   </div>
 
   <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
@@ -35,12 +35,11 @@ title: "ISMIP-HOM benchmark experiments using Underworld"
     <div id="tab-snapshot" class="tab-panel active">
       <p>Knowledge of the internal structures of the major continental ice sheets is improving, thanks to new investigative techniques. These structures are an essential indication of the flow behavior and dynamics of ice transport, which in turn is important for understanding the actual impact of the vast amounts of water trapped in continental ice sheets on global sea-level rise. The software studied here is specifically designed to simulate such structures and their evolution.</p>
       <div class="full-width-image">
-        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/gmd-15-8749-2022-f09.png"
-             alt="Marker lines prior to (a) and after 750 years of flow of (b) isotropic and (c) anisotropic ice. The axial plane of the resulting shear fold in isotropic ice mimics the bedrock topography, while it is controlled by shearing along a horizontal shear zone in the case of anisotropic ice. Green: bedrock, flow to the right."
+        <img src="https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
+             alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/D64000/white?text=M%40TE+Model';" />
       </div>
-      <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">Marker lines prior to (a) and after 750 years of flow of (b) isotropic and (c) anisotropic ice. The axial plane of the resulting shear fold in isotropic ice mimics the bedrock topography, while it is controlled by shearing along a horizontal shear zone in the case of anisotropic ice. Green: bedrock, flow to the right.</p>
     </div>
 
     <!-- Tab 2: Science Overview -->
@@ -58,7 +57,7 @@ title: "ISMIP-HOM benchmark experiments using Underworld"
         <p>
           <strong>ISMIP-HOM benchmark experiments using Underworld</strong><br/>
           Till Sachau, Haibin Yang, Justin Lang, Paul D. Bons, Louis Moresi<br/>
-          <em>Geoscientific Model Development</em> — 2022-12-2<br/>
+          <em></em><br/>
           <a class="badge-doi" href="https://doi.org/10.5194/gmd-15-8749-2022" onclick="event.stopPropagation()" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.5194/gmd-15-8749-2022</span></a>
         </p>
 
@@ -71,7 +70,7 @@ geodynamic systems. Advantages for glaciology are that it provides a
 full-Stokes solution for elastic–viscous–plastic materials and includes
 mechanical anisotropy. Underworld uses a material point method to track the
 full history information of Lagrangian material points, of stratigraphic
- layers and of free surfaces. We show that Underworld successfully reproduces
+layers and of free surfaces. We show that Underworld successfully reproduces
 the results of other full-Stokes models for the benchmark experiments of the Ice Sheet Model Intercomparison Project for Higher-Order Models
 (ISMIP-HOM). Furthermore, we test finite-element meshes with different
 geometries and highlight the need to be able to adapt the finite-element
@@ -83,32 +82,30 @@ properties, such as the ice–bedrock boundary.</p>
     <div id="tab-setup" class="tab-panel">
       <h2>Compute Tags</h2>
       <div>
-            <a class="badge-tag" href="/tags/python.html">Python</a>
-            <a class="badge-tag" href="/tags/finite-element.html">Finite-Element</a>
-            <a class="badge-tag" href="/tags/particle-in-cell.html">Particle-in-cell</a>
+        <p><em>None specified.</em></p>
       </div>
 
       <h2>Software</h2>
         <p><strong>Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud</strong></p>
-        <p><a href="https://doi.org/10.5281/zenodo.5935717" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.5935717</a></p>
+        <p><a href="https://doi.org/10.5281/zenodo.5935717" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.5935717</a> · <a href="https://zenodo.org/record/5935717" target="_blank" rel="noopener">https://zenodo.org/record/5935717</a></p>
 
       <h2>Model Setup</h2>
       <div class="full-width-image">
-        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/gmd-15-8749-2022-f01-web.png"
-             alt="(a) 2D geometry of Experiment B. This is identical to a section parallel X located at yˆ = 0.25 in Experiment A (right). Sloping angle α is given in degrees. Also depicted is the velocity field of the flowing ice, resulting for a model width L of 5000 m from the simulations described below. Color and arrow length visualize the amount of velocity. (b) Bedrock topography for Experiment A and general naming scheme for the axes of 3D experiments."
+        <img src="https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup"
+             alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';" />
       </div>
-      <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">(a) 2D geometry of Experiment B. This is identical to a section parallel X located at yˆ = 0.25 in Experiment A (right). Sloping angle α is given in degrees. Also depicted is the velocity field of the flowing ice, resulting for a model width L of 5000 m from the simulations described below. Color and arrow length visualize the amount of velocity. (b) Bedrock topography for Experiment A and general naming scheme for the axes of 3D experiments.</p>
       
     </div>
 
     <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
         <p><strong>Dataset (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html</a></p>
-        <p><strong>Dataset existing identifier:</strong><br/><a href="https://doi.org/10.5281/zenodo.7384424" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.7384424</a></p>
+        <p><strong>Dataset existing identifier:</strong><br/><a href="https://doi.org/10.25914/fhew-h678" target="_blank" rel="noopener">10.25914/fhew-h678</a></p>
         <p><strong>Model files (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html</a></p>
-        <p><strong>Model files existing identifier:</strong><br/><a href="https://doi.org/10.5281/zenodo.7384424" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.7384424</a></p>
+        <p><strong>Model files existing identifier:</strong><br/><a href="https://doi.org/10.5281/zenodo.7384424" target="_blank" rel="noopener">10.5281/zenodo.7384424</a></p>
+        <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
         <p><strong>Source repository:</strong><br/><a href="https://github.com/ModelAtlasofTheEarth/sachau-2022-icesheet" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/sachau-2022-icesheet</a></p>
     </div>
 
@@ -119,7 +116,7 @@ properties, such as the ice–bedrock boundary.</p>
 
       <h2>Licence</h2>
       <p>
-        <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International</a>
+        <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">CC-BY-4.0</a>
       </p>
 
       <h2>Funders</h2>
