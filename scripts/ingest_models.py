@@ -105,7 +105,9 @@ def fetch_ro_crate(repo: str) -> dict:
     Fetch RO-Crate metadata from repository root for a model repository.
     """
     text = None
-    source_name = ""
+    source_name = "ro-crate-metadata.json"
+    # Keep compatibility with repositories that expose the metadata file
+    # using the alternate `ro-create-metadata.json` filename.
     for name in ("ro-crate-metadata.json", "ro-create-metadata.json"):
         url = f"https://raw.githubusercontent.com/{repo}/main/{name}"
         text = fetch_raw(url)
