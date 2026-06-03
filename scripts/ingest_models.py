@@ -218,22 +218,43 @@ def _first_identifier(node: dict, exclude: Optional[Set[str]] = None) -> str:
 
 def discover_graphics(repo: str) -> dict:
     """
-    List .website_material/graphics/ via GitHub API (no auth) or
-    probe common filenames directly via raw.githubusercontent.com.
-    Returns dict with keys: landing_image_url, landing_image_caption,
-    model_setup_image_url, model_setup_image_caption,
-    animation_url, animation_caption.
-    All values default to empty string if not found.
+    Discover model graphics (.website_material/graphics/) via three strategies:
+
+      1. Scrape GitHub web directory listing
+         (https://github.com/{repo}/tree/main/.website_material/graphics).
+         Parse <a href> links for image/video files.  This is the primary
+         strategy because the web UI has no rate limit for public repos and
+         works regardless of filename convention (UUIDs, dashes, etc.).
+
+      2. GitHub REST API
+         (https://api.github.com/repos/{repo}/contents/...) — no auth,
+         but unauthenticated requests are rate-limited to ~60/hr.  Used as
+         a fallback when the web scrape returns no files.
+
+      3. Probe known filenames on raw.githubusercontent.com
+         A hardcoded list of common names (fig1.png, Model_evolution.pdf,
+         animation.mp4, etc.) is tried directly.  This catches repos where
+         the graphics directory exists but the web scrape or API somehow
+         failed to enumerate it.
+
+    Classification rules:
+      - .gif and .mp4 files                → animation
+      - .png, .jpg, .jpeg, .pdf files      → still image
+      - first still  → landing_image_url
+      - second still → model_setup_image_url
+      - animation    → animation_url
+
+    TODO (long-term): Replace auto-discovery with explicit ImageObject
+    nodes in the RO-Crate @graph under .website_material.  Each graphic
+    would be registered as:
+      { "@id": ".website_material/graphics/filename.ext",
+        "@type": "ImageObject",
+        "encodingFormat": "image/gif",
+        "name": "landing_image",          # or "model_setup", "animation"
+        "description": "caption text" }
+    This would make the crate fully self-describing and eliminate all
+    heuristic discovery.
     """
-    # TODO (long-term): Replace auto-discovery with explicit ImageObject nodes in the
-    # RO-Crate @graph under .website_material. Each graphic should be registered as:
-    #   { "@id": ".website_material/graphics/filename.ext",
-    #     "@type": "ImageObject",
-    #     "encodingFormat": "image/gif",   # or image/png etc.
-    #     "name": "animation",             # or "landing_image", "model_setup"
-    #     "description": "caption text" }
-    # This would make the crate fully self-describing and eliminate heuristic discovery.
-    api_url = f"https://api.github.com/repos/{repo}/contents/.website_material/graphics"
     raw_base = f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
 
     result = {
@@ -245,61 +266,75 @@ def discover_graphics(repo: str) -> dict:
         "animation_caption": "",
     }
 
-    def probe_candidates():
-        still_candidates = [
-            "fig1.png", "figure_2.png", "figure2.png",
-            "figure_1.png", "figure1.png", "fig.png",
-            "gmd-15-8749-2022-f09.png", "gmd-15-8749-2022-f01-web.png",
-            "Model_evolution.pdf", "Model_setup.pdf",
-        ]
-        anim_candidates = ["animation.mp4", "animation.gif", "GeolMov.gif"]
-        for name in anim_candidates:
-            candidate = f"{raw_base}/{name}"
-            try:
-                rr = requests.get(candidate, timeout=15)
-                if rr.status_code == 200:
-                    result["animation_url"] = candidate
-                    break
-            except Exception:
-                continue
-        for name in still_candidates:
-            candidate = f"{raw_base}/{name}"
-            try:
-                rr = requests.get(candidate, timeout=15)
-                if rr.status_code == 200:
-                    if not result["landing_image_url"]:
-                        result["landing_image_url"] = candidate
-                    elif not result["model_setup_image_url"]:
-                        result["model_setup_image_url"] = candidate
-            except Exception:
-                continue
+    def _classify_assign(files: list) -> bool:
+        """Sort filenames into stills/animation and fill result dict.
+        Returns True if at least one file was assigned."""
+        anim_ext = (".gif", ".mp4")
+        still_ext = (".png", ".jpg", ".jpeg", ".pdf")
+        anims = [f for f in files if f.lower().endswith(anim_ext)]
+        stills = [f for f in files if f.lower().endswith(still_ext)]
+        if not anims and not stills:
+            return False
+        if anims:
+            result["animation_url"] = f"{raw_base}/{anims[0]}"
+        if stills:
+            result["landing_image_url"] = f"{raw_base}/{stills[0]}"
+        if len(stills) > 1:
+            result["model_setup_image_url"] = f"{raw_base}/{stills[1]}"
+        return True
 
+    # --- Strategy 1: scrape GitHub web directory listing ---
     try:
-        r = requests.get(api_url, timeout=15, headers={"Accept": "application/vnd.github+json"})
-        if r.status_code != 200:
-            probe_candidates()
-            return result
-        files = r.json()
+        web_url = f"https://github.com/{repo}/tree/main/.website_material/graphics"
+        r = requests.get(web_url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
+        if r.status_code == 200:
+            files = list(dict.fromkeys(
+                re.findall(
+                    r'/blob/main/\.website_material/graphics/([^"\'<>]+\.(?:png|jpg|jpeg|gif|mp4|pdf))',
+                    r.text,
+                    re.I,
+                )
+            ))
+            if _classify_assign(files):
+                return result
     except Exception:
-        probe_candidates()
-        return result
+        pass
 
-    gifs = [f for f in files if f["name"].lower().endswith(".gif")]
-    mp4s = [f for f in files if f["name"].lower().endswith(".mp4")]
-    pngs = [f for f in files if f["name"].lower().endswith(".png") and not f["name"].startswith(".")]
-    jpgs = [f for f in files if f["name"].lower().endswith((".jpg", ".jpeg")) and not f["name"].startswith(".")]
+    # --- Strategy 2: GitHub REST API ---
+    try:
+        api_url = f"https://api.github.com/repos/{repo}/contents/.website_material/graphics"
+        r = requests.get(api_url, timeout=15, headers={"Accept": "application/vnd.github+json"})
+        if r.status_code == 200:
+            files = [f["name"] for f in r.json() if isinstance(f, dict)]
+            if _classify_assign(files):
+                return result
+    except Exception:
+        pass
 
-    anim = mp4s + gifs
-    if anim:
-        result["animation_url"] = f"{raw_base}/{anim[0]['name']}"
-    else:
-        probe_candidates()
-
-    stills = pngs + jpgs
-    if stills:
-        result["landing_image_url"] = f"{raw_base}/{stills[0]['name']}"
-    if len(stills) > 1:
-        result["model_setup_image_url"] = f"{raw_base}/{stills[1]['name']}"
+    # --- Strategy 3: probe known filenames directly ---
+    anim_candidates = ["animation.mp4", "animation.gif", "GeolMov.gif"]
+    still_candidates = [
+        "fig1.png", "figure_2.png", "figure2.png",
+        "figure_1.png", "figure1.png", "fig.png",
+        "gmd-15-8749-2022-f09.png", "gmd-15-8749-2022-f01-web.png",
+        "Model_evolution.pdf", "Model_setup.pdf",
+    ]
+    for name in anim_candidates + still_candidates:
+        candidate = f"{raw_base}/{name}"
+        try:
+            rr = requests.get(candidate, timeout=15)
+            if rr.status_code != 200:
+                continue
+            ext = name.lower().rsplit(".", 1)[-1]
+            if ext in ("gif", "mp4") and not result["animation_url"]:
+                result["animation_url"] = candidate
+            elif ext in ("png", "jpg", "jpeg", "pdf"):
+                if not result["landing_image_url"]:
+                    result["landing_image_url"] = candidate
+                elif not result["model_setup_image_url"]:
+                    result["model_setup_image_url"] = candidate
+        except Exception:
+            continue
 
     return result
 
