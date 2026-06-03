@@ -10,6 +10,7 @@
 project:
   type: website
   output-dir: _site
+  pre-render: python scripts/ingest_models.py
 
 website:
   title: "M@TE"
