@@ -1,0 +1,37 @@
+---
+title: "Tag: groundwater"
+---
+
+```{=html}
+<p>Models tagged with <span class="badge-tag">groundwater</span>:</p>
+
+<div class="models-grid">
+
+  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────────────────────── -->
+  <a href="/models/mather-2022-groundwater.html" class="mc-card-container"
+     data-title="constraining the response of continental-scale groundwater flow to climate change"
+     data-tags="groundwater thermal-hydraulic bayesian water-management"
+     data-creators="ben mather r. dietmar müller craig o’neill adam beall r. willem vervoort louis moresi">
+    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
+         alt="Constraining the response of continental-scale groundwater flow to climate change"
+         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
+    <p class="mc-card-abstract">Numerical models of groundwater flow play a critical role for water management scenarios under climate extremes. Large-scale models play a key role in determining long range flow pathways from continental interiors to the oceans, yet struggle to simulate the local flow patterns offered by small-s...</p>
+    <div class="mc-card-meta">
+      <a class="badge-creator" href="/creators/ben-mather.html">Ben Mather</a>
+      <a class="badge-creator" href="/creators/r-dietmar-muller.html">R. Dietmar Müller</a>
+      <a class="badge-creator" href="/creators/craig-oneill.html">Craig O’Neill</a>
+      <br/>
+      <a class="badge-tag" href="/tags/groundwater.html">groundwater</a>
+      <a class="badge-tag" href="/tags/thermal-hydraulic.html">thermal-hydraulic</a>
+      <a class="badge-tag" href="/tags/bayesian.html">Bayesian</a>
+      <a class="badge-tag" href="/tags/water-management.html">water-management</a>
+      <br/>
+      <a class="badge-doi" href="https://doi.org/10.25914/t2mn-bk81" onclick="event.stopPropagation()" target="_blank" rel="noopener">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.25914/t2mn-bk81</span>
+      </a>
+    </div>
+  </a>
+</div>
+```
