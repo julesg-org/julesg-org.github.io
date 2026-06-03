@@ -8,7 +8,7 @@ title: "Tag: Python"
 <div class="models-grid">
 
   <!-- ── Model card: sachau-2022-icesheet ─────────────────────────────────────────────── -->
-  <a href="sachau-2022-icesheet.html" class="mc-card-container"
+  <a href="/models/sachau-2022-icesheet.html" class="mc-card-container"
      data-title="ismip-hom benchmark experiments using underworld"
      data-tags="ice-sheet benchmark stokes anisotropy mechanical python finite-element particle-in-cell"
      data-creators="till sachau haibin yang paul d. bons louis-noel moresi">
@@ -39,7 +39,7 @@ geodynamic syst...</p>
     </div>
   </a>
   <!-- ── Model card: Yu-2025-granulites ─────────────────────────────────────────────── -->
-  <a href="Yu-2025-granulites.html" class="mc-card-container"
+  <a href="/models/Yu-2025-granulites.html" class="mc-card-container"
      data-title="rift foundering and the generation of non-orogenic granulites during the mesoproterozoic"
      data-tags="granulites melt emplacement python finite-element particle-in-cell"
      data-creators="ben steven knight">

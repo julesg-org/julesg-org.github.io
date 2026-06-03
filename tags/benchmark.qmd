@@ -8,7 +8,7 @@ title: "Tag: benchmark"
 <div class="models-grid">
 
   <!-- ── Model card: sachau-2022-icesheet ─────────────────────────────────────────────── -->
-  <a href="sachau-2022-icesheet.html" class="mc-card-container"
+  <a href="/models/sachau-2022-icesheet.html" class="mc-card-container"
      data-title="ismip-hom benchmark experiments using underworld"
      data-tags="ice-sheet benchmark stokes anisotropy mechanical python finite-element particle-in-cell"
      data-creators="till sachau haibin yang paul d. bons louis-noel moresi">

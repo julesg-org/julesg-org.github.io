@@ -23,6 +23,7 @@ import json
 import os
 import re
 import sys
+from typing import Dict, List, Optional, Set, Tuple
 
 import requests
 import yaml
@@ -64,7 +65,7 @@ def tag_slug(tag: str) -> str:
 # Fetch helpers
 # ---------------------------------------------------------------------------
 
-def fetch_raw(url: str) -> str | None:
+def fetch_raw(url: str) -> Optional[str]:
     try:
         r = requests.get(url, timeout=15)
         if r.status_code == 200:
@@ -74,7 +75,7 @@ def fetch_raw(url: str) -> str | None:
     return None
 
 
-def fetch_model_data(repo: str) -> tuple[dict, str]:
+def fetch_model_data(repo: str) -> Tuple[dict, str]:
     """
     Try index.json first, then index.md.
     Returns (raw_data_dict, format) where format is 'json' or 'md'.
@@ -656,7 +657,7 @@ title: "{title}"
 # Hand-crafted mather card (always present)
 MATHER_CARD = """\
   <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
-  <a href="mather-2022-groundwater.html" class="mc-card-container"
+  <a href="/models/mather-2022-groundwater.html" class="mc-card-container"
      data-title="constraining the response of continental-scale groundwater flow to climate change"
      data-tags="groundwater thermal-hydraulic bayesian water-management python"
      data-creators="ben mather dietmar müller craig o'neill adam beall r.willem vervoort louis-noel moresi">
@@ -727,7 +728,7 @@ def model_card_html(m: dict) -> str:
 
     return f"""
   <!-- ── Model card: {slug} ─────────────────────────────────────────────── -->
-  <a href="{slug}.html" class="mc-card-container"
+  <a href="/models/{slug}.html" class="mc-card-container"
      data-title="{title_lc}"
      data-tags="{tags_lc}"
      data-creators="{creators_lc}">
@@ -742,7 +743,7 @@ def model_card_html(m: dict) -> str:
   </a>"""
 
 
-def write_models_index(models: list[dict]) -> None:
+def write_models_index(models: List[dict]) -> None:
     cards_html = MATHER_CARD
     for m in models:
         cards_html += model_card_html(m)
@@ -809,7 +810,7 @@ function filterModels(query) {{
 # tags/ generators
 # ---------------------------------------------------------------------------
 
-def write_tags_index(all_tags: dict, research_tag_set: set, compute_tag_set: set) -> None:
+def write_tags_index(all_tags: Dict[str, List[dict]], research_tag_set: Set[str], compute_tag_set: Set[str]) -> None:
     """all_tags: {tag_display_string: [model_dict, ...]}"""
     # Sort case-insensitively
     sorted_tags = sorted(all_tags.keys(), key=lambda t: t.lower())
@@ -851,7 +852,7 @@ title: "Tags"
     print(f"  Wrote {path}")
 
 
-def write_tag_page(tag: str, models: list[dict]) -> None:
+def write_tag_page(tag: str, models: List[dict]) -> None:
     tslug = tag_slug(tag)
     cards_html = "".join(model_card_html(m) for m in models)
     content = f"""---
@@ -876,7 +877,7 @@ title: "Tag: {tag}"
 # creators/ generators
 # ---------------------------------------------------------------------------
 
-def write_creators_index(all_creators: dict) -> None:
+def write_creators_index(all_creators: Dict[str, List[dict]]) -> None:
     """all_creators: {full_name: [model_slug, ...]}"""
     sorted_names = sorted(all_creators.keys(), key=lambda n: n.split()[-1].lower())
 
@@ -905,7 +906,7 @@ title: "Creators"
     print(f"  Wrote {path}")
 
 
-def write_creator_page(name: str, models: list[dict]) -> None:
+def write_creator_page(name: str, models: List[dict]) -> None:
     cslug = creator_slug(name)
     cards_html = "".join(model_card_html(m) for m in models)
     content = f"""---
@@ -960,7 +961,7 @@ def main() -> None:
     write_models_index(models)
 
     # Build tag index — deduplicate by slug so "Python" and "python" merge
-    _tag_slug_map: dict[str, tuple[str, list[dict]]] = {}  # slug → (display, models)
+    _tag_slug_map: Dict[str, Tuple[str, List[dict]]] = {}  # slug → (display, models)
     for m in models:
         for tag in m["tags"]:
             if tag:
@@ -968,11 +969,11 @@ def main() -> None:
                 if tslug not in _tag_slug_map:
                     _tag_slug_map[tslug] = (tag, [])
                 _tag_slug_map[tslug][1].append(m)
-    all_tags: dict[str, list[dict]] = {display: ms for _slug, (display, ms) in _tag_slug_map.items()}
+    all_tags: Dict[str, List[dict]] = {display: ms for _slug, (display, ms) in _tag_slug_map.items()}
 
     # Track which slugs are research vs compute tags
-    research_slug_set: set[str] = set()
-    compute_slug_set: set[str] = set()
+    research_slug_set: Set[str] = set()
+    compute_slug_set: Set[str] = set()
     for m in models:
         for t in m["research_tags"]:
             if t:
@@ -988,7 +989,7 @@ def main() -> None:
         write_tag_page(tag, tag_models)
 
     # Build creator index
-    all_creators: dict[str, list[dict]] = {}
+    all_creators: Dict[str, List[dict]] = {}
     for m in models:
         for c in m["creators"]:
             name = c["full_name"]

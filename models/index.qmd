@@ -16,7 +16,7 @@ title: "Models"
 <div class="models-grid" id="models-grid">
 
   <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
-  <a href="mather-2022-groundwater.html" class="mc-card-container"
+  <a href="/models/mather-2022-groundwater.html" class="mc-card-container"
      data-title="constraining the response of continental-scale groundwater flow to climate change"
      data-tags="groundwater thermal-hydraulic bayesian water-management python"
      data-creators="ben mather dietmar müller craig o'neill adam beall r.willem vervoort louis-noel moresi">
@@ -46,7 +46,7 @@ title: "Models"
     </div>
   </a>
   <!-- ── Model card: sachau-2022-icesheet ─────────────────────────────────────────────── -->
-  <a href="sachau-2022-icesheet.html" class="mc-card-container"
+  <a href="/models/sachau-2022-icesheet.html" class="mc-card-container"
      data-title="ismip-hom benchmark experiments using underworld"
      data-tags="ice-sheet benchmark stokes anisotropy mechanical python finite-element particle-in-cell"
      data-creators="till sachau haibin yang paul d. bons louis-noel moresi">
@@ -77,7 +77,7 @@ geodynamic syst...</p>
     </div>
   </a>
   <!-- ── Model card: Yu-2025-granulites ─────────────────────────────────────────────── -->
-  <a href="Yu-2025-granulites.html" class="mc-card-container"
+  <a href="/models/Yu-2025-granulites.html" class="mc-card-container"
      data-title="rift foundering and the generation of non-orogenic granulites during the mesoproterozoic"
      data-tags="granulites melt emplacement python finite-element particle-in-cell"
      data-creators="ben steven knight">
