@@ -1,0 +1,18 @@
+[workspace]
+name = "mate-website"
+version = "0.1.0"
+description = "M@TE Model Atlas of the Earth — Quarto website with live model ingestion"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tasks]
+ingest = "python scripts/ingest_models.py"
+render = "quarto render"
+preview = "quarto preview"
+build = { depends-on = ["ingest", "render"] }
+
+[dependencies]
+python = ">=3.10"
+requests = "*"
+poppler = "*"
+quarto = ">=1.9"

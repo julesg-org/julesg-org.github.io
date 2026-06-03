@@ -12,22 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Pixi environment
+        uses: prefix-dev/setup-pixi@v0
         with:
-          python-version: '3.x'
+          cache: true
 
-      - name: Install Python dependencies
-        run: pip install requests
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Ingest model data from GitHub
-        run: python scripts/ingest_models.py
-
-      - name: Render Quarto site
-        run: quarto render
+      - name: Build site
+        run: pixi run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
