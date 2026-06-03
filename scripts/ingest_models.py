@@ -640,7 +640,7 @@ def model_qmd(m: dict) -> str:
         doi_badge_html = ""
 
     # Abstract
-    abstract = (m["abstract"] or "").replace("which capture the intricate flow pathways", "which captures the intricate flow pathways")
+    abstract = m["abstract"] or ""
     description = m["description"]
 
     # Citation text normalisation
@@ -651,14 +651,7 @@ def model_qmd(m: dict) -> str:
         if (authors_for_citation and doi_raw)
         else ""
     )
-    credit = (credit or "").strip()
-    if credit:
-        if "https://doi.org/" in credit and doi_raw:
-            credit = re.sub(r"https://doi\.org/[^\s<]+", safe_doi(doi_raw), credit)
-        if "http://dx.doi.org/" in credit and doi_raw:
-            credit = re.sub(r"http://dx\.doi\.org/[^\s<]+", safe_doi(doi_raw), credit)
-    if not credit or "['" in credit or '["' in credit or ("[" in credit and "]" in credit):
-        credit = fallback_citation or credit
+    credit = fallback_citation or (credit or "").strip()
 
     if anim_url:
         lower_anim = anim_url.lower()
