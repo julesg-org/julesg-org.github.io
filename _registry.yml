@@ -10,6 +10,8 @@
 models:
   - slug: mather-2022-groundwater
     repo: ModelAtlasofTheEarth/mather-2022-groundwater
+  - slug: sandifordcraig-2023-subduction
+    repo: ModelAtlasofTheEarth/sandifordcraig-2023-subduction
   - slug: sachau-2022-icesheet
     repo: ModelAtlasofTheEarth/sachau-2022-icesheet
   - slug: Yu-2025-granulites
