@@ -36,12 +36,11 @@ title: "ISMIP-HOM benchmark experiments using Underworld"
       <p>Knowledge of the internal structures of the major continental ice sheets is improving, thanks to new investigative techniques. These structures are an essential indication of the flow behavior and dynamics of ice transport, which in turn is important for understanding the actual impact of the vast amounts of water trapped in continental ice sheets on global sea-level rise. The software studied here is specifically designed to simulate such structures and their evolution.</p>
 
       <div class="full-width-image">
-        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/gmd-15-8749-2022-f09.png"
+        <img src="https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
              alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/D64000/white?text=M%40TE+Model';" />
       </div>
-      
     </div>
 
     <!-- Tab 2: Science Overview -->
@@ -60,7 +59,7 @@ title: "ISMIP-HOM benchmark experiments using Underworld"
           <strong>ISMIP-HOM benchmark experiments using Underworld</strong><br/>
           Till Sachau, Haibin Yang, Justin Lang, Paul D. Bons, Louis Moresi<br/>
           <em></em><br/>
-          <a class="badge-doi" href="http://dx.doi.org/10.5194/gmd-15-8749-2022" onclick="event.stopPropagation()" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.5194/gmd-15-8749-2022</span></a>
+          <a class="badge-doi" href="https://doi.org/10.5194/gmd-15-8749-2022" onclick="event.stopPropagation()" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.5194/gmd-15-8749-2022</span></a>
         </p>
 
       <h2>Abstract</h2>
@@ -93,17 +92,21 @@ properties, such as the ice–bedrock boundary.</p>
 
       <h2>Model Setup</h2>
       <div class="full-width-image">
-        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/gmd-15-8749-2022-f01-web.png"
+        <img src="https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup"
              alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';" />
       </div>
       
-      
     </div>
 
     <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
+        <p><strong>Dataset (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html</a></p>
+        <p><strong>Dataset existing identifier:</strong><br/><a href="https://doi.org/10.25914/fhew-h678" target="_blank" rel="noopener">10.25914/fhew-h678</a></p>
+        <p><strong>Model files (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html</a></p>
+        <p><strong>Model files existing identifier:</strong><br/><a href="https://doi.org/10.5281/zenodo.7384424" target="_blank" rel="noopener">10.5281/zenodo.7384424</a></p>
+        <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
         <p><strong>Source repository:</strong><br/><a href="https://github.com/ModelAtlasofTheEarth/sachau-2022-icesheet" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/sachau-2022-icesheet</a></p>
     </div>
 
@@ -114,7 +117,7 @@ properties, such as the ice–bedrock boundary.</p>
 
       <h2>Licence</h2>
       <p>
-        CC-BY-4.0
+        <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">CC-BY-4.0</a>
       </p>
 
       <h2>Funders</h2>

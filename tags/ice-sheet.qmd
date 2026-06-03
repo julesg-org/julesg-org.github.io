@@ -12,7 +12,7 @@ title: "Tag: ice-sheet"
      data-title="ismip-hom benchmark experiments using underworld"
      data-tags="ice-sheet benchmark stokes anisotropy mechanical"
      data-creators="till sachau haibin yang paul d. bons louis moresi">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/gmd-15-8749-2022-f09.png"
+    <img src="https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
          alt="ISMIP-HOM benchmark experiments using Underworld"
          onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
     <h3>ISMIP-HOM benchmark experiments using Underworld</h3>

@@ -33,12 +33,11 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
       <p>This model was developed to test the generation of non-orogenic granulites due to rifting. We implemented a melt generation and emplacement model and compared with analytical results obtained from the Fraser zone, SW WA.</p>
 
       <div class="full-width-image">
-        <img src="https://github.com/user-attachments/files/23468159/Model_evolution.pdf"
+        <img src="https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
              alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/D64000/white?text=M%40TE+Model';" />
       </div>
-      
     </div>
 
     <!-- Tab 2: Science Overview -->
@@ -71,27 +70,31 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
 
       <h2>Software</h2>
         <p><strong>underworld2</strong></p>
+        <p><a href="https://doi.org/10.5281/zenodo.6820562" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.6820562</a></p>
 
       <h2>Model Setup</h2>
       <div class="full-width-image">
-        <img src="https://github.com/user-attachments/files/23468175/Model_setup.pdf"
+        <img src="https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup"
              alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';" />
       </div>
       
-      
     </div>
 
     <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
+        <p><strong>Dataset (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html</a></p>
+        <p><strong>Dataset existing identifier:</strong><br/><a href="https://doi.org/10.25914/0a2t-by03" target="_blank" rel="noopener">10.25914/0a2t-by03</a></p>
+        <p><strong>Model files (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html</a></p>
+        <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
         <p><strong>Source repository:</strong><br/><a href="https://github.com/ModelAtlasofTheEarth/Yu-2025-granulites" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/Yu-2025-granulites</a></p>
     </div>
 
     <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2>Citation</h2>
-      <blockquote>Ben S. Knight. (2025). Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic. https://doi.org/10.25914/0a2t-by03</blockquote>
+      <blockquote>Knight, Ben S.. (2025). Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic [Data set]. AuScope, National Computational Infrastructure. https://doi.org/0a2t-by03</blockquote>
 
       <h2>Licence</h2>
       <p>

@@ -1,9 +1,9 @@
 ---
-title: "Diane Arcay"
+title: "Bénédicte Cenki-Tok or Cenki"
 ---
 
 ```{=html}
-<p>Models by <span class="badge-creator">Diane Arcay</span>:</p>
+<p>Models by <span class="badge-creator">Bénédicte Cenki-Tok or Cenki</span>:</p>
 
 <div class="models-grid">
 

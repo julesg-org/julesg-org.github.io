@@ -1,9 +1,9 @@
 ---
-title: "Diane Arcay"
+title: "Tag: stability"
 ---
 
 ```{=html}
-<p>Models by <span class="badge-creator">Diane Arcay</span>:</p>
+<p>Models tagged with <span class="badge-tag">stability</span>:</p>
 
 <div class="models-grid">
 

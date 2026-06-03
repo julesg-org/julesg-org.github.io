@@ -1,9 +1,9 @@
 ---
-title: "Diane Arcay"
+title: "Tag: retrogression"
 ---
 
 ```{=html}
-<p>Models by <span class="badge-creator">Diane Arcay</span>:</p>
+<p>Models tagged with <span class="badge-tag">retrogression</span>:</p>
 
 <div class="models-grid">
 
