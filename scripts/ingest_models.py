@@ -806,40 +806,6 @@ title: "{yaml_esc(title)}"
 # models/index.qmd generator
 # ---------------------------------------------------------------------------
 
-# Hand-crafted mather card (always present)
-MATHER_CARD = """\
-  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
-  <a href="/models/mather-2022-groundwater.html" class="mc-card-container"
-     data-title="constraining the response of continental-scale groundwater flow to climate change"
-     data-tags="groundwater thermal-hydraulic bayesian water-management python"
-     data-creators="ben mather dietmar müller craig o'neill adam beall r.willem vervoort louis-noel moresi">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
-         alt="Groundwater flow model figure"
-         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
-    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
-    <p class="mc-card-abstract">
-      Numerical models of groundwater flow play a critical role for water management scenarios
-      under climate extremes. We developed a highly scalable numerical framework to model
-      continental groundwater flow, capturing flow pathways between deep aquifers and the near-surface.
-    </p>
-    <div class="mc-card-meta">
-      <a class="badge-creator" href="/creators/ben-mather.html">Ben Mather</a>
-      <a class="badge-creator" href="/creators/dietmar-muller.html">Dietmar Müller</a>
-      <a class="badge-creator" href="/creators/craig-oneill.html">Craig O'Neill</a>
-      <br/>
-      <a class="badge-tag" href="/tags/groundwater.html">groundwater</a>
-      <a class="badge-tag" href="/tags/thermal-hydraulic.html">thermal-hydraulic</a>
-      <a class="badge-tag" href="/tags/bayesian.html">Bayesian</a>
-      <a class="badge-tag" href="/tags/python.html">Python</a>
-      <br/>
-      <a class="badge-doi" href="https://doi.org/10.25914/t2mn-bk81" onclick="event.stopPropagation()" target="_blank" rel="noopener">
-        <span class="badge-doi-left">DOI</span>
-        <span class="badge-doi-right">10.25914/t2mn-bk81</span>
-      </a>
-    </div>
-  </a>"""
-
-
 def model_card_html(m: dict) -> str:
     slug = m["slug"]
     title = m["title"]
@@ -896,7 +862,7 @@ def model_card_html(m: dict) -> str:
 
 
 def write_models_index(models: List[dict]) -> None:
-    cards_html = MATHER_CARD
+    cards_html = ""
     for m in models:
         cards_html += model_card_html(m)
 
