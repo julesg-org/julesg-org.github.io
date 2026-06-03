@@ -357,8 +357,9 @@ def _convert_pdf_to_png(url: str, slug: str, label: str) -> str:
 
     out_dir = "models/_graphics"
     out_path = os.path.join(out_dir, f"{slug}_{label}.png")
+    rel_path = f"_graphics/{slug}_{label}.png"
     if os.path.exists(out_path):
-        return out_path
+        return rel_path
 
     os.makedirs(out_dir, exist_ok=True)
 
@@ -386,7 +387,7 @@ def _convert_pdf_to_png(url: str, slug: str, label: str) -> str:
         if os.path.exists(pdf_tmp):
             os.unlink(pdf_tmp)
 
-    return out_path if os.path.exists(out_path) else url
+    return rel_path if os.path.exists(out_path) else url
 
 
 def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:

@@ -10,6 +10,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - models/_graphics/
 
 website:
   title: "M@TE"
