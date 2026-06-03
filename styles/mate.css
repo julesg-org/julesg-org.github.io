@@ -371,3 +371,26 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+.tab-container { margin: 1.5rem 0; }
+.tab-nav { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 2px solid #eee; margin-bottom: 1rem; }
+.tab-btn { background: none; border: none; padding: 0.5rem 1.1rem; font-size: 15px; font-weight: 600; color: #555; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tab-btn.active { color: var(--mate-primary); border-bottom-color: var(--mate-primary); }
+.tab-btn:hover { color: var(--mate-primary); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── Clickable tag and creator badges ─────────────────────────────────────── */
+a.badge-tag { cursor: pointer; }
+a.badge-tag:hover { background-color: var(--mate-primary); text-decoration: none; color: #fff; }
+a.badge-creator { cursor: pointer; text-decoration: none; }
+a.badge-creator:hover { background-color: #444; text-decoration: none; }
+
+/* ── Tag cloud page ───────────────────────────────────────────────────────── */
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.tag-cloud .badge-tag { font-size: 15px; padding: 4px 12px; }
+
+/* ── Creator list ─────────────────────────────────────────────────────────── */
+.creator-list { list-style: none; padding: 0; }
+.creator-list li { padding: 0.4rem 0; border-bottom: 1px solid #eee; font-size: 16px; }

@@ -1,0 +1,13 @@
+# =============================================================================
+# _registry.yml — M@TE model registry
+# =============================================================================
+# Add one entry per model to ingest.  After editing this file, re-run:
+#   python scripts/ingest_models.py
+# then commit the generated .qmd files alongside this registry.
+# =============================================================================
+
+models:
+  - slug: sachau-2022-icesheet
+    repo: ModelAtlasofTheEarth/sachau-2022-icesheet
+  - slug: Yu-2025-granulites
+    repo: ModelAtlasofTheEarth/Yu-2025-granulites

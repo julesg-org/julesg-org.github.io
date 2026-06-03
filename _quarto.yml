@@ -25,6 +25,10 @@ website:
         href: index.qmd
       - text: "Models"
         href: models/index.qmd
+      - text: "Tags"
+        href: tags/index.qmd
+      - text: "Creators"
+        href: creators/index.qmd
       - text: "News"
         href: news/index.qmd
       - text: "About"

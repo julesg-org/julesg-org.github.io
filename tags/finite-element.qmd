@@ -1,50 +1,12 @@
 ---
-title: "Models"
+title: "Tag: Finite-Element"
 ---
 
 ```{=html}
-<div style="padding: 1rem 0;">
-  <input
-    class="model-search-box"
-    id="model-search"
-    type="text"
-    placeholder="&#x1F50D; Search models by title, creator, or tag&hellip;"
-    oninput="filterModels(this.value)"
-  />
-</div>
+<p>Models tagged with <span class="badge-tag">Finite-Element</span>:</p>
 
-<div class="models-grid" id="models-grid">
+<div class="models-grid">
 
-  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
-  <a href="mather-2022-groundwater.html" class="mc-card-container"
-     data-title="constraining the response of continental-scale groundwater flow to climate change"
-     data-tags="groundwater thermal-hydraulic bayesian water-management python"
-     data-creators="ben mather dietmar müller craig o'neill adam beall r.willem vervoort louis-noel moresi">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
-         alt="Groundwater flow model figure"
-         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
-    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
-    <p class="mc-card-abstract">
-      Numerical models of groundwater flow play a critical role for water management scenarios
-      under climate extremes. We developed a highly scalable numerical framework to model
-      continental groundwater flow, capturing flow pathways between deep aquifers and the near-surface.
-    </p>
-    <div class="mc-card-meta">
-      <a class="badge-creator" href="/creators/ben-mather.html">Ben Mather</a>
-      <a class="badge-creator" href="/creators/dietmar-muller.html">Dietmar Müller</a>
-      <a class="badge-creator" href="/creators/craig-oneill.html">Craig O'Neill</a>
-      <br/>
-      <a class="badge-tag" href="/tags/groundwater.html">groundwater</a>
-      <a class="badge-tag" href="/tags/thermal-hydraulic.html">thermal-hydraulic</a>
-      <a class="badge-tag" href="/tags/bayesian.html">Bayesian</a>
-      <a class="badge-tag" href="/tags/python.html">Python</a>
-      <br/>
-      <a class="badge-doi" href="https://doi.org/10.25914/t2mn-bk81" onclick="event.stopPropagation()" target="_blank" rel="noopener">
-        <span class="badge-doi-left">DOI</span>
-        <span class="badge-doi-right">10.25914/t2mn-bk81</span>
-      </a>
-    </div>
-  </a>
   <!-- ── Model card: sachau-2022-icesheet ─────────────────────────────────────────────── -->
   <a href="sachau-2022-icesheet.html" class="mc-card-container"
      data-title="ismip-hom benchmark experiments using underworld"
@@ -96,36 +58,5 @@ geodynamic syst...</p>
       <a class="badge-tag" href="/tags/finite-element.html">finite element</a>
     </div>
   </a>
-
 </div>
-
-<p id="no-results" style="display:none; color:#888; font-size:16px;">No models matched your search.</p>
-
-<script>
-function filterModels(query) {
-  var q = query.toLowerCase().trim();
-  var cards = document.querySelectorAll('#models-grid > [data-title]');
-  var visible = 0;
-  cards.forEach(function(card) {
-    var text = (
-      (card.dataset.title || '') + ' ' +
-      (card.dataset.tags  || '') + ' ' +
-      (card.dataset.creators || '')
-    ).toLowerCase();
-    var show = !q || text.includes(q);
-    card.style.display = show ? '' : 'none';
-    if (show) visible++;
-  });
-  document.getElementById('no-results').style.display = (visible === 0) ? '' : 'none';
-}
-// Support ?q= URL parameter for deep-linking from tag/creator pages
-(function() {
-  var params = new URLSearchParams(window.location.search);
-  var q = params.get('q');
-  if (q) {
-    var box = document.getElementById('model-search');
-    if (box) { box.value = q; filterModels(q); }
-  }
-})();
-</script>
 ```
