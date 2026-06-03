@@ -110,7 +110,7 @@ properties, such as the ice–bedrock boundary.</p>
     <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2>Citation</h2>
-      <blockquote>Sachau, T., Yang, H., Bons, P., & Moresi, Louis. (2024). ISMIP-HOM benchmark experiments using Underworld [Data set]. AuScope, National Computational Infrastructure. https://doi.org/fhew-h678</blockquote>
+      <blockquote>Till Sachau, Haibin Yang, Paul D. Bons, Louis Moresi. (n.d.). ISMIP-HOM benchmark experiments using Underworld. https://doi.org/10.25914/fhew-h678</blockquote>
 
       <h2>Licence</h2>
       <p>

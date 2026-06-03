@@ -71,7 +71,6 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
 
       <h2>Software</h2>
         <p><strong>underworld2</strong></p>
-        <p><a href="https://zenodo.org/records/6820562" target="_blank" rel="noopener">https://zenodo.org/records/6820562</a></p>
 
       <h2>Model Setup</h2>
       <div class="full-width-image">
@@ -92,7 +91,7 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
     <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2>Citation</h2>
-      <blockquote>Knight, Ben S.. (2025). Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic [Data set]. AuScope, National Computational Infrastructure. https://doi.org/0a2t-by03</blockquote>
+      <blockquote>Ben S. Knight. (2025). Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic. https://doi.org/10.25914/0a2t-by03</blockquote>
 
       <h2>Licence</h2>
       <p>

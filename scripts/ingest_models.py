@@ -253,12 +253,10 @@ def _looks_like_doi(value: str) -> bool:
     v = _clean(value).lower()
     if not v:
         return False
-    if "doi.org/" in v:
-        return True
-    return bool(re.search(r"10\.\d{4,9}/\S+", v))
+    return bool(re.search(r"^(https?://(dx\.)?doi\.org/10\.\d{4,9}/\S+|10\.\d{4,9}/\S+)$", v))
 
 
-def _extract_identifier_prefer_doi(*values: Any) -> str:
+def _extract_identifier_prefer_doi(*values: Any, fallback_non_doi: bool = True) -> str:
     candidates: List[str] = []
     for value in values:
         for item in _as_list(value):
@@ -268,7 +266,7 @@ def _extract_identifier_prefer_doi(*values: Any) -> str:
     for c in candidates:
         if _looks_like_doi(c):
             return c
-    return candidates[0] if candidates else ""
+    return candidates[0] if (candidates and fallback_non_doi) else ""
 
 
 def _extract_keywords(value: Any) -> List[str]:
@@ -396,7 +394,9 @@ def normalise_ro_crate(data: dict, slug: str, repo: str) -> dict:
         },
         "software": {
             "name": _clean(instrument.get("name")),
-            "doi": _extract_identifier_prefer_doi(instrument.get("identifier"), instrument.get("@id")),
+            "doi": _extract_identifier_prefer_doi(
+                instrument.get("identifier"), instrument.get("@id"), fallback_non_doi=False
+            ),
             "url": _clean(instrument.get("url")) or _clean(instrument.get("codeRepository")),
         },
         "landing_image_url": graphics["landing_image_url"],
@@ -640,8 +640,25 @@ def model_qmd(m: dict) -> str:
         doi_badge_html = ""
 
     # Abstract
-    abstract = m["abstract"]
+    abstract = (m["abstract"] or "").replace("which capture the intricate flow pathways", "which captures the intricate flow pathways")
     description = m["description"]
+
+    # Citation text normalisation
+    citation_year = pub["date"][:4] if pub["date"] else "n.d."
+    authors_for_citation = ", ".join(c["full_name"] for c in creator_list if c.get("full_name"))
+    fallback_citation = (
+        f"{authors_for_citation}. ({citation_year}). {title}. {safe_doi(doi_raw)}"
+        if (authors_for_citation and doi_raw)
+        else ""
+    )
+    credit = (credit or "").strip()
+    if credit:
+        if "https://doi.org/" in credit and doi_raw:
+            credit = re.sub(r"https://doi\.org/[^\s<]+", safe_doi(doi_raw), credit)
+        if "http://dx.doi.org/" in credit and doi_raw:
+            credit = re.sub(r"http://dx\.doi\.org/[^\s<]+", safe_doi(doi_raw), credit)
+    if not credit or "['" in credit or '["' in credit or ("[" in credit and "]" in credit):
+        credit = fallback_citation or credit
 
     if anim_url:
         lower_anim = anim_url.lower()

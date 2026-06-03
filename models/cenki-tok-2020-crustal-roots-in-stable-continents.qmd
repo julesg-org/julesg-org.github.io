@@ -71,7 +71,6 @@ title: "Strain and retrogression partitioning explain long-term stability of cru
 
       <h2>Software</h2>
         <p><strong>Underworld 2</strong></p>
-        <p><a href="Underworld 2 version 2.8.5" target="_blank" rel="noopener">Underworld 2 version 2.8.5</a></p>
 
       <h2>Model Setup</h2>
       <div class="full-width-image">
@@ -92,7 +91,7 @@ title: "Strain and retrogression partitioning explain long-term stability of cru
     <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2>Citation</h2>
-      <blockquote>Cenki-Tok or Cenki, B., Rey, P., & Arcay, D. (2024). Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents [Data set]. AuScope, National Computational Infrastructure. https://doi.org/tm6d-t466</blockquote>
+      <blockquote>Bénédicte Cenki-Tok or Cenki, Patrice Rey, Diane Arcay. (n.d.). Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents. https://doi.org/10.25914/tm6d-t466</blockquote>
 
       <h2>Licence</h2>
       <p>
