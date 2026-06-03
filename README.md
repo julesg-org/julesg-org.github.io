@@ -55,8 +55,9 @@ models:
     repo: ModelAtlasofTheEarth/my-new-model
 ```
 
-2. Commit `_registry.yml` and push — CI fetches the model data from GitHub and
-   regenerates all pages automatically.
+2. Run `python scripts/ingest_models.py` locally to preview, or just commit and
+   push — CI fetches the model data from GitHub and regenerates all pages
+   automatically.
 
 ### Running locally
 
@@ -69,16 +70,18 @@ git checkout julesghub-nodup
 # 2. Install Python dependencies (one-time setup)
 pip install requests
 
-# 3. Preview or build — the ingest script runs automatically via pre-render
+# 3. Fetch model data from GitHub and generate .qmd files
+python scripts/ingest_models.py
+
+# 4. Preview or build the site
 quarto preview
 # or
 quarto render
 ```
 
-The `pre-render` hook in `_quarto.yml` runs `python scripts/ingest_models.py`
-before every render, so model pages are always up-to-date with their source
-repositories on GitHub. Generated `.qmd` files live only on disk during
-rendering and are never committed.
+The ingest script must be run **before** every `quarto preview` or `quarto render`
+to ensure model pages reflect the latest metadata from the source repositories.
+Generated `.qmd` files live only on disk during rendering and are never committed.
 
 ---
 

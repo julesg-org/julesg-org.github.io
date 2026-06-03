@@ -23,6 +23,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Ingest model data from GitHub
+        run: python scripts/ingest_models.py
+
       - name: Render Quarto site
         run: quarto render
 
