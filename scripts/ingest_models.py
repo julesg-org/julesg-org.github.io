@@ -22,7 +22,9 @@ No GitHub token is required — all source repos must be public.
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 from typing import Dict, List, Optional, Set, Tuple
 
 import requests
@@ -339,6 +341,54 @@ def discover_graphics(repo: str) -> dict:
     return result
 
 
+def _convert_pdf_to_png(url: str, slug: str, label: str) -> str:
+    """Convert a PDF graphic URL to a local PNG.
+
+    Downloads the PDF from *url*, converts the first page to PNG using
+    pdftoppm, and saves to models/_graphics/{slug}_{label}.png.
+
+    If the URL does not end with ``.pdf``, or if anything fails
+    (download error, missing pdftoppm, conversion error), the original
+    URL is returned unchanged so the caller's ``onerror`` placeholder
+    fallback still works in the HTML.
+    """
+    if not url.lower().endswith(".pdf"):
+        return url
+
+    out_dir = "models/_graphics"
+    out_path = os.path.join(out_dir, f"{slug}_{label}.png")
+    if os.path.exists(out_path):
+        return out_path
+
+    os.makedirs(out_dir, exist_ok=True)
+
+    try:
+        resp = requests.get(url, timeout=30)
+        resp.raise_for_status()
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
+            f.write(resp.content)
+            pdf_tmp = f.name
+
+        prefix = os.path.splitext(out_path)[0]
+        subprocess.run(
+            ["pdftoppm", "-png", "-r", "150", pdf_tmp, prefix],
+            check=True,
+            capture_output=True,
+            timeout=60,
+        )
+        # pdftoppm creates {prefix}-1.png for the first page
+        page1 = f"{prefix}-1.png"
+        if os.path.exists(page1) and not os.path.exists(out_path):
+            os.rename(page1, out_path)
+    except Exception:
+        return url
+    finally:
+        if os.path.exists(pdf_tmp):
+            os.unlink(pdf_tmp)
+
+    return out_path if os.path.exists(out_path) else url
+
+
 def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
     """
     Parse a RO-Crate 1.1 @graph into the common normalised schema dict.
@@ -621,7 +671,7 @@ def model_qmd(m: dict) -> str:
     ctags_html = tag_badges_html(m["compute_tags"], linked=True, indent=12)
 
     # Model setup image
-    ms_url = m["model_setup_image_url"] or PLACEHOLDER_SETUP_IMG
+    ms_url = _convert_pdf_to_png(m["model_setup_image_url"], slug, "setup") or PLACEHOLDER_SETUP_IMG
     ms_cap = m["model_setup_image_caption"] or ""
 
     # Build snapshot media block
@@ -645,7 +695,7 @@ def model_qmd(m: dict) -> str:
         if anim_cap:
             media_html += f'\n      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">{anim_cap}</p>'
     else:
-        li_url = m["landing_image_url"] or PLACEHOLDER_IMG
+        li_url = _convert_pdf_to_png(m["landing_image_url"], slug, "landing") or PLACEHOLDER_IMG
         li_cap = m["landing_image_caption"] or ""
         media_html = f"""      <div class="full-width-image">
         <img src="{li_url}"
@@ -870,7 +920,7 @@ def model_card_html(m: dict) -> str:
     if len(abstract) > 300:
         abstract = abstract[:297] + "..."
 
-    img_url = m["landing_image_url"] or PLACEHOLDER_IMG
+    img_url = _convert_pdf_to_png(m["landing_image_url"], slug, "card") or PLACEHOLDER_IMG
     doi_raw = m["doi"]
     doi_href = safe_doi(doi_raw)
     doi_display = doi_raw.replace("https://doi.org/", "") if doi_raw else ""
