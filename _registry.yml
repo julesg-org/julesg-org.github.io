@@ -1,14 +1,15 @@
 # =============================================================================
 # _registry.yml — M@TE model registry
 # =============================================================================
-# Add one entry per model to ingest. After editing this file, re-run:
-#   python scripts/ingest_models.py
-# then commit the generated .qmd files alongside this registry.
+# Add one entry per model to ingest. The pre-render hook runs
+# python scripts/ingest_models.py automatically before each render.
 # Each entry needs only the GitHub repo — all metadata comes from the
 # repo root ro-crate-metadata.json (or ro-create-metadata.json, RO-Crate 1.1 format).
 # =============================================================================
 
 models:
+  - slug: mather-2022-groundwater
+    repo: ModelAtlasofTheEarth/mather-2022-groundwater
   - slug: sachau-2022-icesheet
     repo: ModelAtlasofTheEarth/sachau-2022-icesheet
   - slug: Yu-2025-granulites
