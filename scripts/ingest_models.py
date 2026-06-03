@@ -3,7 +3,7 @@
 scripts/ingest_models.py — M@TE model ingestion pipeline
 =========================================================
 Reads _registry.yml, fetches each model's root-level
-ro-create-metadata.json (or ro-crate-metadata.json) from GitHub, normalises the
+ro-crate-metadata.json (or ro-create-metadata.json) from GitHub, normalises the
 data into a common schema, then generates:
 
   models/{slug}.qmd               — detailed model page (tabbed layout)
@@ -106,7 +106,7 @@ def fetch_ro_crate(repo: str) -> dict:
     """
     text = None
     source_name = ""
-    for name in ("ro-create-metadata.json", "ro-crate-metadata.json"):
+    for name in ("ro-crate-metadata.json", "ro-create-metadata.json"):
         url = f"https://raw.githubusercontent.com/{repo}/main/{name}"
         text = fetch_raw(url)
         if text:
@@ -114,7 +114,7 @@ def fetch_ro_crate(repo: str) -> dict:
             break
     if not text:
         raise RuntimeError(
-            f"Could not fetch ro-create-metadata.json or ro-crate-metadata.json for {repo}"
+            f"Could not fetch ro-crate-metadata.json or ro-create-metadata.json for {repo}"
         )
     try:
         return json.loads(text)

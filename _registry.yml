@@ -5,7 +5,7 @@
 #   python scripts/ingest_models.py
 # then commit the generated .qmd files alongside this registry.
 # Each entry needs only the GitHub repo — all metadata comes from the
-# repo root ro-create-metadata.json (or ro-crate-metadata.json, RO-Crate 1.1 format).
+# repo root ro-crate-metadata.json (or ro-create-metadata.json, RO-Crate 1.1 format).
 # =============================================================================
 
 models:
