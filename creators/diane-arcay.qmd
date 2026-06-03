@@ -1,0 +1,36 @@
+---
+title: "Diane Arcay"
+---
+
+```{=html}
+<p>Models by <span class="badge-creator">Diane Arcay</span>:</p>
+
+<div class="models-grid">
+
+  <!-- ── Model card: cenki-tok-2020-crustal-roots-in-stable-continents ─────────────────────────────────────────────── -->
+  <a href="/models/cenki-tok-2020-crustal-roots-in-stable-continents.html" class="mc-card-container"
+     data-title="strain and retrogression partitioning explain long-term stability of crustal roots in stable continents"
+     data-tags="crustal-roots stability retrogression"
+     data-creators="bénédicte cenki-tok or cenki patrice rey diane arcay">
+    <img src="https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
+         alt="Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents"
+         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+    <h3>Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents</h3>
+    <p class="mc-card-abstract">Away from tectonically active regions, the continental crust has an average thickness of 40 ± 1 km. Yet, it shows a remarkable variability from 25 to 65 km, comparable to that of the most tectonically active regions. Here, we consider the problem of the formation and preservation of anomalous dee...</p>
+    <div class="mc-card-meta">
+      <a class="badge-creator" href="/creators/bénédicte-cenki-tok-or-cenki.html">Bénédicte Cenki-Tok or Cenki</a>
+      <a class="badge-creator" href="/creators/patrice-rey.html">Patrice Rey</a>
+      <a class="badge-creator" href="/creators/diane-arcay.html">Diane Arcay</a>
+      <br/>
+      <a class="badge-tag" href="/tags/crustal-roots.html">crustal roots</a>
+      <a class="badge-tag" href="/tags/stability.html">stability</a>
+      <a class="badge-tag" href="/tags/retrogression.html">retrogression</a>
+      <br/>
+      <a class="badge-doi" href="https://doi.org/10.25914/tm6d-t466" onclick="event.stopPropagation()" target="_blank" rel="noopener">
+        <span class="badge-doi-left">DOI</span>
+        <span class="badge-doi-right">10.25914/tm6d-t466</span>
+      </a>
+    </div>
+  </a>
+</div>
+```

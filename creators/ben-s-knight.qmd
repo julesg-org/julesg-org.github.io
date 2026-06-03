@@ -1,9 +1,9 @@
 ---
-title: "Tag: melt"
+title: "Ben S. Knight"
 ---
 
 ```{=html}
-<p>Models tagged with <span class="badge-tag">melt</span>:</p>
+<p>Models by <span class="badge-creator">Ben S. Knight</span>:</p>
 
 <div class="models-grid">
 

@@ -12,10 +12,10 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
 
   <div class="model-meta-block">
     <strong>DOI:</strong>
-    <em>Not yet assigned.</em>
+        <a class="badge-doi" href="https://doi.org/10.25914/0a2t-by03" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.25914/0a2t-by03</span></a>
     <br/><br/>
     <strong>Creators:</strong><br/>
-    <a class="badge-creator" href="/creators/ben-steven-knight.html">Ben Steven Knight</a>
+    <a class="badge-creator" href="/creators/ben-s-knight.html">Ben S. Knight</a>
   </div>
 
   <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
@@ -32,12 +32,11 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
     <div id="tab-snapshot" class="tab-panel active">
       <p>This model was developed to test the generation of non-orogenic granulites due to rifting. We implemented a melt generation and emplacement model and compared with analytical results obtained from the Fraser zone, SW WA.</p>
       <div class="full-width-image">
-        <img src="https://github.com/user-attachments/files/23468159/Model_evolution.pdf"
-             alt="Evolution of model at selected timesteps, showing the melt generation and emplacement."
+        <img src="https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
+             alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/D64000/white?text=M%40TE+Model';" />
       </div>
-      <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">Evolution of model at selected timesteps, showing the melt generation and emplacement.</p>
     </div>
 
     <!-- Tab 2: Science Overview -->
@@ -53,7 +52,7 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
         <p>
           <strong>Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic</strong><br/>
           Jie Yu, Ben S. Knight, Chris Clark, Christopher L. Kirkland, Martin Hand<br/>
-          <em>Elsevier BV</em> — 2025-12<br/>
+          <em></em> — 2025-12<br/>
           <a class="badge-doi" href="https://doi.org/10.1016/j.epsl.2025.119681" onclick="event.stopPropagation()" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.1016/j.epsl.2025.119681</span></a>
         </p>
 
@@ -65,38 +64,36 @@ title: "Rift foundering and the generation of non-orogenic granulites during the
     <div id="tab-setup" class="tab-panel">
       <h2>Compute Tags</h2>
       <div>
-            <a class="badge-tag" href="/tags/python.html">python</a>
-            <a class="badge-tag" href="/tags/finite-element.html">finite element</a>
-            <a class="badge-tag" href="/tags/particle-in-cell.html">particle in cell</a>
+        <p><em>None specified.</em></p>
       </div>
 
       <h2>Software</h2>
         <p><strong>underworld2</strong></p>
-        <p><a href="https://doi.org/10.5281/zenodo.6820562" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.6820562</a> · <a href="https://github.com/underworldcode/underworld2" target="_blank" rel="noopener">https://github.com/underworldcode/underworld2</a></p>
+        <p><a href="https://doi.org/10.5281/zenodo.6820562" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.6820562</a></p>
 
       <h2>Model Setup</h2>
       <div class="full-width-image">
-        <img src="https://github.com/user-attachments/files/23468175/Model_setup.pdf"
-             alt="Model setup, showing the initial geotherm and material distribution."
+        <img src="https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup"
+             alt=""
              style="width:100%; border-radius:6px;"
              onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';" />
       </div>
-      <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">Model setup, showing the initial geotherm and material distribution.</p>
-      <p>The 2D model is designed to simulate extension and the emplacement of melt in the crust. The model has a length (x) of 660 km and a height (y) of 140 km. The grid is uniformly spaced at 330 x 70 nodes, producing a grid resolution of 2 km, with 30 particles per cell to track material properties. The model is layered, with a 20 km thick upper crust and 20 km thick lower crust, 80 km thick lithospheric mantle and 10 km thick asthenosphere. A Gaussian plastic strain distribution is initially prescribed across the crust and lithospheric mantle localises deformation and promotes the thinning of the crust during extension. A constant temperature (T = 20 °C) is applied to the top boundary, with no heat flux across the side walls. A Moho temperature of 700 °C is prescribed at a depth of 40 km, which results in a geotherm 17 °C/km across the crust. The lithosphere-asthenosphere temperature is 1375 °C at a depth of 120 km, which is a geothermal gradient of 8.4375 °C/km across the lithosphere. In the asthenosphere, a 0.4 °C/km adiabatic gradient is prescribed, resulting in a temperature of 1380 °C at the bottom of the domain.</p>
+      
     </div>
 
     <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
-        <p><strong>Dataset notes:</strong> output is primarily h5 files, with 139 timesteps saved. ~8.18 GB of data.</p>
-        <p><strong>Model files notes:</strong> Model is setup with a python script
-Models require underworld2 to be run</p>
+        <p><strong>Dataset (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html</a></p>
+        <p><strong>Dataset existing identifier:</strong><br/><a href="https://doi.org/10.25914/0a2t-by03" target="_blank" rel="noopener">10.25914/0a2t-by03</a></p>
+        <p><strong>Model files (NCI catalogue):</strong><br/><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html</a></p>
+        <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
         <p><strong>Source repository:</strong><br/><a href="https://github.com/ModelAtlasofTheEarth/Yu-2025-granulites" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/Yu-2025-granulites</a></p>
     </div>
 
     <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2>Citation</h2>
-      <p><em>See source repository for citation.</em></p>
+      <blockquote>Knight, Ben S.. (2025). Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic [Data set]. AuScope, National Computational Infrastructure. https://doi.org/0a2t-by03</blockquote>
 
       <h2>Licence</h2>
       <p>

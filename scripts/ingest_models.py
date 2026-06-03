@@ -2,8 +2,8 @@
 """
 scripts/ingest_models.py — M@TE model ingestion pipeline
 =========================================================
-Reads _registry.yml, fetches each model's .website_material/index.json
-(or .website_material/index.md as fallback) from GitHub, normalises the
+Reads _registry.yml, fetches each model's root-level
+ro-crate-metadata.json (or ro-create-metadata.json) from GitHub, normalises the
 data into a common schema, then generates:
 
   models/{slug}.qmd               — detailed model page (tabbed layout)
@@ -26,7 +26,6 @@ import sys
 from typing import Dict, List, Optional, Set, Tuple
 
 import requests
-import yaml
 
 # ---------------------------------------------------------------------------
 # Paths (relative to repo root)
@@ -65,6 +64,32 @@ def tag_slug(tag: str) -> str:
 # Fetch helpers
 # ---------------------------------------------------------------------------
 
+def parse_registry(path: str) -> List[dict]:
+    """
+    Parse a minimal registry YAML with entries under:
+      models:
+        - slug: ...
+          repo: Owner/repo
+    """
+    entries: List[dict] = []
+    current: Dict[str, str] = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            if stripped.startswith("- slug:"):
+                if current.get("slug") and current.get("repo"):
+                    entries.append(current)
+                current = {"slug": stripped.split(":", 1)[1].strip()}
+            elif stripped.startswith("repo:"):
+                if current:
+                    current["repo"] = stripped.split(":", 1)[1].strip()
+    if current.get("slug") and current.get("repo"):
+        entries.append(current)
+    return entries
+
+
 def fetch_raw(url: str) -> Optional[str]:
     try:
         r = requests.get(url, timeout=15)
@@ -75,32 +100,28 @@ def fetch_raw(url: str) -> Optional[str]:
     return None
 
 
-def fetch_model_data(repo: str) -> Tuple[dict, str]:
+def fetch_ro_crate(repo: str) -> dict:
     """
-    Try index.json first, then index.md.
-    Returns (raw_data_dict, format) where format is 'json' or 'md'.
+    Fetch RO-Crate metadata from repository root for a model repository.
     """
-    base = f"https://raw.githubusercontent.com/{repo}/main/.website_material"
-    json_url = f"{base}/index.json"
-    md_url = f"{base}/index.md"
-
-    text = fetch_raw(json_url)
-    if text:
-        try:
-            return json.loads(text), "json"
-        except json.JSONDecodeError as exc:
-            print(f"  WARNING: JSON parse error for {json_url}: {exc}", file=sys.stderr)
-
-    text = fetch_raw(md_url)
-    if text:
-        # Strip YAML frontmatter delimiters
-        match = re.match(r"^---\s*\n(.*?)\n---\s*(\n|$)", text, re.DOTALL)
-        if match:
-            return yaml.safe_load(match.group(1)), "md"
-        # Try parsing the whole thing as YAML (no body)
-        return yaml.safe_load(text), "md"
-
-    raise RuntimeError(f"Could not fetch index.json or index.md for {repo}")
+    text = None
+    source_name = "ro-crate-metadata.json"
+    # Keep compatibility with repositories that expose the metadata file
+    # using the alternate `ro-create-metadata.json` filename.
+    for name in ("ro-crate-metadata.json", "ro-create-metadata.json"):
+        url = f"https://raw.githubusercontent.com/{repo}/main/{name}"
+        text = fetch_raw(url)
+        if text:
+            source_name = name
+            break
+    if not text:
+        raise RuntimeError(
+            f"Could not fetch ro-crate-metadata.json or ro-create-metadata.json for {repo}"
+        )
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"Invalid JSON in {source_name} for {repo}: {exc}") from exc
 
 
 # ---------------------------------------------------------------------------
@@ -113,224 +134,323 @@ def _clean(val, default=""):
     return str(val).strip()
 
 
-def normalise_json(data: dict, slug: str, repo: str) -> dict:
-    """Normalise a JSON-LD / schema.org index.json into the common schema."""
+def always_list(val):
+    if val is None or val == "":
+        return []
+    if isinstance(val, list):
+        return val
+    return [val]
 
-    def raw_img(filename: str) -> str:
-        if not filename:
-            return ""
-        fn = filename.lstrip("./")
-        return f"https://raw.githubusercontent.com/{repo}/main/.website_material/{fn}"
 
-    # Creators
-    creators = []
-    for c in data.get("creators", []):
-        given = _clean(c.get("givenName"))
-        family = _clean(c.get("familyName"))
-        full = f"{given} {family}".strip() if (given or family) else _clean(c.get("name"))
-        orcid = _clean(c.get("@id", "")).replace("https://orcid.org/", "")
-        creators.append({"full_name": full, "orcid": orcid})
+def resolve(index, ref):
+    if isinstance(ref, dict) and ref.get("@id"):
+        return index.get(ref["@id"], {})
+    return {}
 
-    # Publication
-    pub = data.get("publication", {})
-    pub_authors = []
-    for a in pub.get("author", []):
-        given = _clean(a.get("givenName"))
-        family = _clean(a.get("familyName"))
-        full = f"{given} {family}".strip()
-        pub_authors.append({"full_name": full})
 
-    pub_doi = _clean(pub.get("@id", "")).replace("https://doi.org/", "")
+def get_name(node):
+    if not isinstance(node, dict):
+        return ""
+    given = node.get("givenName", "")
+    if isinstance(given, list):
+        given = given[0] if given else ""
+    family = node.get("familyName", "")
+    full = f"{_clean(given)} {_clean(family)}".strip()
+    return full or _clean(node.get("name"))
 
-    # Tags
-    research_tags = [_clean(k) for k in data.get("scientific_keywords", []) if k]
-    sw = data.get("software", {})
-    compute_tags = [_clean(k) for k in sw.get("keywords", []) if k]
 
-    # Images — landing_image and model_setup_figure have direct GitHub attachment URLs
-    li = data.get("landing_image", {})
-    landing_url = _clean(li.get("url")) or raw_img(li.get("filename", ""))
-    landing_cap = _clean(li.get("caption"))
+def _strip_doi_prefix(value: str) -> str:
+    val = _clean(value)
+    prefixes = (
+        "https://doi.org/",
+        "http://doi.org/",
+        "http://dx.doi.org/",
+        "doi:",
+    )
+    for p in prefixes:
+        if val.lower().startswith(p):
+            return val[len(p):]
+    return val
 
-    mf = data.get("model_setup_figure", {})
-    setup_url = _clean(mf.get("url")) or raw_img(mf.get("filename", ""))
-    setup_cap = _clean(mf.get("caption"))
 
-    # Licence
-    lic = data.get("license", {})
-    lic_url = _clean(lic.get("@id")) or _clean(lic.get("url"))
-    lic_name = _clean(lic.get("name")) or _clean(lic.get("description"))
+def _is_doi_like(value: str) -> bool:
+    low = _clean(value).lower()
+    return low.startswith("10.") or low.startswith("doi:") or low.startswith((
+        "https://doi.org/",
+        "http://doi.org/",
+        "http://dx.doi.org/",
+    ))
 
-    # Software
-    sw_doi = _clean(sw.get("@id", "")).replace("https://zenodo.org/records/", "10.5281/zenodo.")
-    if sw_doi.startswith("10."):
-        sw_doi_url = f"https://doi.org/{sw_doi}"
+
+def _first_url(node: dict) -> str:
+    for u in always_list(node.get("url")):
+        if isinstance(u, dict):
+            v = _clean(u.get("@id"))
+        else:
+            v = _clean(u)
+        if v:
+            return v
+    return ""
+
+
+def _first_identifier(node: dict, exclude: Optional[Set[str]] = None) -> str:
+    exclude = exclude or set()
+    for ident in always_list(node.get("identifier")):
+        if isinstance(ident, dict):
+            val = _clean(ident.get("@id"))
+        else:
+            val = _clean(ident)
+        if not val:
+            continue
+        norm = _strip_doi_prefix(val).lower()
+        if norm in exclude:
+            continue
+        return _strip_doi_prefix(val) if _is_doi_like(val) else val
+    return ""
+
+
+def discover_graphics(repo: str) -> dict:
+    """
+    List .website_material/graphics/ via GitHub API (no auth).
+    Returns dict with keys: landing_image_url, landing_image_caption,
+    model_setup_image_url, model_setup_image_caption,
+    animation_url, animation_caption.
+    All values default to empty string if not found.
+    """
+    # TODO (long-term): Replace auto-discovery with explicit ImageObject nodes in the
+    # RO-Crate @graph under .website_material. Each graphic should be registered as:
+    #   { "@id": ".website_material/graphics/filename.ext",
+    #     "@type": "ImageObject",
+    #     "encodingFormat": "image/gif",   # or image/png etc.
+    #     "name": "animation",             # or "landing_image", "model_setup"
+    #     "description": "caption text" }
+    # This would make the crate fully self-describing and eliminate heuristic discovery.
+    api_url = f"https://api.github.com/repos/{repo}/contents/.website_material/graphics"
+    raw_base = f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
+
+    result = {
+        "landing_image_url": "",
+        "landing_image_caption": "",
+        "model_setup_image_url": "",
+        "model_setup_image_caption": "",
+        "animation_url": "",
+        "animation_caption": "",
+    }
+
+    def probe_candidates():
+        anim_candidates = ["animation.mp4", "animation.gif", "GeolMov.gif"]
+        for name in anim_candidates:
+            candidate = f"{raw_base}/{name}"
+            try:
+                rr = requests.get(candidate, timeout=15)
+                if rr.status_code == 200:
+                    result["animation_url"] = candidate
+                    break
+            except Exception:
+                continue
+
+    try:
+        r = requests.get(api_url, timeout=15, headers={"Accept": "application/vnd.github+json"})
+        if r.status_code != 200:
+            probe_candidates()
+            return result
+        files = r.json()
+    except Exception:
+        probe_candidates()
+        return result
+
+    gifs = [f for f in files if f["name"].lower().endswith(".gif")]
+    mp4s = [f for f in files if f["name"].lower().endswith(".mp4")]
+    pngs = [f for f in files if f["name"].lower().endswith(".png") and not f["name"].startswith(".")]
+    jpgs = [f for f in files if f["name"].lower().endswith((".jpg", ".jpeg")) and not f["name"].startswith(".")]
+
+    anim = mp4s + gifs
+    if anim:
+        result["animation_url"] = f"{raw_base}/{anim[0]['name']}"
     else:
-        sw_doi_url = _clean(sw.get("@id", ""))
-    sw_url = _clean(sw.get("codeRepository"))
+        probe_candidates()
 
-    # Data/model files
-    model_out = data.get("model_output_data", {})
-    model_code = data.get("model_code_inputs", {})
+    stills = pngs + jpgs
+    if stills:
+        result["landing_image_url"] = f"{raw_base}/{stills[0]['name']}"
+    if len(stills) > 1:
+        result["model_setup_image_url"] = f"{raw_base}/{stills[1]['name']}"
 
-    # Funders
-    funders = [{"name": _clean(f.get("name"))} for f in data.get("funder", []) if f.get("name")]
-
-    return {
-        "slug": slug,
-        "title": _clean(data.get("title")),
-        "abstract": _clean(data.get("abstract")),
-        "description": _clean(data.get("description")),
-        "doi": _clean(data.get("doi")),
-        "creators": creators,
-        "tags": research_tags + compute_tags,
-        "research_tags": research_tags,
-        "compute_tags": compute_tags,
-        "publication": {
-            "title": _clean(pub.get("name")),
-            "doi": pub_doi,
-            "journal": _clean(pub.get("publisher")),
-            "date": _clean(pub.get("datePublished")),
-            "authors": pub_authors,
-        },
-        "software": {
-            "name": _clean(sw.get("name")),
-            "doi": sw_doi_url,
-            "url": sw_url,
-        },
-        "landing_image_url": landing_url,
-        "landing_image_caption": landing_cap,
-        "model_setup_image_url": setup_url,
-        "model_setup_image_caption": setup_cap,
-        "model_setup_description": _clean(data.get("model_setup_description")),
-        "licence_url": lic_url,
-        "licence_name": lic_name,
-        "dataset_nci_url": "",
-        "dataset_existing_id": "",
-        "dataset_notes": _clean(model_out.get("notes")),
-        "model_files_nci_url": "",
-        "model_files_existing_id": "",
-        "model_files_notes": _clean(model_code.get("notes")),
-        "credit_text": "",
-        "funders": funders,
-        "source_repo": repo,
-    }
+    return result
 
 
-def normalise_md(data: dict, slug: str, repo: str) -> dict:
-    """Normalise a YAML-frontmatter index.md into the common schema."""
+def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
+    """
+    Parse a RO-Crate 1.1 @graph into the common normalised schema dict.
+    crate: parsed JSON (has "@graph" key)
+    slug: from registry
+    repo: "Owner/repo-name"
+    Returns the same schema dict as the old normalisers.
+    """
+    graph = always_list(crate.get("@graph"))
+    index = {n.get("@id"): n for n in graph if isinstance(n, dict) and n.get("@id")}
+    root = index.get("./", {})
 
-    def raw_img(src: str) -> str:
-        if not src:
-            return ""
-        src = src.lstrip("./")
-        return f"https://raw.githubusercontent.com/{repo}/main/.website_material/{src}"
+    title = _clean(root.get("name"))
+    out_slug = _clean(root.get("alternateName")) or slug
+    abstract = _clean(root.get("abstract"))
+    description = _clean(root.get("description"))
 
-    # Creators
+    identifiers = []
+    for ident in always_list(root.get("identifier")):
+        if isinstance(ident, dict):
+            val = _clean(ident.get("@id"))
+        else:
+            val = _clean(ident)
+        if val:
+            identifiers.append(val)
+    doi = _strip_doi_prefix(identifiers[0]) if identifiers else ""
+    dataset_doi_norm = doi.lower()
+
     creators = []
-    for c in data.get("creators", []):
-        given = _clean(c.get("name"))
-        family = _clean(c.get("family_name"))
-        full = f"{given} {family}".strip() if (given or family) else ""
-        orcid = _clean(c.get("ORCID", "")).replace("https://orcid.org/", "")
-        creators.append({"full_name": full, "orcid": orcid})
+    for cref in always_list(root.get("creator")):
+        cnode = resolve(index, cref)
+        if not cnode and isinstance(cref, dict):
+            cnode = cref
+        full_name = get_name(cnode)
+        if not full_name:
+            continue
+        orcid = ""
+        if isinstance(cref, dict):
+            orcid = _clean(cref.get("@id"))
+        orcid = orcid.replace("https://orcid.org/", "").replace("http://orcid.org/", "")
+        creators.append({"full_name": full_name, "orcid": orcid})
 
-    # Publication
-    pub = data.get("associated_publication", {})
+    tags = []
+    for kw in always_list(root.get("keywords")):
+        if isinstance(kw, dict):
+            val = _clean(kw.get("name")) or _clean(kw.get("@id"))
+        else:
+            val = _clean(kw)
+        if val:
+            tags.append(val)
+    if not tags:
+        lower_text = f"{title} {abstract} {description}".lower()
+        if "crustal root" in lower_text:
+            tags.append("crustal roots")
+        if "stability" in lower_text or "stable" in lower_text:
+            tags.append("stability")
+        if "retrogression" in lower_text:
+            tags.append("retrogression")
+
+    citation_ref = always_list(root.get("citation"))
+    citation_node = resolve(index, citation_ref[0]) if citation_ref else {}
     pub_authors = []
-    for a in pub.get("authors", []):
-        given = _clean(a.get("name"))
-        family = _clean(a.get("family_name"))
-        full = f"{given} {family}".strip()
-        pub_authors.append({"full_name": full})
-    pub_doi = _clean(pub.get("doi"))
+    for aref in always_list(citation_node.get("author")):
+        author_node = resolve(index, aref)
+        if not author_node and isinstance(aref, dict):
+            author_node = aref
+        name = get_name(author_node)
+        if name:
+            pub_authors.append({"full_name": name})
 
-    # Tags
-    research_tags = [_clean(t) for t in data.get("research_tags", []) if t]
-    compute_tags = [_clean(t) for t in data.get("compute_tags", []) if t]
+    publication = {
+        "title": _clean(citation_node.get("name")),
+        "doi": _strip_doi_prefix(_clean(citation_node.get("@id"))),
+        "journal": "",
+        "date": _clean(citation_node.get("datePublished")),
+        "authors": pub_authors,
+    }
 
-    # Images
-    imgs = data.get("images", {})
-    li = imgs.get("landing_image", {})
-    landing_url = raw_img(_clean(li.get("src")))
-    landing_cap = _clean(li.get("caption"))
+    license_ref = root.get("license")
+    if isinstance(license_ref, dict):
+        licence_url = _clean(license_ref.get("@id")) or _clean(license_ref.get("url"))
+        licence_node = resolve(index, license_ref)
+    else:
+        licence_url = _clean(license_ref)
+        licence_node = index.get(licence_url, {})
+    licence_name = _clean(licence_node.get("name"))
 
-    ms = imgs.get("model_setup", {})
-    setup_url = raw_img(_clean(ms.get("src")))
-    setup_cap = _clean(ms.get("caption"))
+    creation_ref = root.get("#datasetCreation") or root.get("datasetCreation") or {"@id": "#datasetCreation"}
+    creation_node = resolve(index, creation_ref) or index.get("#datasetCreation", {})
+    instrument_ref = creation_node.get("instrument")
+    instrument_node = resolve(index, instrument_ref)
+    if not instrument_node and isinstance(instrument_ref, str):
+        instrument_node = index.get(instrument_ref, {})
 
-    # Licence
-    lic = data.get("licence", {})
-    lic_url = _clean(lic.get("licence_url"))
-    lic_name = _clean(lic.get("description"))
+    sw_name = _clean(instrument_node.get("name"))
+    sw_url = _clean(instrument_node.get("url"))
+    sw_id = _clean(instrument_node.get("@id"))
+    sw_doi = ""
+    if _is_doi_like(sw_id):
+        sw_doi = _strip_doi_prefix(sw_id)
+    else:
+        match = re.search(r"zenodo\.org/records?/(\d+)", sw_id)
+        if match:
+            sw_doi = f"10.5281/zenodo.{match.group(1)}"
+    if not sw_doi and sw_url:
+        match = re.search(r"zenodo\.org/records?/(\d+)", sw_url)
+        if match:
+            sw_doi = f"10.5281/zenodo.{match.group(1)}"
 
-    # Software
-    sw = data.get("software", {})
-    sw_doi = _clean(sw.get("doi"))
-    sw_url = _clean(sw.get("url_source"))
+    def find_data_node(candidates: List[str]) -> dict:
+        for cand in candidates:
+            if cand in index:
+                return index[cand]
+        for node in index.values():
+            node_name = _clean(node.get("name"))
+            if node_name in candidates:
+                return node
+        return {}
 
-    # Dataset / model files
-    ds = data.get("dataset", {})
-    mf = data.get("model_files", {})
+    model_files_node = find_data_node(["model_code_inputs", "model_inputs"])
+    dataset_node = find_data_node(["model_output_data", "model_outputs"])
 
-    ds_nci = _clean(ds.get("nci_file_path"))
-    ds_existing = _clean(ds.get("existing_identifier"))
-    ds_notes = _clean(ds.get("notes"))
+    model_files_nci_url = _first_url(model_files_node)
+    dataset_nci_url = _first_url(dataset_node)
 
-    mf_nci = _clean(mf.get("nci_file_path"))
-    mf_existing = _clean(mf.get("existing_identifier"))
-    mf_notes = _clean(mf.get("notes"))
+    model_files_existing_id = _first_identifier(model_files_node, exclude={dataset_doi_norm})
+    dataset_existing_id = _first_identifier(dataset_node)
 
-    # Funders
-    funders = [{"name": _clean(f.get("name"))} for f in data.get("funder", []) if f.get("name")]
+    credit_text_vals = always_list(root.get("creditText"))
+    credit_text = _clean(credit_text_vals[0]) if credit_text_vals else ""
 
-    model_setup_info = data.get("model_setup_info", {})
+    funders = []
+    for fref in always_list(root.get("funder")):
+        fnode = resolve(index, fref)
+        if not fnode and isinstance(fref, dict):
+            fnode = fref
+        fname = _clean(fnode.get("name"))
+        if fname:
+            funders.append({"name": fname})
+
+    graphics = discover_graphics(repo)
 
     return {
-        "slug": slug,
-        "title": _clean(data.get("title")),
-        "abstract": _clean(data.get("abstract")),
-        "description": _clean(data.get("description")),
-        "doi": _clean(data.get("doi")),
+        "slug": out_slug,
+        "title": title,
+        "abstract": abstract,
+        "description": description,
+        "doi": doi,
         "creators": creators,
-        "tags": research_tags + compute_tags,
-        "research_tags": research_tags,
-        "compute_tags": compute_tags,
-        "publication": {
-            "title": _clean(pub.get("title")),
-            "doi": pub_doi,
-            "journal": _clean(pub.get("journal")),
-            "date": _clean(pub.get("date")),
-            "authors": pub_authors,
-        },
-        "software": {
-            "name": _clean(sw.get("name")),
-            "doi": sw_doi,
-            "url": sw_url,
-        },
-        "landing_image_url": landing_url,
-        "landing_image_caption": landing_cap,
-        "model_setup_image_url": setup_url,
-        "model_setup_image_caption": setup_cap,
-        "model_setup_description": _clean(model_setup_info.get("summary")),
-        "licence_url": lic_url,
-        "licence_name": lic_name,
-        "dataset_nci_url": ds_nci,
-        "dataset_existing_id": ds_existing,
-        "dataset_notes": ds_notes,
-        "model_files_nci_url": mf_nci,
-        "model_files_existing_id": mf_existing,
-        "model_files_notes": mf_notes,
-        "credit_text": _clean(data.get("creditText")),
+        "tags": tags,
+        "research_tags": tags,
+        "compute_tags": [],
+        "publication": publication,
+        "software": {"name": sw_name, "doi": sw_doi, "url": sw_url},
+        "landing_image_url": graphics["landing_image_url"],
+        "landing_image_caption": graphics["landing_image_caption"],
+        "model_setup_image_url": graphics["model_setup_image_url"],
+        "model_setup_image_caption": graphics["model_setup_image_caption"],
+        "animation_url": graphics["animation_url"],
+        "animation_caption": graphics["animation_caption"],
+        "licence_url": licence_url,
+        "licence_name": licence_name,
+        "dataset_nci_url": dataset_nci_url,
+        "dataset_existing_id": dataset_existing_id,
+        "dataset_notes": _clean(dataset_node.get("description")),
+        "model_files_nci_url": model_files_nci_url,
+        "model_files_existing_id": model_files_existing_id,
+        "model_files_notes": _clean(model_files_node.get("description")),
+        "credit_text": credit_text,
         "funders": funders,
         "source_repo": repo,
     }
-
-
-def normalise(raw: dict, fmt: str, slug: str, repo: str) -> dict:
-    if fmt == "json":
-        return normalise_json(raw, slug, repo)
-    return normalise_md(raw, slug, repo)
 
 
 # ---------------------------------------------------------------------------
@@ -435,14 +555,41 @@ def model_qmd(m: dict) -> str:
     # Compute tags
     ctags_html = tag_badges_html(m["compute_tags"], linked=True, indent=12)
 
-    # Landing image
-    li_url = m["landing_image_url"] or PLACEHOLDER_IMG
-    li_cap = m["landing_image_caption"] or ""
-
     # Model setup image
     ms_url = m["model_setup_image_url"] or PLACEHOLDER_SETUP_IMG
     ms_cap = m["model_setup_image_caption"] or ""
-    ms_desc = m["model_setup_description"] or ""
+
+    # Build snapshot media block
+    if m.get("animation_url"):
+        anim_url = m["animation_url"]
+        anim_cap = m.get("animation_caption", "")
+        if anim_url.lower().endswith(".mp4"):
+            media_html = f"""      <div class="animation-container">
+        <video controls autoplay loop muted playsinline style="max-width:100%; border-radius:6px;">
+          <source src="{anim_url}" type="video/mp4" />
+          Your browser does not support video playback.
+        </video>
+      </div>"""
+        else:
+            media_html = f"""      <div class="animation-container">
+        <img src="{anim_url}"
+             alt="{anim_cap or 'Model animation'}"
+             style="max-width:100%; border-radius:6px;"
+             onerror="this.style.display='none'" />
+      </div>"""
+        if anim_cap:
+            media_html += f'\n      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">{anim_cap}</p>'
+    else:
+        li_url = m["landing_image_url"] or PLACEHOLDER_IMG
+        li_cap = m["landing_image_caption"] or ""
+        media_html = f"""      <div class="full-width-image">
+        <img src="{li_url}"
+             alt="{li_cap}"
+             style="width:100%; border-radius:6px;"
+             onerror="this.src='{PLACEHOLDER_IMG}';" />
+      </div>"""
+        if li_cap:
+            media_html += f'\n      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">{li_cap}</p>'
 
     # Pub authors
     if pub["authors"]:
@@ -579,13 +726,7 @@ title: "{title}"
     <!-- Tab 1: Snapshot -->
     <div id="tab-snapshot" class="tab-panel active">
       <p>{description}</p>
-      <div class="full-width-image">
-        <img src="{li_url}"
-             alt="{li_cap}"
-             style="width:100%; border-radius:6px;"
-             onerror="this.src='{PLACEHOLDER_IMG}';" />
-      </div>
-      {f'<p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">{li_cap}</p>' if li_cap else ""}
+{media_html}
     </div>
 
     <!-- Tab 2: Science Overview -->
@@ -620,7 +761,6 @@ title: "{title}"
              onerror="this.src='{PLACEHOLDER_SETUP_IMG}';" />
       </div>
       {f'<p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">{ms_cap}</p>' if ms_cap else ""}
-      {f"<p>{ms_desc}</p>" if ms_desc else ""}
     </div>
 
     <!-- Tab 4: Code & Data -->
@@ -933,10 +1073,7 @@ title: "{name}"
 
 def main() -> None:
     # Read registry
-    with open(REGISTRY_PATH, encoding="utf-8") as f:
-        registry = yaml.safe_load(f)
-
-    entries = registry.get("models", [])
+    entries = parse_registry(REGISTRY_PATH)
     print(f"Found {len(entries)} model(s) in registry.")
 
     models = []
@@ -944,10 +1081,10 @@ def main() -> None:
         slug = entry["slug"]
         repo = entry["repo"]
         print(f"\nIngesting: {slug} from {repo}")
-        raw, fmt = fetch_model_data(repo)
-        m = normalise(raw, fmt, slug, repo)
+        crate = fetch_ro_crate(repo)
+        m = normalise_ro_crate(crate, slug, repo)
         models.append(m)
-        print(f"  Format: {fmt}  |  title: {m['title'][:60]}")
+        print(f"  Format: ro-crate  |  title: {m['title'][:60]}")
 
     # Write individual model pages
     os.makedirs(MODELS_DIR, exist_ok=True)

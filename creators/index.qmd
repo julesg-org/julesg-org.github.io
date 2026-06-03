@@ -6,9 +6,12 @@ title: "Creators"
 <p>All model creators in the M@TE catalogue, listed alphabetically by family name.</p>
 
 <ul class="creator-list">
+  <li><a href="/creators/diane-arcay.html">Diane Arcay</a> <small>(1 model)</small></li>
   <li><a href="/creators/paul-d-bons.html">Paul D. Bons</a> <small>(1 model)</small></li>
-  <li><a href="/creators/ben-steven-knight.html">Ben Steven Knight</a> <small>(1 model)</small></li>
-  <li><a href="/creators/louis-noel-moresi.html">Louis-Noel Moresi</a> <small>(1 model)</small></li>
+  <li><a href="/creators/bénédicte-cenki-tok-or-cenki.html">Bénédicte Cenki-Tok or Cenki</a> <small>(1 model)</small></li>
+  <li><a href="/creators/ben-s-knight.html">Ben S. Knight</a> <small>(1 model)</small></li>
+  <li><a href="/creators/louis-moresi.html">Louis Moresi</a> <small>(1 model)</small></li>
+  <li><a href="/creators/patrice-rey.html">Patrice Rey</a> <small>(1 model)</small></li>
   <li><a href="/creators/till-sachau.html">Till Sachau</a> <small>(1 model)</small></li>
   <li><a href="/creators/haibin-yang.html">Haibin Yang</a> <small>(1 model)</small></li>
 
