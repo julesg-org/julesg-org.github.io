@@ -2,8 +2,8 @@
 """
 scripts/ingest_models.py — M@TE model ingestion pipeline
 =========================================================
-Reads _registry.yml, fetches each model's
-.website_material/ro-crate-metadata.json from GitHub, normalises the
+Reads _registry.yml, fetches each model's root-level
+ro-create-metadata.json (or ro-crate-metadata.json) from GitHub, normalises the
 data into a common schema, then generates:
 
   models/{slug}.qmd               — detailed model page (tabbed layout)
@@ -102,16 +102,24 @@ def fetch_raw(url: str) -> Optional[str]:
 
 def fetch_ro_crate(repo: str) -> dict:
     """
-    Fetch .website_material/ro-crate-metadata.json for a model repository.
+    Fetch RO-Crate metadata from repository root for a model repository.
     """
-    url = f"https://raw.githubusercontent.com/{repo}/main/.website_material/ro-crate-metadata.json"
-    text = fetch_raw(url)
+    text = None
+    source_name = ""
+    for name in ("ro-create-metadata.json", "ro-crate-metadata.json"):
+        url = f"https://raw.githubusercontent.com/{repo}/main/{name}"
+        text = fetch_raw(url)
+        if text:
+            source_name = name
+            break
     if not text:
-        raise RuntimeError(f"Could not fetch ro-crate-metadata.json for {repo}")
+        raise RuntimeError(
+            f"Could not fetch ro-create-metadata.json or ro-crate-metadata.json for {repo}"
+        )
     try:
         return json.loads(text)
     except json.JSONDecodeError as exc:
-        raise RuntimeError(f"Invalid JSON in ro-crate-metadata.json for {repo}: {exc}") from exc
+        raise RuntimeError(f"Invalid JSON in {source_name} for {repo}: {exc}") from exc
 
 
 # ---------------------------------------------------------------------------
