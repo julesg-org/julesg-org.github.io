@@ -218,7 +218,8 @@ def _first_identifier(node: dict, exclude: Optional[Set[str]] = None) -> str:
 
 def discover_graphics(repo: str) -> dict:
     """
-    List .website_material/graphics/ via GitHub API (no auth).
+    List .website_material/graphics/ via GitHub API (no auth) or
+    probe common filenames directly via raw.githubusercontent.com.
     Returns dict with keys: landing_image_url, landing_image_caption,
     model_setup_image_url, model_setup_image_caption,
     animation_url, animation_caption.
@@ -245,6 +246,12 @@ def discover_graphics(repo: str) -> dict:
     }
 
     def probe_candidates():
+        still_candidates = [
+            "fig1.png", "figure_2.png", "figure2.png",
+            "figure_1.png", "figure1.png", "fig.png",
+            "gmd-15-8749-2022-f09.png", "gmd-15-8749-2022-f01-web.png",
+            "Model_evolution.pdf", "Model_setup.pdf",
+        ]
         anim_candidates = ["animation.mp4", "animation.gif", "GeolMov.gif"]
         for name in anim_candidates:
             candidate = f"{raw_base}/{name}"
@@ -253,6 +260,17 @@ def discover_graphics(repo: str) -> dict:
                 if rr.status_code == 200:
                     result["animation_url"] = candidate
                     break
+            except Exception:
+                continue
+        for name in still_candidates:
+            candidate = f"{raw_base}/{name}"
+            try:
+                rr = requests.get(candidate, timeout=15)
+                if rr.status_code == 200:
+                    if not result["landing_image_url"]:
+                        result["landing_image_url"] = candidate
+                    elif not result["model_setup_image_url"]:
+                        result["model_setup_image_url"] = candidate
             except Exception:
                 continue
 
