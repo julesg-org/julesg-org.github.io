@@ -100,13 +100,16 @@ pixi run demo
 | `pixi run preview` | Start a local Quarto preview server |
 | `pixi run build` | Ingest + render (no preview) — used in CI |
 | `pixi run demo` | Ingest + render + preview — full local workflow |
+| `pixi run clean` | Remove all generated files to force a fresh rebuild |
 
 The ingest must run **before** every render to ensure model pages reflect
 the latest metadata. `pixi run build` and `pixi run demo` handle this ordering
 automatically.
 
-All generated files (`.qmd` pages, `_graphics/` PNGs) are gitignored — they live
-only on disk during rendering and are never committed to the repository.
+All generated files (`.qmd` pages, `_graphics/` PNGs, `_site/`, `_freeze/`,
+`.quarto/`) are gitignored — they live only on disk during rendering and are
+never committed. Run `pixi run clean` to wipe them all, then `pixi run build`
+for a pristine rebuild.
 
 ---
 

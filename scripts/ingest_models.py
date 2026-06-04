@@ -45,6 +45,7 @@ PLACEHOLDER_SETUP_IMG = "https://placehold.co/1200x500/2c8ec7/white?text=Model+S
 # Slug helpers
 # ---------------------------------------------------------------------------
 
+
 def to_slug(text: str) -> str:
     """Convert arbitrary text to a URL-safe slug."""
     text = text.lower().strip()
@@ -65,6 +66,7 @@ def tag_slug(tag: str) -> str:
 # ---------------------------------------------------------------------------
 # Fetch helpers
 # ---------------------------------------------------------------------------
+
 
 def parse_registry(path: str) -> List[dict]:
     """
@@ -130,6 +132,7 @@ def fetch_ro_crate(repo: str) -> dict:
 # Normalisation
 # ---------------------------------------------------------------------------
 
+
 def _clean(val, default=""):
     if val is None:
         return default
@@ -178,17 +181,23 @@ def _strip_doi_prefix(value: str) -> str:
     )
     for p in prefixes:
         if val.lower().startswith(p):
-            return val[len(p):]
+            return val[len(p) :]
     return val
 
 
 def _is_doi_like(value: str) -> bool:
     low = _clean(value).lower()
-    return low.startswith("10.") or low.startswith("doi:") or low.startswith((
-        "https://doi.org/",
-        "http://doi.org/",
-        "http://dx.doi.org/",
-    ))
+    return (
+        low.startswith("10.")
+        or low.startswith("doi:")
+        or low.startswith(
+            (
+                "https://doi.org/",
+                "http://doi.org/",
+                "http://dx.doi.org/",
+            )
+        )
+    )
 
 
 def _first_url(node: dict) -> str:
@@ -218,48 +227,67 @@ def _first_identifier(node: dict, exclude: Optional[Set[str]] = None) -> str:
     return ""
 
 
+def _resolve_url(url: str, raw_base: str) -> str:
+    """Return *url* if it points to real binary content (image/video/PDF).
+    If it is a symlink stub (Content-Type text/plain whose body is the
+    target filename), follow the link and return the resolved URL.
+
+    Returns empty string when nothing valid is found.
+
+    Symlink-following capability added June 2026 so that model repositories
+    created before the naming convention was finalised can use symlinks
+    (e.g.  graphic_abstract.png → gpe_fm26.png) without re-uploading
+    identical files under multiple names.
+    """
+    try:
+        r = requests.get(url, timeout=10, stream=True)
+        if r.status_code != 200:
+            r.close()
+            return ""
+        ct = r.headers.get("Content-Type", "")
+        if "text/plain" not in ct:
+            r.close()
+            return url  # real binary file
+        # Symlink — body is the target filename
+        r.close()
+        r = requests.get(url, timeout=10)
+        target = r.content.decode("utf-8", errors="replace").strip()
+        if not target or "/" in target:
+            return ""  # reject path traversal
+        target_url = f"{raw_base}/{target}"
+        r2 = requests.get(target_url, timeout=10, stream=True)
+        ok = r2.status_code == 200 and "text/plain" not in r2.headers.get("Content-Type", "")
+        r2.close()
+        return target_url if ok else ""
+    except Exception:
+        return ""
+
+
 def discover_graphics(repo: str) -> dict:
     """
-    Discover model graphics (.website_material/graphics/) via three strategies:
-
-      1. Scrape GitHub web directory listing
-         (https://github.com/{repo}/tree/main/.website_material/graphics).
-         Parse <a href> links for image/video files.  This is the primary
-         strategy because the web UI has no rate limit for public repos and
-         works regardless of filename convention (UUIDs, dashes, etc.).
-
-      2. GitHub REST API
-         (https://api.github.com/repos/{repo}/contents/...) — no auth,
-         but unauthenticated requests are rate-limited to ~60/hr.  Used as
-         a fallback when the web scrape returns no files.
-
-      3. Probe known filenames on raw.githubusercontent.com
-         A hardcoded list of common names (fig1.png, Model_evolution.pdf,
-         animation.mp4, etc.) is tried directly.  This catches repos where
-         the graphics directory exists but the web scrape or API somehow
-         failed to enumerate it.
-
-    Classification rules:
-      - .gif and .mp4 files                → animation
-      - .png, .jpg, .jpeg, .pdf files      → still image
-      - first still  → landing_image_url
-      - second still → model_setup_image_url
-      - animation    → animation_url
-
-    TODO (long-term): Replace auto-discovery with explicit ImageObject
-    nodes in the RO-Crate @graph under .website_material.  Each graphic
-    would be registered as:
-      { "@id": ".website_material/graphics/filename.ext",
-        "@type": "ImageObject",
-        "encodingFormat": "image/gif",
-        "name": "landing_image",          # or "model_setup", "animation"
-        "description": "caption text" }
-    This would make the crate fully self-describing and eliminate all
-    heuristic discovery.
+    Discover model graphics by probing named file paths with wildcard extensions.
+    Each model repository should place graphics under:
+      .website_material/graphics/graphic_abstract.{ext}
+      .website_material/graphics/landing_image.{ext}
+      .website_material/graphics/model_setup_figure.{ext}
+      .website_material/graphics/animation.{ext}
+    Extensions are tried in priority order: png, jpg, jpeg, gif, webp, pdf, mp4.
     """
-    raw_base = f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
+    raw_base = (
+        f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
+    )
+    extensions = ["png", "jpg", "jpeg", "gif", "webp", "pdf", "mp4"]
+
+    named_paths = {
+        "graphic_abstract_url": "graphic_abstract",
+        "landing_image_url": "landing_image",
+        "model_setup_image_url": "model_setup_figure",
+        "animation_url": "animation",
+    }
 
     result = {
+        "graphic_abstract_url": "",
+        "graphic_abstract_caption": "",
         "landing_image_url": "",
         "landing_image_caption": "",
         "model_setup_image_url": "",
@@ -268,76 +296,13 @@ def discover_graphics(repo: str) -> dict:
         "animation_caption": "",
     }
 
-    def _classify_assign(files: list) -> bool:
-        """Sort filenames into stills/animation and fill result dict.
-        Returns True if at least one file was assigned."""
-        anim_ext = (".gif", ".mp4")
-        still_ext = (".png", ".jpg", ".jpeg", ".pdf")
-        anims = [f for f in files if f.lower().endswith(anim_ext)]
-        stills = [f for f in files if f.lower().endswith(still_ext)]
-        if not anims and not stills:
-            return False
-        if anims:
-            result["animation_url"] = f"{raw_base}/{anims[0]}"
-        if stills:
-            result["landing_image_url"] = f"{raw_base}/{stills[0]}"
-        if len(stills) > 1:
-            result["model_setup_image_url"] = f"{raw_base}/{stills[1]}"
-        return True
-
-    # --- Strategy 1: scrape GitHub web directory listing ---
-    try:
-        web_url = f"https://github.com/{repo}/tree/main/.website_material/graphics"
-        r = requests.get(web_url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
-        if r.status_code == 200:
-            files = list(dict.fromkeys(
-                re.findall(
-                    r'/blob/main/\.website_material/graphics/([^"\'<>]+\.(?:png|jpg|jpeg|gif|mp4|pdf))',
-                    r.text,
-                    re.I,
-                )
-            ))
-            if _classify_assign(files):
-                return result
-    except Exception:
-        pass
-
-    # --- Strategy 2: GitHub REST API ---
-    try:
-        api_url = f"https://api.github.com/repos/{repo}/contents/.website_material/graphics"
-        r = requests.get(api_url, timeout=15, headers={"Accept": "application/vnd.github+json"})
-        if r.status_code == 200:
-            files = [f["name"] for f in r.json() if isinstance(f, dict)]
-            if _classify_assign(files):
-                return result
-    except Exception:
-        pass
-
-    # --- Strategy 3: probe known filenames directly ---
-    anim_candidates = ["animation.mp4", "animation.gif", "GeolMov.gif"]
-    still_candidates = [
-        "fig1.png", "figure_2.png", "figure2.png",
-        "figure_1.png", "figure1.png", "fig.png",
-        "gmd-15-8749-2022-f09.png", "gmd-15-8749-2022-f01-web.png",
-        "Model_evolution.pdf", "Model_setup.pdf",
-    ]
-    for name in anim_candidates + still_candidates:
-        candidate = f"{raw_base}/{name}"
-        try:
-            rr = requests.get(candidate, timeout=15)
-            if rr.status_code != 200:
-                continue
-            ext = name.lower().rsplit(".", 1)[-1]
-            if ext in ("gif", "mp4") and not result["animation_url"]:
-                result["animation_url"] = candidate
-            elif ext in ("png", "jpg", "jpeg", "pdf"):
-                if not result["landing_image_url"]:
-                    result["landing_image_url"] = candidate
-                elif not result["model_setup_image_url"]:
-                    result["model_setup_image_url"] = candidate
-        except Exception:
-            continue
-
+    for key, base_name in named_paths.items():
+        for ext in extensions:
+            url = f"{raw_base}/{base_name}.{ext}"
+            resolved = _resolve_url(url, raw_base)
+            if resolved:
+                result[key] = resolved
+                break
     return result
 
 
@@ -477,7 +442,11 @@ def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
         licence_node = index.get(licence_url, {})
     licence_name = _clean(licence_node.get("name"))
 
-    creation_ref = root.get("#datasetCreation") or root.get("datasetCreation") or {"@id": "#datasetCreation"}
+    creation_ref = (
+        root.get("#datasetCreation")
+        or root.get("datasetCreation")
+        or {"@id": "#datasetCreation"}
+    )
     creation_node = resolve(index, creation_ref) or index.get("#datasetCreation", {})
     instrument_ref = creation_node.get("instrument")
     instrument_node = resolve(index, instrument_ref)
@@ -515,7 +484,9 @@ def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
     model_files_nci_url = _first_url(model_files_node)
     dataset_nci_url = _first_url(dataset_node)
 
-    model_files_existing_id = _first_identifier(model_files_node, exclude={dataset_doi_norm})
+    model_files_existing_id = _first_identifier(
+        model_files_node, exclude={dataset_doi_norm}
+    )
     dataset_existing_id = _first_identifier(dataset_node)
 
     credit_text_vals = always_list(root.get("creditText"))
@@ -544,6 +515,8 @@ def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
         "compute_tags": [],
         "publication": publication,
         "software": {"name": sw_name, "doi": sw_doi, "url": sw_url},
+        "graphic_abstract_url": graphics["graphic_abstract_url"],
+        "graphic_abstract_caption": graphics["graphic_abstract_caption"],
         "landing_image_url": graphics["landing_image_url"],
         "landing_image_caption": graphics["landing_image_caption"],
         "model_setup_image_url": graphics["model_setup_image_url"],
@@ -567,6 +540,7 @@ def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
 # ---------------------------------------------------------------------------
 # HTML generation helpers
 # ---------------------------------------------------------------------------
+
 
 def doi_badge(doi: str, href: str = "") -> str:
     if not doi:
@@ -609,9 +583,7 @@ def tag_badges_html(tags: list, linked: bool = True, indent: int = 4) -> str:
             continue
         slug = tag_slug(t)
         if linked:
-            parts.append(
-                f'{pad}<a class="badge-tag" href="/tags/{slug}.html">{t}</a>'
-            )
+            parts.append(f'{pad}<a class="badge-tag" href="/tags/{slug}.html">{t}</a>')
         else:
             parts.append(f'{pad}<span class="badge-tag">{t}</span>')
     return "\n".join(parts)
@@ -672,7 +644,10 @@ def model_qmd(m: dict) -> str:
     ctags_html = tag_badges_html(m["compute_tags"], linked=True, indent=12)
 
     # Model setup image
-    ms_url = _convert_pdf_to_png(m["model_setup_image_url"], slug, "setup") or PLACEHOLDER_SETUP_IMG
+    ms_url = (
+        _convert_pdf_to_png(m["model_setup_image_url"], slug, "setup")
+        or PLACEHOLDER_SETUP_IMG
+    )
     ms_cap = m["model_setup_image_caption"] or ""
 
     # Build snapshot media block
@@ -689,14 +664,17 @@ def model_qmd(m: dict) -> str:
         else:
             media_html = f"""      <div class="animation-container">
         <img src="{anim_url}"
-             alt="{anim_cap or 'Model animation'}"
+             alt="{anim_cap or "Model animation"}"
              style="max-width:100%; border-radius:6px;"
              onerror="this.style.display='none'" />
       </div>"""
         if anim_cap:
             media_html += f'\n      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">{anim_cap}</p>'
     else:
-        li_url = _convert_pdf_to_png(m["landing_image_url"], slug, "landing") or PLACEHOLDER_IMG
+        li_url = (
+            _convert_pdf_to_png(m["landing_image_url"], slug, "landing")
+            or PLACEHOLDER_IMG
+        )
         li_cap = m["landing_image_caption"] or ""
         media_html = f"""      <div class="full-width-image">
         <img src="{li_url}"
@@ -709,7 +687,9 @@ def model_qmd(m: dict) -> str:
 
     # Pub authors
     if pub["authors"]:
-        pub_authors_str = ", ".join(a["full_name"] for a in pub["authors"] if a["full_name"])
+        pub_authors_str = ", ".join(
+            a["full_name"] for a in pub["authors"] if a["full_name"]
+        )
     else:
         pub_authors_str = ""
 
@@ -741,35 +721,43 @@ def model_qmd(m: dict) -> str:
     data_tab_parts = []
     if ds_nci:
         data_tab_parts.append(
-            f'        <p><strong>Dataset (NCI catalogue):</strong><br/>'
+            f"        <p><strong>Dataset (NCI catalogue):</strong><br/>"
             f'<a href="{ds_nci}" target="_blank" rel="noopener">{ds_nci}</a></p>'
         )
     if ds_id:
         ds_id_url = safe_doi(ds_id) if not ds_id.startswith("http") else ds_id
         data_tab_parts.append(
-            f'        <p><strong>Dataset existing identifier:</strong><br/>'
+            f"        <p><strong>Dataset existing identifier:</strong><br/>"
             f'<a href="{ds_id_url}" target="_blank" rel="noopener">{ds_id}</a></p>'
         )
     if ds_notes:
-        data_tab_parts.append(f"        <p><strong>Dataset notes:</strong> {ds_notes}</p>")
+        data_tab_parts.append(
+            f"        <p><strong>Dataset notes:</strong> {ds_notes}</p>"
+        )
     if mf_nci:
         data_tab_parts.append(
-            f'        <p><strong>Model files (NCI catalogue):</strong><br/>'
+            f"        <p><strong>Model files (NCI catalogue):</strong><br/>"
             f'<a href="{mf_nci}" target="_blank" rel="noopener">{mf_nci}</a></p>'
         )
     if mf_id:
         mf_id_url = safe_doi(mf_id) if not mf_id.startswith("http") else mf_id
         data_tab_parts.append(
-            f'        <p><strong>Model files existing identifier:</strong><br/>'
+            f"        <p><strong>Model files existing identifier:</strong><br/>"
             f'<a href="{mf_id_url}" target="_blank" rel="noopener">{mf_id}</a></p>'
         )
     if mf_notes:
-        data_tab_parts.append(f"        <p><strong>Model files notes:</strong> {mf_notes}</p>")
+        data_tab_parts.append(
+            f"        <p><strong>Model files notes:</strong> {mf_notes}</p>"
+        )
     data_tab_parts.append(
-        f'        <p><strong>Source repository:</strong><br/>'
+        f"        <p><strong>Source repository:</strong><br/>"
         f'<a href="{source_repo_url}" target="_blank" rel="noopener">{source_repo_url}</a></p>'
     )
-    data_tab_html = "\n".join(data_tab_parts) if data_tab_parts else "        <p>Data information not available.</p>"
+    data_tab_html = (
+        "\n".join(data_tab_parts)
+        if data_tab_parts
+        else "        <p>Data information not available.</p>"
+    )
 
     # Build pub section
     if pub["title"]:
@@ -789,11 +777,19 @@ def model_qmd(m: dict) -> str:
     if sw["doi"] or sw["url"]:
         links = []
         if sw["doi"]:
-            links.append(f'<a href="{sw_doi_href}" target="_blank" rel="noopener">{sw_doi_href}</a>')
+            links.append(
+                f'<a href="{sw_doi_href}" target="_blank" rel="noopener">{sw_doi_href}</a>'
+            )
         if sw["url"] and sw["url"] != sw_doi_href:
-            links.append(f'<a href="{sw["url"]}" target="_blank" rel="noopener">{sw["url"]}</a>')
+            links.append(
+                f'<a href="{sw["url"]}" target="_blank" rel="noopener">{sw["url"]}</a>'
+            )
         sw_block_parts.append("        <p>" + " · ".join(links) + "</p>")
-    sw_block = "\n".join(sw_block_parts) if sw_block_parts else "        <p>Software information not available.</p>"
+    sw_block = (
+        "\n".join(sw_block_parts)
+        if sw_block_parts
+        else "        <p>Software information not available.</p>"
+    )
 
     # DOI badge for header
     if doi_display:
@@ -808,6 +804,9 @@ def model_qmd(m: dict) -> str:
     # Abstract
     abstract = m["abstract"]
     description = m["description"]
+
+    # Graphic abstract
+    ga_url = _convert_pdf_to_png(m["graphic_abstract_url"], slug, "abstract")
 
     return f"""---
 # Generated by scripts/ingest_models.py — do not edit directly.
@@ -857,6 +856,7 @@ title: "{yaml_esc(title)}"
 
       <h2>Abstract</h2>
       <p>{abstract}</p>
+      {f'<img src="{ga_url}" alt="Graphic abstract" style="width:100%; border-radius:6px; margin-top:1rem;" onerror="this.style.display=\'none\'" />' if ga_url else ""}
     </div>
 
     <!-- Tab 3: Software & Setup -->
@@ -910,6 +910,7 @@ title: "{yaml_esc(title)}"
 # models/index.qmd generator
 # ---------------------------------------------------------------------------
 
+
 def model_card_html(m: dict) -> str:
     slug = m["slug"]
     title = m["title"]
@@ -917,7 +918,9 @@ def model_card_html(m: dict) -> str:
     tags_lc = " ".join(tag_slug(t) for t in m["tags"])
     creators_lc = " ".join(c["full_name"].lower() for c in m["creators"])
 
-    img_url = _convert_pdf_to_png(m["landing_image_url"], slug, "card") or PLACEHOLDER_IMG
+    img_url = (
+        _convert_pdf_to_png(m["landing_image_url"], slug, "card") or PLACEHOLDER_IMG
+    )
     doi_raw = m["doi"]
     doi_href = safe_doi(doi_raw)
     doi_display = doi_raw.replace("https://doi.org/", "") if doi_raw else ""
@@ -933,7 +936,9 @@ def model_card_html(m: dict) -> str:
     for t in m["tags"][:5]:
         if t:
             tslug = tag_slug(t)
-            tag_badges += f'\n      <a class="badge-tag" href="/tags/{tslug}.html">{t}</a>'
+            tag_badges += (
+                f'\n      <a class="badge-tag" href="/tags/{tslug}.html">{t}</a>'
+            )
 
     doi_block = ""
     if doi_display:
@@ -1027,14 +1032,27 @@ function filterModels(query) {{
 # tags/ generators
 # ---------------------------------------------------------------------------
 
-def write_tags_index(all_tags: Dict[str, List[dict]], research_tag_set: Set[str], compute_tag_set: Set[str]) -> None:
+
+def write_tags_index(
+    all_tags: Dict[str, List[dict]],
+    research_tag_set: Set[str],
+    compute_tag_set: Set[str],
+) -> None:
     """all_tags: {tag_display_string: [model_dict, ...]}"""
     # Sort case-insensitively
     sorted_tags = sorted(all_tags.keys(), key=lambda t: t.lower())
 
     research = [t for t in sorted_tags if tag_slug(t) in research_tag_set]
-    compute = [t for t in sorted_tags if tag_slug(t) in compute_tag_set and tag_slug(t) not in research_tag_set]
-    other = [t for t in sorted_tags if tag_slug(t) not in research_tag_set and tag_slug(t) not in compute_tag_set]
+    compute = [
+        t
+        for t in sorted_tags
+        if tag_slug(t) in compute_tag_set and tag_slug(t) not in research_tag_set
+    ]
+    other = [
+        t
+        for t in sorted_tags
+        if tag_slug(t) not in research_tag_set and tag_slug(t) not in compute_tag_set
+    ]
 
     def cloud_items(tags):
         html = ""
@@ -1046,11 +1064,23 @@ def write_tags_index(all_tags: Dict[str, List[dict]], research_tag_set: Set[str]
 
     sections = ""
     if research:
-        sections += "<h2>Research Tags</h2>\n<div class=\"tag-cloud\">\n" + cloud_items(research) + "</div>\n\n"
+        sections += (
+            '<h2>Research Tags</h2>\n<div class="tag-cloud">\n'
+            + cloud_items(research)
+            + "</div>\n\n"
+        )
     if compute:
-        sections += "<h2>Compute Tags</h2>\n<div class=\"tag-cloud\">\n" + cloud_items(compute) + "</div>\n\n"
+        sections += (
+            '<h2>Compute Tags</h2>\n<div class="tag-cloud">\n'
+            + cloud_items(compute)
+            + "</div>\n\n"
+        )
     if other:
-        sections += "<h2>Other Tags</h2>\n<div class=\"tag-cloud\">\n" + cloud_items(other) + "</div>\n\n"
+        sections += (
+            '<h2>Other Tags</h2>\n<div class="tag-cloud">\n'
+            + cloud_items(other)
+            + "</div>\n\n"
+        )
 
     content = f"""---
 title: "Tags"
@@ -1093,6 +1123,7 @@ title: "Tag: {yaml_esc(tag)}"
 # ---------------------------------------------------------------------------
 # creators/ generators
 # ---------------------------------------------------------------------------
+
 
 def write_creators_index(all_creators: Dict[str, List[dict]]) -> None:
     """all_creators: {full_name: [model_slug, ...]}"""
@@ -1148,6 +1179,7 @@ title: "{yaml_esc(name)}"
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main() -> None:
     # Read registry
     entries = parse_registry(REGISTRY_PATH)
@@ -1183,7 +1215,9 @@ def main() -> None:
                 if tslug not in _tag_slug_map:
                     _tag_slug_map[tslug] = (tag, [])
                 _tag_slug_map[tslug][1].append(m)
-    all_tags: Dict[str, List[dict]] = {display: ms for _slug, (display, ms) in _tag_slug_map.items()}
+    all_tags: Dict[str, List[dict]] = {
+        display: ms for _slug, (display, ms) in _tag_slug_map.items()
+    }
 
     # Track which slugs are research vs compute tags
     research_slug_set: Set[str] = set()
