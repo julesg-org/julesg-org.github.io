@@ -1,4 +1,4 @@
-# julesg-org.github.io — M@TE Quarto Replica (`jmate-multi` branch)
+# julesg-org.github.io — M@TE Quarto Replica (`jmate` branch)
 
 [![Publish Quarto Site (jmate)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml/badge.svg)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml)
 
@@ -7,38 +7,60 @@ A **Quarto-based static website** that replicates the design and structure of th
 **data-driven model ingestion pipeline** that pulls content directly from model
 repositories on GitHub.
 
-> **Branch:** `jmate-multi` (based on `jmate`) — adds the multi-model ingestion pipeline.
-
 Original M@TE site: <https://mate.science/>  
 Original M@TE source: <https://github.com/ModelAtlasofTheEarth/website>
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/julesg-org/julesg-org.github.io.git
+cd julesg-org.github.io
+pixi run demo
+```
+
+That single command installs all dependencies (Python, Quarto, poppler),
+fetches model metadata from GitHub, generates all pages, renders the site,
+and opens a local preview in your browser.
+
+> **Prerequisite:** [pixi](https://pixi.sh) — a cross-platform package manager.
+> Install it on any platform:
+> - **Linux / macOS:** `curl -fsSL https://pixi.sh/install.sh | sh`
+> - **macOS (Homebrew):** `brew install pixi`
+> - **Windows:** `winget install pixi` or `scoop install pixi`
+> - **Any (via conda):** `conda install -c conda-forge pixi`
 
 ---
 
 ## 🗂️ Repository Structure
 
 ```
-julesg-org.github.io/           (jmate-multi branch)
-├── _quarto.yml                 # ← M@TE site config (navbar, theme, footer)
-├── _registry.yml               # ← MODEL REGISTRY: add a model slug+repo here
+julesg-org.github.io/
+├── pixi.toml                    # ← Single dependency manifest (Python, Quarto, poppler)
+├── _quarto.yml                  # ← M@TE site config (navbar, theme, footer)
+├── _registry.yml                # ← MODEL REGISTRY: add a model slug+repo here
 ├── scripts/
-│   └── ingest_models.py        # ← Ingest pipeline (run locally before render)
-├── index.qmd                   # ← Hero landing page
-├── about.qmd                   # ← About M@TE page
-├── contact.qmd                 # ← Contact / model submission info
+│   └── ingest_models.py         # ← Ingest pipeline (fetches metadata + graphics)
+├── index.qmd                    # ← Hero landing page
+├── about.qmd                    # ← About M@TE page
+├── contact.qmd                  # ← Contact / model submission info
 ├── styles/
-│   └── mate.css                # ← M@TE visual design (colours, badges, tabs)
+│   └── mate.css                 # ← M@TE visual design (colours, badges, tabs)
 ├── images/
-│   └── atlas-icon.svg          # ← M@TE navbar logo (SVG)
+│   ├── atlas-icon.svg           # ← M@TE navbar logo (SVG)
+│   └── AuScopeLogo.webp        # ← Funder logo
 ├── models/
-│   ├── mather-2022-groundwater.qmd  # ← Hand-written reference model page
-│   └── (other pages generated on the fly by pre-render)
-├── tags/                       # ← Generated on the fly by pre-render
-├── creators/                   # ← Generated on the fly by pre-render
+│   ├── _graphics/               # ← Auto-generated PNGs (converted from PDFs)
+│   ├── index.qmd                # ← Model listing (generated)
+│   └── {slug}.qmd               # ← Per-model detail page (generated)
+├── tags/                        # ← Generated tag pages (one per tag)
+├── creators/                    # ← Generated creator pages (one per creator)
 ├── news/
-│   └── index.qmd               # ← News listing page
+│   └── index.qmd                # ← News listing page
 └── .github/
     └── workflows/
-        └── publish.yml         # ← CI/CD: build & deploy on push to jmate
+        └── publish.yml          # ← CI/CD: pixi run build → deploy to gh-pages
 ```
 
 ---
@@ -55,33 +77,36 @@ models:
     repo: ModelAtlasofTheEarth/my-new-model
 ```
 
-2. Run `python scripts/ingest_models.py` locally to preview, or just commit and
-   push — CI fetches the model data from GitHub and regenerates all pages
-   automatically.
+2. Run `pixi run ingest` to fetch model metadata and regenerate all pages locally,
+   or just commit and push — CI handles everything automatically.
 
 ### Running locally
 
 ```bash
-# 1. Clone the repo and check out this branch
+# 1. Clone the repo
 git clone https://github.com/julesg-org/julesg-org.github.io.git
 cd julesg-org.github.io
-git checkout julesghub-nodup
 
-# 2. Install Python dependencies (one-time setup)
-pip install requests
-
-# 3. Fetch model data from GitHub and generate .qmd files
-python scripts/ingest_models.py
-
-# 4. Preview or build the site
-quarto preview
-# or
-quarto render
+# 2. Ingest model data, render the site, and open a preview
+pixi run demo
 ```
 
-The ingest script must be run **before** every `quarto preview` or `quarto render`
-to ensure model pages reflect the latest metadata from the source repositories.
-Generated `.qmd` files live only on disk during rendering and are never committed.
+**Breakdown of pixi tasks:**
+
+| Command | What it does |
+|---------|-------------|
+| `pixi run ingest` | Fetch model metadata from GitHub, discover graphics, generate `.qmd` files |
+| `pixi run render` | Render the site with Quarto to `_site/` |
+| `pixi run preview` | Start a local Quarto preview server |
+| `pixi run build` | Ingest + render (no preview) — used in CI |
+| `pixi run demo` | Ingest + render + preview — full local workflow |
+
+The ingest must run **before** every render to ensure model pages reflect
+the latest metadata. `pixi run build` and `pixi run demo` handle this ordering
+automatically.
+
+All generated files (`.qmd` pages, `_graphics/` PNGs) are gitignored — they live
+only on disk during rendering and are never committed to the repository.
 
 ---
 
@@ -93,7 +118,7 @@ The M@TE design is replicated from the original Gatsby/Netlify site:
 |---------|-------|
 | Primary colour | `#D64000` (rust/orange-red) |
 | Link colour | `#2c8ec7` (blue) |
-| Navbar background | `rgba(240, 248, 250, 0.85)` semi-transparent |
+| Navbar / hero background | `#DAE1E3` (light grey-blue) |
 | Font | Open Sans Bold, sans-serif |
 | Tag badges | Blue (`#2c8ec7`), link to `/tags/{slug}.html` |
 | Creator badges | Grey (`#6c757d`), link to `/creators/{slug}.html` |
@@ -122,9 +147,11 @@ The M@TE design is replicated from the original Gatsby/Netlify site:
 
 Deployment is fully automatic via GitHub Actions:
 
-1. Push to `julesghub-nodup` (or any branch configured for CI)
-2. GitHub Actions installs Python, runs `pip install requests`, then runs `quarto render`
-3. The `pre-render` hook automatically fetches model metadata from GitHub and generates all pages
+1. Push to the `jmate` branch
+2. GitHub Actions runs `prefix-dev/setup-pixi@v0.9.6` (which installs pixi and
+   all dependencies from `pixi.toml` — Python, Quarto, poppler — with caching)
+3. `pixi run build` fetches model metadata from GitHub, generates all pages,
+   PDF thumbnails, and renders the full site
 4. The `_site/` directory is pushed to the `gh-pages` branch
 5. GitHub Pages serves it at **https://julesg-org.github.io**
 
