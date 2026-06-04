@@ -30,3 +30,5 @@ models:
     repo: ModelAtlasofTheEarth/RodriguezCorcho-2022-ArcCollision
   - slug: sandiford-2021-detachment
     repo: ModelAtlasofTheEarth/sandiford-2021-detachment
+  - slug: gollapalli-2022-sunda-subduction
+    repo: ModelAtlasofTheEarth/gollapalli-2022-sunda-subduction

@@ -917,10 +917,6 @@ def model_card_html(m: dict) -> str:
     tags_lc = " ".join(tag_slug(t) for t in m["tags"])
     creators_lc = " ".join(c["full_name"].lower() for c in m["creators"])
 
-    abstract = m["abstract"]
-    if len(abstract) > 300:
-        abstract = abstract[:297] + "..."
-
     img_url = _convert_pdf_to_png(m["landing_image_url"], slug, "card") or PLACEHOLDER_IMG
     doi_raw = m["doi"]
     doi_href = safe_doi(doi_raw)
@@ -958,7 +954,6 @@ def model_card_html(m: dict) -> str:
          alt="{title}"
          onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
     <h3>{title}</h3>
-    <p class="mc-card-abstract">{abstract}</p>
     <div class="mc-card-meta">{creator_badges}
       <br/>{tag_badges}{doi_block}
     </div>

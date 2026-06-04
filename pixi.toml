@@ -10,6 +10,7 @@ ingest = "python scripts/ingest_models.py"
 render = "quarto render"
 preview = "quarto preview"
 build = { depends-on = ["ingest", "render"] }
+demo = { depends-on = ["ingest", "render", "preview"] }
 
 [dependencies]
 python = ">=3.10"
