@@ -725,7 +725,7 @@
     "href": "index.html",
     "title": "M@TE — Model Atlas of the Earth",
     "section": "",
-    "text": "Model Atlas of the Earth\n  \n    A curated, open atlas of geoscientific numerical models — reproducible,\n    reusable, and FAIR.\n  \n  \n  \n    Browse Models\n  \n   \n  \n    Learn More"
+    "text": "Model Atlas of the Earth\n  \n    M@TE is a purpose-built digital platform for geoscience that provides access to computational models of Earth's processes, from the Geosphere to the Hydrosphere, like Zenodo for geoscience but bigger and better.\n  \n  \n  \n  Funded by:\n  \n\n\n\n  \n  \n  \n  \n    Browse Models\n  \n   \n  \n    Learn More"
   },
   {
     "objectID": "index.html#what-is-mte",
@@ -746,7 +746,7 @@
     "href": "index.html#why-mte",
     "title": "M@TE — Model Atlas of the Earth",
     "section": "Why M@TE?",
-    "text": "Why M@TE?\n\n  ✅ Open source and free\n  🔎 FAIR data principles\n  ♻️ Reproducible models\n  🏗️ Built on sustainable infrastructure\n  📦 RO-Crate packaging\n  🆔 DOI-assigned datasets\n\nTogether we build reproducible, reusable, robust models — it takes a village — so please cite the models you use."
+    "text": "Why M@TE?\nThe field of numerical modeling of Earth’s systems is rapidly expanding, enabling new insights into the coevolution of the solid Earth and surface processes. These models often require specialized high-performance computing resources, can take days to weeks to run, and generate large volumes of heterogeneous output data. Without proper curation and community standards, it is difficult to access, interpret, and build upon published work.\nM@TE addresses these needs by providing:\n\nIntegrated management of the full model life cycle: code, documentation, output data, publications, figures, animations and metadata\nPurpose-built infrastructure for storing, preserving, and sharing computational models\nA central hub connecting educators, model developers, and geoscientists\nSupport for reproducibility and reuse\nBuilt-in DOI creation for persistent, citable results\nScalable and sustainable research infrastructure\nFlexibility for users with different levels of expertise\nCapabilities beyond general-purpose repositories (e.g., Zenodo, Figshare)\n\n\n\n✅ Open source and free\n\n\n🔎 FAIR data principles\n\n\n♻️ Reproducible models\n\n\n🏗️ Built on sustainable infrastructure\n\n\n📦 RO-Crate packaging\n\n\n🆔 DOI-assigned datasets"
   },
   {
     "objectID": "blog/posts/welcome/index.html",
