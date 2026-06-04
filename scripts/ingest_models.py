@@ -227,51 +227,131 @@ def _first_identifier(node: dict, exclude: Optional[Set[str]] = None) -> str:
     return ""
 
 
-def _resolve_url(url: str, raw_base: str) -> str:
-    """Return *url* if it points to real binary content (image/video/PDF).
-    If it is a symlink stub (Content-Type text/plain whose body is the
-    target filename), follow the link and return the resolved URL.
+def _parse_index_sheet(repo: str) -> dict:
+    """Backward-compatibility: try to parse an image mapping from legacy
+    .website_material/index.md (YAML frontmatter) or .website_material/index.json.
 
-    Returns empty string when nothing valid is found.
+    *Future* repositories will NOT have these index files — they will rely on
+    the named-file convention (graphic_abstract.png, landing_image.png, etc.)
+    probed by discover_graphics() as the primary mechanism.  This function
+    exists solely to support repositories created before the June 2026 naming
+    convention without requiring any changes to those repositories.
 
-    Symlink-following capability added June 2026 so that model repositories
-    created before the naming convention was finalised can use symlinks
-    (e.g.  graphic_abstract.png → gpe_fm26.png) without re-uploading
-    identical files under multiple names.
+    Returns a standard 8-field dict; any field not found is left empty.
     """
-    try:
-        r = requests.get(url, timeout=10, stream=True)
-        if r.status_code != 200:
-            r.close()
-            return ""
-        ct = r.headers.get("Content-Type", "")
-        if "text/plain" not in ct:
-            r.close()
-            return url  # real binary file
-        # Symlink — body is the target filename
-        r.close()
-        r = requests.get(url, timeout=10)
-        target = r.content.decode("utf-8", errors="replace").strip()
-        if not target or "/" in target:
-            return ""  # reject path traversal
-        target_url = f"{raw_base}/{target}"
-        r2 = requests.get(target_url, timeout=10, stream=True)
-        ok = r2.status_code == 200 and "text/plain" not in r2.headers.get("Content-Type", "")
-        r2.close()
-        return target_url if ok else ""
-    except Exception:
+    raw_base = f"https://raw.githubusercontent.com/{repo}/main/.website_material"
+
+    result = {
+        "graphic_abstract_url": "",
+        "graphic_abstract_caption": "",
+        "landing_image_url": "",
+        "landing_image_caption": "",
+        "model_setup_image_url": "",
+        "model_setup_image_caption": "",
+        "animation_url": "",
+        "animation_caption": "",
+    }
+
+    # Mapping: index field name → (url_result_key, caption_result_key)
+    # Handles the naming difference between index.md (model_setup) and
+    # index.json (model_setup_figure).
+    INDEX_KEYS = {
+        "graphic_abstract": ("graphic_abstract_url", "graphic_abstract_caption"),
+        "landing_image": ("landing_image_url", "landing_image_caption"),
+        "model_setup": ("model_setup_image_url", "model_setup_image_caption"),
+        "model_setup_figure": ("model_setup_image_url", "model_setup_image_caption"),
+        "animation": ("animation_url", "animation_caption"),
+    }
+
+    def _assign(entry: dict) -> str:
+        """Extract a resolvable URL from an image entry.
+        Prefers direct 'url' (GitHub attachment CDN), otherwise
+        builds from 'filename' or 'src' relative to raw_base."""
+        url = (entry.get("url") or "").strip()
+        if url:
+            return url
+        fn = (entry.get("filename") or entry.get("src") or "").strip()
+        if fn:
+            fn = fn[2:] if fn.startswith("./") else fn
+            return f"{raw_base}/{fn}"
         return ""
+
+    # --- Try index.md (YAML frontmatter) ---
+    try:
+        r = requests.get(f"{raw_base}/index.md", timeout=15)
+        if r.status_code == 200 and r.text.startswith("---"):
+            import yaml
+
+            end = r.text.find("---", 3)
+            if end > 0:
+                fm = yaml.safe_load(r.text[3:end])
+                if isinstance(fm, dict):
+                    # Check under images: block
+                    images = fm.get("images", {}) or {}
+                    for img_key, entry in images.items():
+                        if img_key in INDEX_KEYS and isinstance(entry, dict):
+                            url_key, cap_key = INDEX_KEYS[img_key]
+                            url = _assign(entry)
+                            if url:
+                                result[url_key] = url
+                                result[cap_key] = (entry.get("caption") or "").strip()
+                    # Check top-level keys (animation is top-level in index.md)
+                    for img_key in INDEX_KEYS:
+                        if result[INDEX_KEYS[img_key][0]]:
+                            continue  # already set from images block
+                        entry = fm.get(img_key)
+                        if isinstance(entry, dict):
+                            url_key, cap_key = INDEX_KEYS[img_key]
+                            url = _assign(entry)
+                            if url:
+                                result[url_key] = url
+                                result[cap_key] = (entry.get("caption") or "").strip()
+    except Exception:
+        pass
+
+    # --- Try index.json ---
+    try:
+        r = requests.get(f"{raw_base}/index.json", timeout=15)
+        if r.status_code == 200:
+            import json
+
+            data = r.json()
+            if isinstance(data, dict):
+                for img_key, (url_key, cap_key) in INDEX_KEYS.items():
+                    if result[url_key]:
+                        continue  # already set by index.md
+                    entry = data.get(img_key)
+                    if isinstance(entry, dict):
+                        url = _assign(entry)
+                        if url:
+                            result[url_key] = url
+                            result[cap_key] = (entry.get("caption") or "").strip()
+    except Exception:
+        pass
+
+    return result
 
 
 def discover_graphics(repo: str) -> dict:
     """
-    Discover model graphics by probing named file paths with wildcard extensions.
-    Each model repository should place graphics under:
-      .website_material/graphics/graphic_abstract.{ext}
-      .website_material/graphics/landing_image.{ext}
-      .website_material/graphics/model_setup_figure.{ext}
-      .website_material/graphics/animation.{ext}
-    Extensions are tried in priority order: png, jpg, jpeg, gif, webp, pdf, mp4.
+    Discover model graphics for a repository.
+
+    Strategy 1 — Legacy index sheet (backward compatibility):
+      Parse .website_material/index.md (YAML frontmatter) or
+      .website_material/index.json for explicit image→role mappings
+      with captions.
+
+    Strategy 2 — Named-file convention (June 2026+):
+      Probe known file paths with wildcard extensions:
+        .website_material/graphics/graphic_abstract.{ext}
+        .website_material/graphics/landing_image.{ext}
+        .website_material/graphics/model_setup_figure.{ext}
+        .website_material/graphics/animation.{ext}
+      Extensions tried in priority order: png, jpg, jpeg, gif, webp, pdf, mp4.
+
+    Strategy 2 fills any gaps left by Strategy 1, so repositories with
+    an index sheet that only declares a subset of images will still get
+    the remaining ones via filename probing.
     """
     raw_base = (
         f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
@@ -296,13 +376,23 @@ def discover_graphics(repo: str) -> dict:
         "animation_caption": "",
     }
 
+    # Strategy 1: legacy index sheet
+    idx = _parse_index_sheet(repo)
+    if any(idx.values()):
+        result = idx
+
+    # Strategy 2: named-file probing (also fills gaps from Strategy 1)
     for key, base_name in named_paths.items():
+        if result[key]:
+            continue  # already filled by index sheet
         for ext in extensions:
             url = f"{raw_base}/{base_name}.{ext}"
-            resolved = _resolve_url(url, raw_base)
-            if resolved:
-                result[key] = resolved
-                break
+            try:
+                if requests.get(url, timeout=10, stream=True).status_code == 200:
+                    result[key] = url
+                    break
+            except Exception:
+                continue
     return result
 
 
