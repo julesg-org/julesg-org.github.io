@@ -24,11 +24,13 @@ models:
     repo: ModelAtlasofTheEarth/cenki-tok-2020-crustal-roots-in-stable-continents
   - slug: cenki-2022-uht-granulitic-terranes
     repo: ModelAtlasofTheEarth/cenki-2022-uht-granulitic-terranes
-  #  - slug: finch-2024-cprime
-  #    repo: ModelAtlasofTheEarth/finch-2024-cprime
+  - slug: finch-2024-cprime
+    repo: ModelAtlasofTheEarth/finch-2024-cprime
   - slug: yang-2023-eqcycles
     repo: ModelAtlasofTheEarth/yang-2023-eqcycles
   - slug: RodriguezCorcho-2022-ArcCollision
     repo: ModelAtlasofTheEarth/RodriguezCorcho-2022-ArcCollision
+  - slug: giordani-2026-heymate
+    repo: ModelAtlasofTheEarth/giordani-2026-heymate
   - slug: gollapalli-2022-sunda-subduction
     repo: ModelAtlasofTheEarth/gollapalli-2022-sunda-subduction

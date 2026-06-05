@@ -227,15 +227,28 @@ def _first_identifier(node: dict, exclude: Optional[Set[str]] = None) -> str:
     return ""
 
 
+# Standard 8-field result keys for graphic discovery
+GRAPHIC_FIELDS = [
+    "graphic_abstract_url",
+    "graphic_abstract_caption",
+    "landing_image_url",
+    "landing_image_caption",
+    "model_setup_image_url",
+    "model_setup_image_caption",
+    "animation_url",
+    "animation_caption",
+]
+
+
 def _parse_index_sheet(repo: str) -> dict:
     """Backward-compatibility: try to parse an image mapping from legacy
     .website_material/index.md (YAML frontmatter) or .website_material/index.json.
 
     *Future* repositories will NOT have these index files — they will rely on
-    the named-file convention (graphic_abstract.png, landing_image.png, etc.)
-    probed by discover_graphics() as the primary mechanism.  This function
-    exists solely to support repositories created before the June 2026 naming
-    convention without requiring any changes to those repositories.
+    the RO-Crate graphic entries parsed by discover_graphics() instead.
+    This function exists solely to support repositories created before the
+    June 2026 naming convention without requiring any changes to those
+    repositories.
 
     Returns a standard 8-field dict; any field not found is left empty.
     """
@@ -332,65 +345,80 @@ def _parse_index_sheet(repo: str) -> dict:
     return result
 
 
+def _parse_ro_crate_graphics(repo: str) -> dict | None:
+    """Parse RO-Crate metadata for graphic entries (June 2026+ convention).
+
+    Scans the RO-Crate @graph for entries whose @id ends with one of the
+    four known graphic role identifiers (graphic_abstract, landing_image,
+    model_setup_figure, animation).  Each such entry provides:
+
+      path        — full download URL
+      description — caption text
+
+    Returns the standard 8-field dict if any graphic entries were found,
+    or None if the RO-Crate has no graphic entries (legacy repository).
+    """
+    role_suffixes = {
+        "graphic_abstract": ("graphic_abstract_url", "graphic_abstract_caption"),
+        "landing_image": ("landing_image_url", "landing_image_caption"),
+        "model_setup_figure": ("model_setup_image_url", "model_setup_image_caption"),
+        "animation": ("animation_url", "animation_caption"),
+    }
+
+    result = {k: "" for k in GRAPHIC_FIELDS}
+    found = False
+
+    try:
+        crate_url = (
+            f"https://raw.githubusercontent.com/{repo}/main/ro-crate-metadata.json"
+        )
+        r = requests.get(crate_url, timeout=15)
+        if r.status_code != 200:
+            r = requests.get(
+                crate_url.replace("ro-crate-metadata", "ro-create-metadata"), timeout=15
+            )
+        if r.status_code != 200:
+            return None
+
+        graph = r.json().get("@graph", [])
+        for node in graph:
+            if not isinstance(node, dict):
+                continue
+            nid = node.get("@id", "")
+            for suffix, (url_key, cap_key) in role_suffixes.items():
+                if nid.endswith(suffix):
+                    result[url_key] = (node.get("path") or "").strip()
+                    result[cap_key] = (node.get("description") or "").strip()
+                    found = True
+                    break
+    except Exception:
+        return None
+
+    return result if found else None
+
+
 def discover_graphics(repo: str) -> dict:
     """
     Discover model graphics for a repository.
 
-    Strategy 1 — Named-file convention (primary, June 2026+):
-      Probe known file paths with wildcard extensions:
-        .website_material/graphics/graphic_abstract.{ext}
-        .website_material/graphics/landing_image.{ext}
-        .website_material/graphics/model_setup_figure.{ext}
-        .website_material/graphics/animation.{ext}
-      Extensions tried in priority order: png, jpg, jpeg, gif, webp, pdf, mp4.
-      Only real binary files (Content-Type not text/plain) are accepted.
+    Strategy 1 — RO-Crate graphic entries (primary, June 2026+):
+      Parse ro-crate-metadata.json (or ro-create-metadata.json) for
+      @graph entries whose @id ends with graphic_abstract, landing_image,
+      model_setup_figure, or animation.  Uses the ``path`` field as the
+      download URL and ``description`` as the caption.
 
     Strategy 2 — Legacy index sheet (backward compatibility fallback):
-      Parse .website_material/index.md (YAML frontmatter) or
-      .website_material/index.json for explicit image→role mappings
-      with captions.  Only fills keys left empty by Strategy 1.
+      Only reached when the RO-Crate has no graphic entries (pre-June 2026
+      repositories).  Parses .website_material/index.md or .website_material/
+      index.json for explicit image→role mappings with captions.
     """
-    raw_base = (
-        f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
-    )
-    extensions = ["png", "jpg", "jpeg", "gif", "webp", "pdf", "mp4"]
+    # Strategy 1: RO-Crate graphic entries (primary)
+    result = _parse_ro_crate_graphics(repo)
+    if result is not None:
+        return result
 
-    named_paths = {
-        "graphic_abstract_url": "graphic_abstract",
-        "landing_image_url": "landing_image",
-        "model_setup_image_url": "model_setup_figure",
-        "animation_url": "animation",
-    }
-
-    result = {
-        "graphic_abstract_url": "",
-        "graphic_abstract_caption": "",
-        "landing_image_url": "",
-        "landing_image_caption": "",
-        "model_setup_image_url": "",
-        "model_setup_image_caption": "",
-        "animation_url": "",
-        "animation_caption": "",
-    }
-
-    # Strategy 1: named-file probing (primary)
-    for key, base_name in named_paths.items():
-        for ext in extensions:
-            url = f"{raw_base}/{base_name}.{ext}"
-            try:
-                with requests.get(url, timeout=10, stream=True) as r:
-                    if r.status_code == 200 and \
-                       "text/plain" not in r.headers.get("Content-Type", ""):
-                        result[key] = url
-                        break
-            except Exception:
-                continue
-
-    # Strategy 2: legacy index sheet (fills gaps from Strategy 1)
-    idx = _parse_index_sheet(repo)
-    for key in result:
-        if not result[key]:
-            result[key] = idx.get(key, "")
+    # Strategy 2: Legacy index sheet (fallback)
+    result = _parse_index_sheet(repo)
 
     # Warn about any graphic fields that remain empty
     url_keys = [k for k in result if k.endswith("_url")]
