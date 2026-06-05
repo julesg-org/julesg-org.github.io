@@ -336,22 +336,19 @@ def discover_graphics(repo: str) -> dict:
     """
     Discover model graphics for a repository.
 
-    Strategy 1 — Legacy index sheet (backward compatibility):
-      Parse .website_material/index.md (YAML frontmatter) or
-      .website_material/index.json for explicit image→role mappings
-      with captions.
-
-    Strategy 2 — Named-file convention (June 2026+):
+    Strategy 1 — Named-file convention (primary, June 2026+):
       Probe known file paths with wildcard extensions:
         .website_material/graphics/graphic_abstract.{ext}
         .website_material/graphics/landing_image.{ext}
         .website_material/graphics/model_setup_figure.{ext}
         .website_material/graphics/animation.{ext}
       Extensions tried in priority order: png, jpg, jpeg, gif, webp, pdf, mp4.
+      Only real binary files (Content-Type not text/plain) are accepted.
 
-    Strategy 2 fills any gaps left by Strategy 1, so repositories with
-    an index sheet that only declares a subset of images will still get
-    the remaining ones via filename probing.
+    Strategy 2 — Legacy index sheet (backward compatibility fallback):
+      Parse .website_material/index.md (YAML frontmatter) or
+      .website_material/index.json for explicit image→role mappings
+      with captions.  Only fills keys left empty by Strategy 1.
     """
     raw_base = (
         f"https://raw.githubusercontent.com/{repo}/main/.website_material/graphics"
@@ -376,23 +373,24 @@ def discover_graphics(repo: str) -> dict:
         "animation_caption": "",
     }
 
-    # Strategy 1: legacy index sheet
-    idx = _parse_index_sheet(repo)
-    if any(idx.values()):
-        result = idx
-
-    # Strategy 2: named-file probing (also fills gaps from Strategy 1)
+    # Strategy 1: named-file probing (primary)
     for key, base_name in named_paths.items():
-        if result[key]:
-            continue  # already filled by index sheet
         for ext in extensions:
             url = f"{raw_base}/{base_name}.{ext}"
             try:
-                if requests.get(url, timeout=10, stream=True).status_code == 200:
-                    result[key] = url
-                    break
+                with requests.get(url, timeout=10, stream=True) as r:
+                    if r.status_code == 200 and \
+                       "text/plain" not in r.headers.get("Content-Type", ""):
+                        result[key] = url
+                        break
             except Exception:
                 continue
+
+    # Strategy 2: legacy index sheet (fills gaps from Strategy 1)
+    idx = _parse_index_sheet(repo)
+    for key in result:
+        if not result[key]:
+            result[key] = idx.get(key, "")
 
     # Warn about any graphic fields that remain empty
     url_keys = [k for k in result if k.endswith("_url")]

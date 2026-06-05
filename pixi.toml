@@ -6,12 +6,16 @@ channels = ["conda-forge"]
 platforms = ["linux-64"]
 
 [tasks]
-ingest = "python scripts/ingest_models.py"
+ingest = { cmd = "python scripts/ingest_models.py", description = "Read in M@TE model repositories - essential for quarto site building" }
 render = "quarto render"
 preview = "quarto preview"
 build = { depends-on = ["ingest", "render"] }
-demo = { depends-on = ["ingest", "render", "preview"] }
-clean = "rm -rf _site _freeze .quarto models/_graphics/ models/*.qmd tags/ creators/"
+demo = { depends-on = [
+  "ingest",
+  "render",
+  "preview",
+], description = "Runs a local version of the M@TE website" }
+clean = { cmd = "rm -rf _site _freeze .quarto models/_graphics/ models/*.qmd tags/ creators/", description = "Remove all website material" }
 
 [dependencies]
 python = ">=3.10"
