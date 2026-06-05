@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tag: Stratigraphic record – M@TE</title>
+<title>The ephemeral development of C′ shear bands: A numerical modelling approach – M@TE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tag: Stratigraphic record</h1>
+<h1 class="title">The ephemeral development of C′ shear bands: A numerical modelling approach</h1>
 </div>
 
 
@@ -165,31 +165,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Models tagged with <span class="badge-tag">Stratigraphic record</span>:</p>
+<div class="model-page">
 
-<div class="models-grid">
+  <!-- ── Header ─────────────────────────────────────────────────────────── -->
+  <h1>The ephemeral development of C′ shear bands: A numerical modelling approach</h1>
 
-  <!-- ── Model card: polanco-2024-deltas ─────────────────────────────────────────────── -->
-  <a href="../models/polanco-2024-deltas.html" class="mc-card-container" data-title="flexural isostatic response of continental-scale deltas to climatically driven sea level changes" data-tags="flexural-isostasy glacial-isostatic-adjustment-gia deltaic-depocenters stratigraphic-record" data-creators="sara polanco michael blum tristan salles bruce c frederick rebecca farrington xuesong ding ben mather claire a. mallard louis-noel moresi">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/polanco-2024-deltas/main/.website_material/graphics/fig1.png" alt="Flexural isostatic response of continental-scale deltas to climatically driven sea level changes" onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';">
-    <h3 class="anchored">Flexural isostatic response of continental-scale deltas to climatically driven sea level changes</h3>
-    </a><div class="mc-card-meta"><a href="../models/polanco-2024-deltas.html" class="mc-card-container" data-title="flexural isostatic response of continental-scale deltas to climatically driven sea level changes" data-tags="flexural-isostasy glacial-isostatic-adjustment-gia deltaic-depocenters stratigraphic-record" data-creators="sara polanco michael blum tristan salles bruce c frederick rebecca farrington xuesong ding ben mather claire a. mallard louis-noel moresi">
-      </a><a class="badge-creator" href="../creators/sara-polanco.html">Sara Polanco</a>
-      <a class="badge-creator" href="../creators/michael-blum.html">Michael Blum</a>
-      <a class="badge-creator" href="../creators/tristan-salles.html">Tristan Salles</a>
-      <br>
-      <a class="badge-tag" href="../tags/flexural-isostasy.html">Flexural isostasy</a>
-      <a class="badge-tag" href="../tags/glacial-isostatic-adjustment-gia.html">Glacial isostatic adjustment (GIA)</a>
-      <a class="badge-tag" href="../tags/deltaic-depocenters.html">Deltaic depocenters</a>
-      <a class="badge-tag" href="../tags/stratigraphic-record.html">Stratigraphic record</a>
-      <br>
-      <a class="badge-doi" href="https://doi.org/10.25914/4m82-y773" onclick="event.stopPropagation()" target="_blank" rel="noopener">
-        <span class="badge-doi-left">DOI</span>
-        <span class="badge-doi-right">10.25914/4m82-y773</span>
-      </a>
+  <div class="model-meta-block">
+    <strong>DOI:</strong>
+        <a class="badge-doi" href="https://doi.org/10.25914/whbg-hd74" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.25914/whbg-hd74</span></a>
+    <br><br>
+    <strong>Creators:</strong><br>
+    <a class="badge-creator" href="../creators/melanie-finch.html">Melanie Finch</a>
+    <a class="badge-creator" href="../creators/pd-bons.html">P.D. Bons</a>
+    <a class="badge-creator" href="../creators/florian-steinbach.html">Florian Steinbach</a>
+    <a class="badge-creator" href="../creators/albert-griera-artigas.html">Albert Griera Artigas</a>
+    <a class="badge-creator" href="../creators/maria-gema-llorens.html">Maria-Gema Llorens</a>
+    <a class="badge-creator" href="../creators/e-gomez-rivas.html">E. Gomez-Rivas</a>
+    <a class="badge-creator" href="../creators/h-ran.html">H. Ran</a>
+    <a class="badge-creator" href="../creators/t-de-riese.html">T. de Riese</a>
+  </div>
+
+  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
+  <div class="tab-container">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
+      <button class="tab-btn" onclick="switchTab(this,'overview')">Science Overview</button>
+      <button class="tab-btn" onclick="switchTab(this,'setup')">Software &amp; Setup</button>
+      <button class="tab-btn" onclick="switchTab(this,'data')">Code &amp; Data</button>
+      <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
     </div>
-  
+
+    <!-- Tab 1: Snapshot -->
+    <div id="tab-snapshot" class="tab-panel active">
+      <p>This model simulates the development of C' shear bands in ductile shear zones. The model begins with an equigranular texture of three phases: a strong phase (e.g., feldspar) an intermediate-strength phase (e.g., quartz) and an anisotropic weak phase (e.g., mica). Dextral shearing stretches and rotates the microstructure, forming S-C fabric, asymmetric folds and C' shear bands.</p>
+      <div class="animation-container">
+        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/finch-2024-cprime/main/.website_material/graphics/" alt="Model animation" style="max-width:100%; border-radius:6px;" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- Tab 2: Science Overview -->
+    <div id="tab-overview" class="tab-panel">
+      <h2 class="anchored">Research Tags</h2>
+      <div>
+        <p><em>None specified.</em></p>
+      </div>
+
+      <h2 class="anchored">Associated Publication</h2>
+        <p>
+          <strong>The ephemeral development of C′ shear bands: A numerical modelling approach</strong><br>
+          M.A. Finch, P.D. Bons, F. Steinbach, A. Griera, M.-G. Llorens, E. Gomez-Rivas, H. Ran, T. de Riese<br>
+          <em></em> — 2020-10<br>
+          <a class="badge-doi" href="https://doi.org/10.1016/j.jsg.2020.104091" onclick="event.stopPropagation()" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.1016/j.jsg.2020.104091</span></a>
+        </p>
+
+      <h2 class="anchored">Abstract</h2>
+      <p></p>
+      <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/finch-2024-cprime/main/.website_material/graphics/Fig  5.png" alt="Graphic abstract" style="width:100%; border-radius:6px; margin-top:1rem;" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Tab 3: Software & Setup -->
+    <div id="tab-setup" class="tab-panel">
+      <h2 class="anchored">Compute Tags</h2>
+      <div>
+        <p><em>None specified.</em></p>
+      </div>
+
+      <h2 class="anchored">Software</h2>
+        <p><strong>Elle Numerical Simulation Platform</strong></p>
+
+      <h2 class="anchored">Model Setup</h2>
+      <div class="full-width-image">
+        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/finch-2024-cprime/main/.website_material/graphics/Fig 2.png" alt="Basic process of microstructure simulation. (a) The starting microstructure consists of three grain types that undergo one increment of γ = 0.02 dextral shear. (b) The microstructure is deformed with wrapping boundaries. (c) The microstructure is repositioned back to a square before the next increment of strain. (d) Zoom in of (a) showing the three flynn (grain) types: strong phase (SP), intermediate-strength phase (IP), and weak phase (WP). (e) Zoom-in of (d) showing that flynn grain boundaries are defined by double (blue) and triple (red) bnodes joined by straight lines. An additional grid of unconnected nodes (unodes, black) is overlain on flynns and stores state variables and flynn properties." style="width:100%; border-radius:6px;" onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';">
+      </div>
+      <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">Basic process of microstructure simulation. (a) The starting microstructure consists of three grain types that undergo one increment of γ = 0.02 dextral shear. (b) The microstructure is deformed with wrapping boundaries. (c) The microstructure is repositioned back to a square before the next increment of strain. (d) Zoom in of (a) showing the three flynn (grain) types: strong phase (SP), intermediate-strength phase (IP), and weak phase (WP). (e) Zoom-in of (d) showing that flynn grain boundaries are defined by double (blue) and triple (red) bnodes joined by straight lines. An additional grid of unconnected nodes (unodes, black) is overlain on flynns and stores state variables and flynn properties.</p>
+    </div>
+
+    <!-- Tab 4: Code & Data -->
+    <div id="tab-data" class="tab-panel">
+        <p><strong>Dataset (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/finch-2024-cprime/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/finch-2024-cprime/catalog.html</a></p>
+        <p><strong>Model files (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/finch-2024-cprime/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/finch-2024-cprime/catalog.html</a></p>
+        <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
+        <p><strong>Source repository:</strong><br><a href="https://github.com/ModelAtlasofTheEarth/finch-2024-cprime" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/finch-2024-cprime</a></p>
+    </div>
+
+    <!-- Tab 5: Metadata -->
+    <div id="tab-meta" class="tab-panel">
+      <h2 class="anchored">Citation</h2>
+      <blockquote class="blockquote">Finch, M., Bons, P.D.., Steinbach, F., Griera Artigas, A., Llorens, M., Gomez-Rivas, E.., Ran, H.., &amp; de Riese, T.. (2024). The ephemeral development of C′ shear bands: A numerical modelling approach [Data set]. AuScope, National Computational Infrastructure. https://doi.org/whbg-hd74</blockquote>
+
+      <h2 class="anchored">Licence</h2>
+      <p>
+        <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">CC-BY-4.0</a>
+      </p>
+
+      <h2 class="anchored">Funders</h2>
+      <ul>
+    <li>Alexander von Humboldt Foundation</li>
+    <li>Ministerio de Ciencia, Innovación y Universidades</li>
+  </ul>
+    </div>
+  </div>
+
 </div>
+
+<script>
+function switchTab(btn, id) {
+  var container = btn.closest('.tab-container');
+  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  container.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  container.querySelector('#tab-' + id).classList.add('active');
+}
+</script>
 
 
 
