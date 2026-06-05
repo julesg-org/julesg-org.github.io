@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tag: groundwater – M@TE</title>
+<title>Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology – M@TE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tag: groundwater</h1>
+<h1 class="title">Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology</h1>
 </div>
 
 
@@ -165,31 +165,166 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Models tagged with <span class="badge-tag">groundwater</span>:</p>
+<div class="model-page">
 
-<div class="models-grid">
+  <!-- ── Header ─────────────────────────────────────────────────────────── -->
+  <h1>Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology</h1>
 
-  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────────────────────── -->
-  <a href="../models/mather-2022-groundwater.html" class="mc-card-container" data-title="constraining the response of continental-scale groundwater flow to climate change" data-tags="groundwater thermal-hydraulic bayesian water-management" data-creators="ben mather r. dietmar müller craig o’neill adam beall r. willem vervoort louis moresi">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png" alt="Constraining the response of continental-scale groundwater flow to climate change" onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';">
-    <h3 class="anchored">Constraining the response of continental-scale groundwater flow to climate change</h3>
-    </a><div class="mc-card-meta"><a href="../models/mather-2022-groundwater.html" class="mc-card-container" data-title="constraining the response of continental-scale groundwater flow to climate change" data-tags="groundwater thermal-hydraulic bayesian water-management" data-creators="ben mather r. dietmar müller craig o’neill adam beall r. willem vervoort louis moresi">
-      </a><a class="badge-creator" href="../creators/ben-mather.html">Ben Mather</a>
-      <a class="badge-creator" href="../creators/r-dietmar-müller.html">R. Dietmar Müller</a>
-      <a class="badge-creator" href="../creators/craig-oneill.html">Craig O’Neill</a>
-      <br>
-      <a class="badge-tag" href="../tags/groundwater.html">groundwater</a>
-      <a class="badge-tag" href="../tags/thermal-hydraulic.html">thermal-hydraulic</a>
-      <a class="badge-tag" href="../tags/bayesian.html">Bayesian</a>
-      <a class="badge-tag" href="../tags/water-management.html">water-management</a>
-      <br>
-      <a class="badge-doi" href="https://doi.org/10.25914/t2mn-bk81" onclick="event.stopPropagation()" target="_blank" rel="noopener">
-        <span class="badge-doi-left">DOI</span>
-        <span class="badge-doi-right">10.25914/t2mn-bk81</span>
-      </a>
+  <div class="model-meta-block">
+    <strong>DOI:</strong>
+        <a class="badge-doi" href="https://doi.org/10.25914/3jz9-mv44" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.25914/3jz9-mv44</span></a>
+    <br><br>
+    <strong>Creators:</strong><br>
+    <a class="badge-creator" href="../creators/haibin-yang.html">Haibin Yang</a>
+    <a class="badge-creator" href="../creators/louis-moresi.html">Louis Moresi</a>
+    <a class="badge-creator" href="../creators/huihui-weng.html">Huihui Weng</a>
+    <a class="badge-creator" href="../creators/julian-giordani.html">Julian Giordani</a>
+  </div>
+
+  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
+  <div class="tab-container">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
+      <button class="tab-btn" onclick="switchTab(this,'overview')">Science Overview</button>
+      <button class="tab-btn" onclick="switchTab(this,'setup')">Software &amp; Setup</button>
+      <button class="tab-btn" onclick="switchTab(this,'data')">Code &amp; Data</button>
+      <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
     </div>
-  
+
+    <!-- Tab 1: Snapshot -->
+    <div id="tab-snapshot" class="tab-panel active">
+      <p>The numerical modeling method for long-term tectonic deformations
+averages out the co-seismic fault displacement into thousands to tens of thousands of years, and neglects
+near-fault damages of earthquakes; therefore, it may not be able to decipher fault activities in detail. Software
+simulating earthquake rupture dynamics may not have a good estimation of background stress due to longterm
+tectonic deformations. In this study, we develop a numerical framework that embeds earthquake rupture
+dynamics into a long-term tectonic deformation model by adding inertial terms and using highly adaptive
+time-stepping that can capture deformation at plate-motion rates as well as individual earthquakes. The inertia
+term, which is neglected in long-term large-scale modeling methods, is considered to simulate the dynamic
+rupture processes. The rate-and-state frictional relationship for co-seismic fault slip is implemented in
+viscoelastic-plastic earth. Benchmarks of viscous flow, viscoelastic wave propagation and earthquake cycle
+simulations are tested. Based on these benchmarks, we undertake a generic study of a thrust fault in crust.
+We find that lower crustal rheology affects the periodic time of characteristic large earthquake cycles and the
+inter-seismic free surface movement. Cratons with a relatively strong lower crust due to lower temperature
+remain two peaks in surface uplift profiles around the fault zone for thousands of years after one characteristic
+earthquake, which help identify active faults in cratons.</p>
+      <div class="animation-container">
+        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/yang-2023-eqcycles/main/.website_material/graphics/" alt="Model animation" style="max-width:100%; border-radius:6px;" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- Tab 2: Science Overview -->
+    <div id="tab-overview" class="tab-panel">
+      <h2 class="anchored">Research Tags</h2>
+      <div>
+            <a class="badge-tag" href="../tags/earthquake-cycles.html">Earthquake Cycles</a>
+            <a class="badge-tag" href="../tags/navier-stokes.html">Navier-Stokes</a>
+            <a class="badge-tag" href="../tags/viscoelastic-plasticity.html">Viscoelastic-Plasticity</a>
+            <a class="badge-tag" href="../tags/cratonic-earthquakes.html">Cratonic Earthquakes</a>
+      </div>
+
+      <h2 class="anchored">Associated Publication</h2>
+        <p>
+          <strong>Numerical Modeling of Earthquake Cycles Based On Navier‐Stokes Equations With Viscoelastic‐Plasticity Rheology</strong><br>
+          Haibin Yang, Louis Moresi, Huihui Weng, Julian Giordani<br>
+          <em></em><br>
+          <a class="badge-doi" href="https://doi.org/10.1029/2023gc010872" onclick="event.stopPropagation()" target="_blank" rel="noopener"><span class="badge-doi-left">DOI</span><span class="badge-doi-right">10.1029/2023gc010872</span></a>
+        </p>
+
+      <h2 class="anchored">Abstract</h2>
+      <p>Visco-elastic-plastic modeling approaches for long-term tectonic deformation assume that
+co-seismic fault displacement can be integrated over 1000s–10,000s years (tens of earthquake cycles) with the
+appropriate failure law, and that short-timescale fluctuations in the stress field due to individual earthquakes
+have no effect on long-term behavior. Models of the earthquake rupture process generally assume that the
+tectonic (long-range) stress field or kinematic boundary conditions are steady over the course of multiple
+earthquake cycles. This study is aimed to fill the gap between long-term and short-term deformations by
+modeling earthquake cycles with the rate-and-state frictional (RSF) relationship in Navier-Stokes equations.
+We reproduce benchmarks at the earthquake timescale to demonstrate the effectiveness of our approach. We
+then discuss how these high-resolution models degrade if the time-step cannot capture the rupture process
+accurately and, from this, infer when it is important to consider coupling of the two timescales and the level of
+accuracy required. To build upon these benchmarks, we undertake a generic study of a thrust fault in the crust
+with a prescribed geometry. It is found that lower crustal rheology affects the periodic time of characteristic
+earthquake cycles and the inter-seismic, free-surface deformation rate. In particular, the relaxation of the
+surface of a cratonic region (with a relatively strong lower crust) has a characteristic double-peaked uplift
+profile that persists for thousands of years after a major slip event. This pattern might be diagnostic of active
+faults in cratonic regions.</p>
+      
+    </div>
+
+    <!-- Tab 3: Software & Setup -->
+    <div id="tab-setup" class="tab-panel">
+      <h2 class="anchored">Compute Tags</h2>
+      <div>
+        <p><em>None specified.</em></p>
+      </div>
+
+      <h2 class="anchored">Software</h2>
+        <p><strong>Underworld</strong></p>
+        <p><a href="https://doi.org/10.5281/zenodo.3975252" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.3975252</a> · <a href="https://zenodo.org/record/3975252" target="_blank" rel="noopener">https://zenodo.org/record/3975252</a></p>
+
+      <h2 class="anchored">Model Setup</h2>
+      <div class="full-width-image">
+        <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/yang-2023-eqcycles/main/.website_material/graphics/Fig4_BP5ModelSetup.jpg" alt="Figure 4. The benchmark model BP5 for 3D sequence of earthquakes and
+ aseismic slip modeling. (a) A vertical planar fault is embedded in the middle
+ of a homogenous, isotropic half-space with a free surface at z = 0. Fault
+ behavior is controlled by the rate-and-state friction law. A periodic boundary
+ condition is applied in y direction. (b) The velocity-weakening (VW) region
+ (dark and light blue) is located within a transition zone (white), outside of
+ which is the velocity-strengthening (VS) region (gray). In y and z directions,
+ the frictional domain and VW region are (L2, L3) and (l, w), respectively. An
+ initial nucleation zone (dark blue square with a width of w) is designed at the
+left end of the VW region." style="width:100%; border-radius:6px;" onerror="this.src='https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup';">
+      </div>
+      <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">Figure 4. The benchmark model BP5 for 3D sequence of earthquakes and
+ aseismic slip modeling. (a) A vertical planar fault is embedded in the middle
+ of a homogenous, isotropic half-space with a free surface at z = 0. Fault
+ behavior is controlled by the rate-and-state friction law. A periodic boundary
+ condition is applied in y direction. (b) The velocity-weakening (VW) region
+ (dark and light blue) is located within a transition zone (white), outside of
+ which is the velocity-strengthening (VS) region (gray). In y and z directions,
+ the frictional domain and VW region are (L2, L3) and (l, w), respectively. An
+ initial nucleation zone (dark blue square with a width of w) is designed at the
+left end of the VW region.</p>
+    </div>
+
+    <!-- Tab 4: Code & Data -->
+    <div id="tab-data" class="tab-panel">
+        <p><strong>Dataset (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/yang-2023-eqcycles/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/yang-2023-eqcycles/catalog.html</a></p>
+        <p><strong>Dataset existing identifier:</strong><br><a href="https://doi.org/10.25914/3jz9-mv44" target="_blank" rel="noopener">10.25914/3jz9-mv44</a></p>
+        <p><strong>Model files (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/yang-2023-eqcycles/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/yang-2023-eqcycles/catalog.html</a></p>
+        <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
+        <p><strong>Source repository:</strong><br><a href="https://github.com/ModelAtlasofTheEarth/yang-2023-eqcycles" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/yang-2023-eqcycles</a></p>
+    </div>
+
+    <!-- Tab 5: Metadata -->
+    <div id="tab-meta" class="tab-panel">
+      <h2 class="anchored">Citation</h2>
+      <blockquote class="blockquote">Yang, H., Moresi, Louis., Weng, H., &amp; Giordani, J. (2024). Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology [Data set]. AuScope, National Computational Infrastructure. https://doi.org/3jz9-mv44</blockquote>
+
+      <h2 class="anchored">Licence</h2>
+      <p>
+        <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener">CC-BY-4.0</a>
+      </p>
+
+      <h2 class="anchored">Funders</h2>
+      <ul>
+    <li>National Natural Science Foundation of China</li>
+    <li>National Computational Infrastructure</li>
+  </ul>
+    </div>
+  </div>
+
 </div>
+
+<script>
+function switchTab(btn, id) {
+  var container = btn.closest('.tab-container');
+  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  container.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  container.querySelector('#tab-' + id).classList.add('active');
+}
+</script>
 
 
 
