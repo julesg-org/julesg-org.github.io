@@ -17,7 +17,7 @@ Original M@TE source: <https://github.com/ModelAtlasofTheEarth/website>
 ```bash
 git clone https://github.com/julesg-org/julesg-org.github.io.git
 cd julesg-org.github.io
-pixi run demo
+pixi run heymate
 ```
 
 That single command installs all dependencies (Python, Quarto, poppler),
@@ -88,7 +88,7 @@ git clone https://github.com/julesg-org/julesg-org.github.io.git
 cd julesg-org.github.io
 
 # 2. Ingest model data, render the site, and open a preview
-pixi run demo
+pixi run heymate
 ```
 
 **Breakdown of pixi tasks:**
@@ -99,11 +99,11 @@ pixi run demo
 | `pixi run render` | Render the site with Quarto to `_site/` |
 | `pixi run preview` | Start a local Quarto preview server |
 | `pixi run build` | Ingest + render (no preview) — used in CI |
-| `pixi run demo` | Ingest + render + preview — full local workflow |
+| `pixi run heymate` | Ingest + render + preview — full local version of m@te website |
 | `pixi run clean` | Remove all generated files to force a fresh rebuild |
 
 The ingest must run **before** every render to ensure model pages reflect
-the latest metadata. `pixi run build` and `pixi run demo` handle this ordering
+the latest metadata. `pixi run build` and `pixi run heymate` handle this ordering
 automatically.
 
 All generated files (`.qmd` pages, `_graphics/` PNGs, `_site/`, `_freeze/`,
