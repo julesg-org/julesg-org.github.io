@@ -393,6 +393,14 @@ def discover_graphics(repo: str) -> dict:
                     break
             except Exception:
                 continue
+
+    # Warn about any graphic fields that remain empty
+    url_keys = [k for k in result if k.endswith("_url")]
+    missing = [k.replace("_url", "").replace("_", " ") for k in url_keys if not result[k]]
+    if missing:
+        print(f"  [WARN] discover_graphics({repo.split('/')[1]}): "
+              f"no graphic found for: {', '.join(missing)}", file=sys.stderr)
+
     return result
 
 
