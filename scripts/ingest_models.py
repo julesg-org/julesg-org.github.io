@@ -109,21 +109,16 @@ def fetch_ro_crate(repo: str) -> dict:
     Fetch RO-Crate metadata from repository root for a model repository.
     """
     text = None
-    source_name = "ro-crate-metadata.json"
-    # Keep compatibility with repositories that expose the metadata file
-    # using the alternate filename.
-    for name in "ro-crate-metadata.json":
-        url = f"https://raw.githubusercontent.com/{repo}/main/{name}"
-        text = fetch_raw(url)
-        if text:
-            source_name = name
-            break
+
+    ro_file = "ro-crate-metadata.json"
+    url = f"https://raw.githubusercontent.com/{repo}/main/{ro_file}"
+    text = fetch_raw(url)
     if not text:
-        raise RuntimeError(f"Could not fetch ro-crate-metadata.json for {repo}")
+        raise RuntimeError(f"Could not fetch {ro_file} for {repo}")
     try:
         return json.loads(text)
     except json.JSONDecodeError as exc:
-        raise RuntimeError(f"Invalid JSON in {source_name} for {repo}: {exc}") from exc
+        raise RuntimeError(f"Invalid JSON in {ro_file} for {repo}: {exc}") from exc
 
 
 # ---------------------------------------------------------------------------
