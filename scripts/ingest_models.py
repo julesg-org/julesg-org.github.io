@@ -3,7 +3,7 @@
 scripts/ingest_models.py — M@TE model ingestion pipeline
 =========================================================
 Reads _registry.yml, fetches each model's root-level
-ro-crate-metadata.json (or ro-create-metadata.json) from GitHub, normalises the
+ro-crate-metadata.json from GitHub, normalises the
 data into a common schema, then generates:
 
   models/{slug}.qmd               — detailed model page (tabbed layout)
@@ -111,17 +111,15 @@ def fetch_ro_crate(repo: str) -> dict:
     text = None
     source_name = "ro-crate-metadata.json"
     # Keep compatibility with repositories that expose the metadata file
-    # using the alternate `ro-create-metadata.json` filename.
-    for name in ("ro-crate-metadata.json", "ro-create-metadata.json"):
+    # using the alternate filename.
+    for name in "ro-crate-metadata.json":
         url = f"https://raw.githubusercontent.com/{repo}/main/{name}"
         text = fetch_raw(url)
         if text:
             source_name = name
             break
     if not text:
-        raise RuntimeError(
-            f"Could not fetch ro-crate-metadata.json or ro-create-metadata.json for {repo}"
-        )
+        raise RuntimeError(f"Could not fetch ro-crate-metadata.json for {repo}")
     try:
         return json.loads(text)
     except json.JSONDecodeError as exc:
@@ -374,10 +372,6 @@ def _parse_ro_crate_graphics(repo: str) -> dict | None:
         )
         r = requests.get(crate_url, timeout=15)
         if r.status_code != 200:
-            r = requests.get(
-                crate_url.replace("ro-crate-metadata", "ro-create-metadata"), timeout=15
-            )
-        if r.status_code != 200:
             return None
 
         graph = r.json().get("@graph", [])
@@ -402,7 +396,7 @@ def discover_graphics(repo: str) -> dict:
     Discover model graphics for a repository.
 
     Strategy 1 — RO-Crate graphic entries (primary, June 2026+):
-      Parse ro-crate-metadata.json (or ro-create-metadata.json) for
+      Parse ro-crate-metadata.json for
       @graph entries whose @id ends with graphic_abstract, landing_image,
       model_setup_figure, or animation.  Uses the ``path`` field as the
       download URL and ``description`` as the caption.
@@ -422,10 +416,15 @@ def discover_graphics(repo: str) -> dict:
 
     # Warn about any graphic fields that remain empty
     url_keys = [k for k in result if k.endswith("_url")]
-    missing = [k.replace("_url", "").replace("_", " ") for k in url_keys if not result[k]]
+    missing = [
+        k.replace("_url", "").replace("_", " ") for k in url_keys if not result[k]
+    ]
     if missing:
-        print(f"  [WARN] discover_graphics({repo.split('/')[1]}): "
-              f"no graphic found for: {', '.join(missing)}", file=sys.stderr)
+        print(
+            f"  [WARN] discover_graphics({repo.split('/')[1]}): "
+            f"no graphic found for: {', '.join(missing)}",
+            file=sys.stderr,
+        )
 
     return result
 
