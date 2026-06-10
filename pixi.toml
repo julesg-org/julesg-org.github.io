@@ -10,7 +10,7 @@ ingest = { cmd = "python scripts/ingest_models.py", description = "Read in M@TE 
 render = "quarto render"
 preview = "quarto preview"
 build = { depends-on = ["ingest", "render"] }
-demo = { depends-on = [
+heymate = { depends-on = [
   "ingest",
   "render",
   "preview",
