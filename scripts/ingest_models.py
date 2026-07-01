@@ -28,18 +28,21 @@ import tempfile
 from typing import Dict, List, Optional, Set, Tuple
 
 import requests
+import yaml
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
+from scripts import model_renderer
 
 # ---------------------------------------------------------------------------
 # Paths (relative to repo root)
 # ---------------------------------------------------------------------------
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REGISTRY_PATH = os.path.join(REPO_ROOT, "_registry.yml")
 MODELS_DIR = os.path.join(REPO_ROOT, "models")
 TAGS_DIR = os.path.join(REPO_ROOT, "tags")
 CREATORS_DIR = os.path.join(REPO_ROOT, "creators")
-
-PLACEHOLDER_IMG = "https://placehold.co/1200x500/D64000/white?text=M%40TE+Model"
-PLACEHOLDER_SETUP_IMG = "https://placehold.co/1200x500/2c8ec7/white?text=Model+Setup"
 
 # ---------------------------------------------------------------------------
 # Slug helpers
@@ -656,55 +659,8 @@ def normalise_ro_crate(crate: dict, slug: str, repo: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# HTML generation helpers
+# HTML generation helpers (used by tag / creator pages)
 # ---------------------------------------------------------------------------
-
-
-def doi_badge(doi: str, href: str = "") -> str:
-    if not doi:
-        return ""
-    if not href:
-        href = f"https://doi.org/{doi}" if not doi.startswith("http") else doi
-        doi_display = doi.replace("https://doi.org/", "")
-    else:
-        doi_display = doi.replace("https://doi.org/", "")
-    return (
-        f'<a class="badge-doi" href="{href}" onclick="event.stopPropagation()" target="_blank" rel="noopener">'
-        f'<span class="badge-doi-left">DOI</span>'
-        f'<span class="badge-doi-right">{doi_display}</span>'
-        f"</a>"
-    )
-
-
-def creator_badges_html(creators: list, linked: bool = True, indent: int = 4) -> str:
-    pad = " " * indent
-    parts = []
-    for c in creators:
-        name = c["full_name"]
-        if not name:
-            continue
-        slug = creator_slug(name)
-        if linked:
-            parts.append(
-                f'{pad}<a class="badge-creator" href="/creators/{slug}.html">{name}</a>'
-            )
-        else:
-            parts.append(f'{pad}<span class="badge-creator">{name}</span>')
-    return "\n".join(parts)
-
-
-def tag_badges_html(tags: list, linked: bool = True, indent: int = 4) -> str:
-    pad = " " * indent
-    parts = []
-    for t in tags:
-        if not t:
-            continue
-        slug = tag_slug(t)
-        if linked:
-            parts.append(f'{pad}<a class="badge-tag" href="/tags/{slug}.html">{t}</a>')
-        else:
-            parts.append(f'{pad}<span class="badge-tag">{t}</span>')
-    return "\n".join(parts)
 
 
 def yaml_esc(val: str) -> str:
@@ -712,381 +668,26 @@ def yaml_esc(val: str) -> str:
     return val.replace("\\", "\\\\").replace('"', '\\"')
 
 
-def safe_doi(doi: str) -> str:
-    """Return a DOI URL (add https://doi.org/ prefix if needed)."""
-    if not doi:
-        return ""
-    if doi.startswith("http"):
-        return doi
-    return f"https://doi.org/{doi}"
-
-
 # ---------------------------------------------------------------------------
 # Model .qmd page generator
 # ---------------------------------------------------------------------------
 
-TAB_JS = """\
-<script>
-function switchTab(btn, id) {
-  var container = btn.closest('.tab-container');
-  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  container.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-  btn.classList.add('active');
-  container.querySelector('#tab-' + id).classList.add('active');
-}
-</script>"""
-
-
-def model_qmd(m: dict) -> str:
-    slug = m["slug"]
-    title = m["title"]
-
-    # DOI handling
-    doi_raw = m["doi"]
-    doi_href = safe_doi(doi_raw)
-    doi_display = doi_raw.replace("https://doi.org/", "") if doi_raw else ""
-
-    pub = m["publication"]
-    pub_doi_href = safe_doi(pub["doi"])
-
-    sw = m["software"]
-    sw_doi_href = safe_doi(sw["doi"])
-
-    # Creators for header
-    creator_list = m["creators"]
-    creator_hdg_badges = creator_badges_html(creator_list, linked=True, indent=4)
-
-    # Research tags
-    rtags_html = tag_badges_html(m["research_tags"], linked=True, indent=12)
-    # Compute tags
-    ctags_html = tag_badges_html(m["compute_tags"], linked=True, indent=12)
-
-    # Model setup image
-    ms_url = (
-        _convert_pdf_to_png(m["model_setup_image_url"], slug, "setup")
-        or PLACEHOLDER_SETUP_IMG
+def write_model_qmd(m: dict, path: str) -> None:
+    """Write a model QMD with all data in YAML frontmatter (no HTML body).
+    The pandoc filter _extensions/mate/model-page.py renders the HTML
+    at quarto render time from the ``model:`` metadata."""
+    fm = {"title": m["title"], "model": {k: v for k, v in m.items() if k != "title"}}
+    yaml_str = yaml.safe_dump(
+        fm, default_flow_style=False, allow_unicode=True, sort_keys=False
     )
-    ms_cap = m["model_setup_image_caption"] or ""
-
-    # Build snapshot media block
-    if m.get("animation_url"):
-        anim_url = m["animation_url"]
-        anim_cap = m.get("animation_caption", "")
-        if anim_url.lower().endswith(".mp4"):
-            media_html = f"""      <div class="animation-container">
-        <video controls autoplay loop muted playsinline style="max-width:100%; border-radius:6px;">
-          <source src="{anim_url}" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-      </div>"""
-        else:
-            media_html = f"""      <div class="animation-container">
-        <img src="{anim_url}"
-             alt="{anim_cap or "Model animation"}"
-             style="max-width:100%; border-radius:6px;"
-             onerror="this.style.display='none'" />
-      </div>"""
-        if anim_cap:
-            media_html += f'\n      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">{anim_cap}</p>'
-    else:
-        li_url = (
-            _convert_pdf_to_png(m["landing_image_url"], slug, "landing")
-            or PLACEHOLDER_IMG
-        )
-        li_cap = m["landing_image_caption"] or ""
-        media_html = f"""      <div class="full-width-image">
-        <img src="{li_url}"
-             alt="{li_cap}"
-             style="width:100%; border-radius:6px;"
-             onerror="this.src='{PLACEHOLDER_IMG}';" />
-      </div>"""
-        if li_cap:
-            media_html += f'\n      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">{li_cap}</p>'
-
-    # Pub authors
-    if pub["authors"]:
-        pub_authors_str = ", ".join(
-            a["full_name"] for a in pub["authors"] if a["full_name"]
-        )
-    else:
-        pub_authors_str = ""
-
-    # Dataset / code
-    ds_nci = m["dataset_nci_url"]
-    ds_id = m["dataset_existing_id"]
-    ds_notes = m["dataset_notes"]
-    mf_nci = m["model_files_nci_url"]
-    mf_id = m["model_files_existing_id"]
-    mf_notes = m["model_files_notes"]
-
-    # Licence
-    lic_url = m["licence_url"]
-    lic_name = m["licence_name"] or lic_url
-
-    # Funders
-    funder_items = "".join(
-        f"    <li>{f['name']}</li>\n" for f in m["funders"] if f["name"]
-    )
-    funders_block = (
-        "<ul>\n" + funder_items + "  </ul>" if funder_items else "<p>Not specified.</p>"
-    )
-
-    credit = m["credit_text"]
-    source_repo = m["source_repo"]
-    source_repo_url = f"https://github.com/{source_repo}"
-
-    # Build data section
-    data_tab_parts = []
-    if ds_nci:
-        data_tab_parts.append(
-            f"        <p><strong>Dataset (NCI catalogue):</strong><br/>"
-            f'<a href="{ds_nci}" target="_blank" rel="noopener">{ds_nci}</a></p>'
-        )
-    if ds_id:
-        ds_id_url = safe_doi(ds_id) if not ds_id.startswith("http") else ds_id
-        data_tab_parts.append(
-            f"        <p><strong>Dataset existing identifier:</strong><br/>"
-            f'<a href="{ds_id_url}" target="_blank" rel="noopener">{ds_id}</a></p>'
-        )
-    if ds_notes:
-        data_tab_parts.append(
-            f"        <p><strong>Dataset notes:</strong> {ds_notes}</p>"
-        )
-    if mf_nci:
-        data_tab_parts.append(
-            f"        <p><strong>Model files (NCI catalogue):</strong><br/>"
-            f'<a href="{mf_nci}" target="_blank" rel="noopener">{mf_nci}</a></p>'
-        )
-    if mf_id:
-        mf_id_url = safe_doi(mf_id) if not mf_id.startswith("http") else mf_id
-        data_tab_parts.append(
-            f"        <p><strong>Model files existing identifier:</strong><br/>"
-            f'<a href="{mf_id_url}" target="_blank" rel="noopener">{mf_id}</a></p>'
-        )
-    if mf_notes:
-        data_tab_parts.append(
-            f"        <p><strong>Model files notes:</strong> {mf_notes}</p>"
-        )
-    data_tab_parts.append(
-        f"        <p><strong>Source repository:</strong><br/>"
-        f'<a href="{source_repo_url}" target="_blank" rel="noopener">{source_repo_url}</a></p>'
-    )
-    data_tab_html = (
-        "\n".join(data_tab_parts)
-        if data_tab_parts
-        else "        <p>Data information not available.</p>"
-    )
-
-    # Build pub section
-    if pub["title"]:
-        pub_section = f"""        <p>
-          <strong>{pub["title"]}</strong><br/>
-          {pub_authors_str}<br/>
-          <em>{pub["journal"]}</em>{(" — " + pub["date"]) if pub["date"] else ""}<br/>
-          {doi_badge(pub["doi"], pub_doi_href) if pub["doi"] else ""}
-        </p>"""
-    else:
-        pub_section = "        <p>Publication information not available.</p>"
-
-    # Build software section
-    sw_block_parts = []
-    if sw["name"]:
-        sw_block_parts.append(f"        <p><strong>{sw['name']}</strong></p>")
-    if sw["doi"] or sw["url"]:
-        links = []
-        if sw["doi"]:
-            links.append(
-                f'<a href="{sw_doi_href}" target="_blank" rel="noopener">{sw_doi_href}</a>'
-            )
-        if sw["url"] and sw["url"] != sw_doi_href:
-            links.append(
-                f'<a href="{sw["url"]}" target="_blank" rel="noopener">{sw["url"]}</a>'
-            )
-        sw_block_parts.append("        <p>" + " · ".join(links) + "</p>")
-    sw_block = (
-        "\n".join(sw_block_parts)
-        if sw_block_parts
-        else "        <p>Software information not available.</p>"
-    )
-
-    # DOI badge for header
-    if doi_display:
-        doi_badge_html = (
-            f'    <a class="badge-doi" href="{doi_href}" target="_blank" rel="noopener">'
-            f'<span class="badge-doi-left">DOI</span>'
-            f'<span class="badge-doi-right">{doi_display}</span></a>'
-        )
-    else:
-        doi_badge_html = ""
-
-    # Abstract
-    abstract = m["abstract"]
-    description = m["description"]
-
-    # Graphic abstract
-    ga_url = _convert_pdf_to_png(m["graphic_abstract_url"], slug, "abstract")
-
-    return f"""---
-# Generated by scripts/ingest_models.py — do not edit directly.
-# Re-run the script to regenerate from {source_repo}
-title: "{yaml_esc(title)}"
----
-
-```{{=html}}
-<div class="model-page">
-
-  <!-- ── Header ─────────────────────────────────────────────────────────── -->
-  <h1>{title}</h1>
-
-  <div class="model-meta-block">
-    <strong>DOI:</strong>
-    {doi_badge_html if doi_badge_html else "<em>Not yet assigned.</em>"}
-    <br/><br/>
-    <strong>Creators:</strong><br/>
-{creator_hdg_badges}
-  </div>
-
-  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
-  <div class="tab-container">
-    <div class="tab-nav">
-      <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
-      <button class="tab-btn" onclick="switchTab(this,'overview')">Science Overview</button>
-      <button class="tab-btn" onclick="switchTab(this,'setup')">Software &amp; Setup</button>
-      <button class="tab-btn" onclick="switchTab(this,'data')">Code &amp; Data</button>
-      <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
-    </div>
-
-    <!-- Tab 1: Snapshot -->
-    <div id="tab-snapshot" class="tab-panel active">
-      <p>{description}</p>
-{media_html}
-    </div>
-
-    <!-- Tab 2: Science Overview -->
-    <div id="tab-overview" class="tab-panel">
-      <h2>Research Tags</h2>
-      <div>
-{rtags_html if rtags_html else "        <p><em>None specified.</em></p>"}
-      </div>
-
-      <h2>Associated Publication</h2>
-{pub_section}
-
-      <h2>Abstract</h2>
-      <p>{abstract}</p>
-      {f'<img src="{ga_url}" alt="Graphic abstract" style="width:100%; border-radius:6px; margin-top:1rem;" onerror="this.style.display=\'none\'" />' if ga_url else ""}
-    </div>
-
-    <!-- Tab 3: Software & Setup -->
-    <div id="tab-setup" class="tab-panel">
-      <h2>Compute Tags</h2>
-      <div>
-{ctags_html if ctags_html else "        <p><em>None specified.</em></p>"}
-      </div>
-
-      <h2>Software</h2>
-{sw_block}
-
-      <h2>Model Setup</h2>
-      <div class="full-width-image">
-        <img src="{ms_url}"
-             alt="{ms_cap}"
-             style="width:100%; border-radius:6px;"
-             onerror="this.src='{PLACEHOLDER_SETUP_IMG}';" />
-      </div>
-      {f'<p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">{ms_cap}</p>' if ms_cap else ""}
-    </div>
-
-    <!-- Tab 4: Code & Data -->
-    <div id="tab-data" class="tab-panel">
-{data_tab_html}
-    </div>
-
-    <!-- Tab 5: Metadata -->
-    <div id="tab-meta" class="tab-panel">
-      <h2>Citation</h2>
-      {f"<blockquote>{credit}</blockquote>" if credit else "<p><em>See source repository for citation.</em></p>"}
-
-      <h2>Licence</h2>
-      <p>
-        {f'<a href="{lic_url}" target="_blank" rel="noopener">{lic_name}</a>' if lic_url else (lic_name or "<em>Not specified.</em>")}
-      </p>
-
-      <h2>Funders</h2>
-      {funders_block}
-    </div>
-  </div>
-
-</div>
-
-{TAB_JS}
-```
-"""
-
-
-# ---------------------------------------------------------------------------
-# models/index.qmd generator
-# ---------------------------------------------------------------------------
-
-
-def model_card_html(m: dict) -> str:
-    slug = m["slug"]
-    title = m["title"]
-    title_lc = title.lower()
-    tags_lc = " ".join(tag_slug(t) for t in m["tags"])
-    creators_lc = " ".join(c["full_name"].lower() for c in m["creators"])
-
-    img_url = (
-        _convert_pdf_to_png(m["landing_image_url"], slug, "card") or PLACEHOLDER_IMG
-    )
-    doi_raw = m["doi"]
-    doi_href = safe_doi(doi_raw)
-    doi_display = doi_raw.replace("https://doi.org/", "") if doi_raw else ""
-
-    creator_badges = ""
-    for c in m["creators"][:3]:
-        name = c["full_name"]
-        if name:
-            cslug = creator_slug(name)
-            creator_badges += f'\n      <a class="badge-creator" href="/creators/{cslug}.html">{name}</a>'
-
-    tag_badges = ""
-    for t in m["tags"][:5]:
-        if t:
-            tslug = tag_slug(t)
-            tag_badges += (
-                f'\n      <a class="badge-tag" href="/tags/{tslug}.html">{t}</a>'
-            )
-
-    doi_block = ""
-    if doi_display:
-        doi_block = f"""
-      <br/>
-      <a class="badge-doi" href="{doi_href}" onclick="event.stopPropagation()" target="_blank" rel="noopener">
-        <span class="badge-doi-left">DOI</span>
-        <span class="badge-doi-right">{doi_display}</span>
-      </a>"""
-
-    return f"""
-  <!-- ── Model card: {slug} ─────────────────────────────────────────────── -->
-  <a href="/models/{slug}.html" class="mc-card-container"
-     data-title="{title_lc}"
-     data-tags="{tags_lc}"
-     data-creators="{creators_lc}">
-    <img src="{img_url}"
-         alt="{title}"
-         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
-    <h3>{title}</h3>
-    <div class="mc-card-meta">{creator_badges}
-      <br/>{tag_badges}{doi_block}
-    </div>
-  </a>"""
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"---\n{yaml_str}---\n")
 
 
 def write_models_index(models: List[dict]) -> None:
     cards_html = ""
     for m in models:
-        cards_html += model_card_html(m)
+        cards_html += model_renderer.model_card_html(m)
 
     content = f"""---
 title: "Models"
@@ -1219,7 +820,7 @@ title: "Tags"
 
 def write_tag_page(tag: str, models: List[dict]) -> None:
     tslug = tag_slug(tag)
-    cards_html = "".join(model_card_html(m) for m in models)
+    cards_html = "".join(model_renderer.model_card_html(m) for m in models)
     content = f"""---
 title: "Tag: {yaml_esc(tag)}"
 ---
@@ -1274,7 +875,7 @@ title: "Creators"
 
 def write_creator_page(name: str, models: List[dict]) -> None:
     cslug = creator_slug(name)
-    cards_html = "".join(model_card_html(m) for m in models)
+    cards_html = "".join(model_renderer.model_card_html(m) for m in models)
     content = f"""---
 title: "{yaml_esc(name)}"
 ---
@@ -1313,12 +914,17 @@ def main() -> None:
         models.append(m)
         print(f"  Format: ro-crate  |  title: {m['title'][:60]}")
 
-    # Write individual model pages
+    # Write individual model pages (YAML frontmatter, no HTML body)
     os.makedirs(MODELS_DIR, exist_ok=True)
     for m in models:
-        path = os.path.join(MODELS_DIR, f"{m['slug']}.qmd")
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(model_qmd(m))
+        # Resolve PDF URLs before writing to YAML frontmatter
+        slug = m["slug"]
+        m["landing_image_url"] = _convert_pdf_to_png(m["landing_image_url"], slug, "landing")
+        m["model_setup_image_url"] = _convert_pdf_to_png(m["model_setup_image_url"], slug, "setup")
+        m["graphic_abstract_url"] = _convert_pdf_to_png(m["graphic_abstract_url"], slug, "abstract")
+
+        path = os.path.join(MODELS_DIR, f"{slug}.qmd")
+        write_model_qmd(m, path)
         print(f"  Wrote {path}")
 
     # Write models/index.qmd

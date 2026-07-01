@@ -53,3 +53,6 @@ format:
     theme: cosmo
     css: styles/mate.css
     toc: false
+    filters:
+      - _extensions/mate/model-page.py
+    include-after-body: scripts/model-tabs.js
