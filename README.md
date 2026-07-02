@@ -20,7 +20,7 @@ cd julesg-org.github.io
 pixi run heymate
 ```
 
-That single command installs all dependencies (Python, Quarto, poppler),
+`pixi` installs all dependencies (Python, Quarto, poppler),
 fetches model metadata from GitHub, generates all pages, renders the site,
 and opens a local preview in your browser.
 
@@ -38,10 +38,16 @@ and opens a local preview in your browser.
 ```
 julesg-org.github.io/
 ├── pixi.toml                    # ← Single dependency manifest (Python, Quarto, poppler)
-├── _quarto.yml                  # ← M@TE site config (navbar, theme, footer)
+├── _quarto.yml                  # ← M@TE site config; registers pandoc filter + global JS
 ├── _registry.yml                # ← MODEL REGISTRY: add a model slug+repo here
 ├── scripts/
-│   └── ingest_models.py         # ← Ingest pipeline (fetches metadata + graphics)
+│   ├── __init__.py              # ← Makes scripts/ a package (enables filter imports)
+│   ├── ingest_models.py         # ← Ingest pipeline (fetches metadata + graphics)
+│   ├── model_renderer.py        # ← Shared HTML generation (model pages + cards)
+│   └── model-tabs.js            # ← switchTab() JS, included globally via _quarto.yml
+├── _extensions/
+│   └── mate/
+│       └── model-page.py        # ← Pandoc filter: reads YAML frontmatter → renders HTML
 ├── index.qmd                    # ← Hero landing page
 ├── about.qmd                    # ← About M@TE page
 ├── contact.qmd                  # ← Contact / model submission info
@@ -49,18 +55,18 @@ julesg-org.github.io/
 │   └── mate.css                 # ← M@TE visual design (colours, badges, tabs)
 ├── images/
 │   ├── atlas-icon.svg           # ← M@TE navbar logo (SVG)
-│   └── AuScopeLogo.webp        # ← Funder logo
+│   └── AuScopeLogo.webp         # ← Funder logo
 ├── models/
-│   ├── _graphics/               # ← Auto-generated PNGs (converted from PDFs)
-│   ├── index.qmd                # ← Model listing (generated)
-│   └── {slug}.qmd               # ← Per-model detail page (generated)
-├── tags/                        # ← Generated tag pages (one per tag)
-├── creators/                    # ← Generated creator pages (one per creator)
+│   ├── _graphics/               # ← Auto-generated PNGs (converted from PDFs, gitignored)
+│   ├── index.qmd                # ← Model listing page (generated, gitignored)
+│   └── {slug}.qmd               # ← Per-model YAML frontmatter only (generated, gitignored)
+├── tags/                        # ← Generated tag pages (one per tag, gitignored)
+├── creators/                    # ← Generated creator pages (one per creator, gitignored)
 ├── news/
 │   └── index.qmd                # ← News listing page
 └── .github/
     └── workflows/
-        └── publish.yml          # ← CI/CD: pixi run build → deploy to gh-pages
+        └── publish.yml          # ← CI/CD: pixi run build → gh-pages + Netlify
 ```
 
 ---
@@ -131,35 +137,91 @@ The M@TE design is replicated from the original Gatsby/Netlify site:
 
 ## 📄 Pages
 
-| Page | File | Description |
-|------|------|-------------|
-| Home | `index.qmd` | Hero section + model card grid + highlights |
-| Models | `models/index.qmd` | Searchable/filterable model listing (generated) |
-| Model detail | `models/{slug}.qmd` | Full model page with 5-tab layout (generated) |
-| Tags | `tags/index.qmd` | Tag cloud browse page (generated) |
-| Tag detail | `tags/{tag}.qmd` | Models sharing a tag (generated) |
-| Creators | `creators/index.qmd` | A–Z creator listing (generated) |
-| Creator detail | `creators/{creator}.qmd` | Models by a creator (generated) |
-| News | `news/index.qmd` | News listing placeholder |
-| About | `about.qmd` | What M@TE is and how it works |
-| Contact | `contact.qmd` | Model submission info |
+| Page | File | Source | Description |
+|------|------|--------|-------------|
+| Home | `index.qmd` | hand-authored | Hero section + model card grid + highlights |
+| Models | `models/index.qmd` | generated | Searchable/filterable model listing |
+| Model detail | `models/{slug}.qmd` | generated | YAML frontmatter only — HTML rendered at build time by pandoc filter |
+| Tags | `tags/index.qmd` | generated | Tag cloud browse page |
+| Tag detail | `tags/{tag}.qmd` | generated | All models sharing a tag |
+| Creators | `creators/index.qmd` | generated | A–Z creator listing |
+| Creator detail | `creators/{creator}.qmd` | generated | All models by a creator |
+| News | `news/index.qmd` | hand-authored | News listing placeholder |
+| About | `about.qmd` | hand-authored | What M@TE is and how it works |
+| Contact | `contact.qmd` | hand-authored | Model submission info |
+
+### How model detail pages are rendered
+
+The per-model QMDs (`models/{slug}.qmd`) contain **no HTML body** — only a YAML
+frontmatter block with all model data nested under a `model:` key:
+
+```yaml
+---
+title: "My Model Title"
+model:
+  slug: my-model
+  abstract: "..."
+  description: "..."
+  creators: [...]
+  publication: {...}
+  # ... all other fields
+---
+```
+
+At render time, the pandoc filter `_extensions/mate/model-page.py` intercepts
+each document, reads the `model:` metadata, calls
+`scripts/model_renderer.render_model_page()`, and replaces the empty document
+body with the full five-tab HTML layout.  The tab-switching JS
+(`scripts/model-tabs.js`) is injected once globally via `_quarto.yml` rather
+than being duplicated in each page.
+
+This separation means:
+- Model data is **readable and diffable** in the `.qmd` files (plain YAML, ~130 lines each)
+- All HTML generation logic lives in **one place** (`scripts/model_renderer.py`)
+- Adding or changing the page layout requires editing only `model_renderer.py`, not every generated file
 
 ---
 
 ## 🚀 Deployment
 
-Deployment is fully automatic via GitHub Actions:
+Deployment is fully automatic via GitHub Actions. A single workflow builds the
+site once with pixi and then deploys the output to two independent targets.
+
+See **[.github/workflows/publish.yml](.github/workflows/publish.yml)** for the
+full workflow.
+
+### GitHub Pages
 
 1. Push to the `jmate` branch
-2. GitHub Actions runs `prefix-dev/setup-pixi@v0.9.6` (which installs pixi and
-   all dependencies from `pixi.toml` — Python, Quarto, poppler — with caching)
+2. GitHub Actions runs `prefix-dev/setup-pixi@v0.9.6` (installs pixi and all
+   dependencies from `pixi.toml` — Python, Quarto, poppler — with caching)
 3. `pixi run build` fetches model metadata from GitHub, generates all pages,
-   PDF thumbnails, and renders the full site
-4. The `_site/` directory is pushed to the `gh-pages` branch
+   PDF thumbnails, and renders the full site to `_site/`
+4. `peaceiris/actions-gh-pages` pushes `_site/` to the `gh-pages` branch
 5. GitHub Pages serves it at **https://julesg-org.github.io**
 
-See **[.github/workflows/publish.yml](.github/workflows/publish.yml)** for the workflow.
+### Netlify TODO
+
+After the build step, `nwtgck/actions-netlify` deploys the same `_site/`
+output directly to Netlify via the Netlify API — GHA does all the building,
+Netlify only serves the result.
+
+Site: **https://\<your-netlify-site\>.netlify.app**
+
+#### Required secrets
+
+Add these in **GitHub → repo Settings → Secrets and variables → Actions**:
+
+| Secret | Where to get it |
+|--------|----------------|
+| `NETLIFY_AUTH_TOKEN` | Netlify UI → User settings → Personal access tokens → New token |
+| `NETLIFY_SITE_ID` | Netlify UI → Site → Site configuration → Site ID (a UUID) |
 
 
+After this, Netlify only receives deployments pushed by GHA — it never triggers
+its own build from a Git push.
 
+#### Independence of the two deploy targets
 
+The GitHub Pages step and the Netlify step are independent — neither depends on
+the other. Removing or disabling one does not affect the other.
