@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-12aad574f12230f14341193ceed9da8e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-69f2f15562cd42e0a1719f3e91d490d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -167,7 +167,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="model-page">
 
-  <!-- ── Header ─────────────────────────────────────────────────────────── -->
   <h1>Flexural isostatic response of continental-scale deltas to climatically driven sea level changes</h1>
 
   <div class="model-meta-block">
@@ -186,7 +185,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="badge-creator" href="../creators/louis-noel-moresi.html">Louis-Noel Moresi</a>
   </div>
 
-  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
   <div class="tab-container">
     <div class="tab-nav">
       <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
@@ -196,9 +194,8 @@ ul.task-list li input[type="checkbox"] {
       <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
     </div>
 
-    <!-- Tab 1: Snapshot -->
     <div id="tab-snapshot" class="tab-panel active">
-      <p>Two-thirds of the world's most populated cities are situated close to deltas. We use computer simulations to understand how deltas sink or rise in response to climate-driven sea level changes that operate from thousands to millions of years. Our research shows that because of the interaction between the outer layers of the Earth, sediment transport, and sea level changes deltas develop a self-regulated mechanism that modifies the space they need to gain or lose land.</p>
+      <p>Two-thirds of the world’s most populated cities are situated close to deltas. We use computer simulations to understand how deltas sink or rise in response to climate-driven sea level changes that operate from thousands to millions of years. Our research shows that because of the interaction between the outer layers of the Earth, sediment transport, and sea level changes deltas develop a self-regulated mechanism that modifies the space they need to gain or lose land.</p>
       <div class="animation-container">
         <video controls="" autoplay="" loop="" muted="" playsinline="" style="max-width:100%; border-radius:6px;">
           <source src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/polanco-2024-deltas/main/.website_material/graphics/animation.mp4" type="video/mp4">
@@ -208,7 +205,6 @@ ul.task-list li input[type="checkbox"] {
       <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">The animation shows the surface and stratigraphic evolution of our simulated continental-scale deltas. We let each simulation initialize and run for 2 Myr without any sea-level fluctuations so that the delta can reach dynamic equilibrium without any disturbances in base level, then impose climate-forced sea-level changes.</p>
     </div>
 
-    <!-- Tab 2: Science Overview -->
     <div id="tab-overview" class="tab-panel">
       <h2 class="anchored">Research Tags</h2>
       <div>
@@ -231,7 +227,6 @@ ul.task-list li input[type="checkbox"] {
       <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/polanco-2024-deltas/main/.website_material/graphics/egusphere-2023-53_Fig5.png" alt="Graphic abstract" style="width:100%; border-radius:6px; margin-top:1rem;" onerror="this.style.display='none'">
     </div>
 
-    <!-- Tab 3: Software & Setup -->
     <div id="tab-setup" class="tab-panel">
       <h2 class="anchored">Compute Tags</h2>
       <div>
@@ -249,20 +244,15 @@ ul.task-list li input[type="checkbox"] {
       
     </div>
 
-    <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
         <p><strong>Dataset (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/polanco-2024-deltas/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/polanco-2024-deltas/catalog.html</a></p>
         <p><strong>Dataset existing identifier:</strong><br><a href="https://doi.org/10.25914/4m82-y773" target="_blank" rel="noopener">10.25914/4m82-y773</a></p>
-        <p><strong>Dataset notes:</strong> The model output data is stored in a hdf5 format. You will see a h5 folder and a series of xdmf files. 
-- **h5** folder contains the **hdf5** data, all the information computed by the model are stored in these files. You will have at least the *tin* (surface) and *flow* (stream network) dataset and also the *sed* (stratigraphy) data if the stratal structure is computed in your simulation.
-
-- two **.xdmf** files for the surface (**tin_series.xdmf**) and the flow network (**flow_series.xdmf**) that read the **xmf** files through time.</p>
+        <p><strong>Dataset notes:</strong> The model output data is stored in a hdf5 format. You will see a h5 folder and a series of xdmf files. - h5 folder contains the hdf5 data, all the information computed by the model are stored in these files. You will have at least the tin (surface) and flow (stream network) dataset and also the sed (stratigraphy) data if the stratal structure is computed in your simulation. - two .xdmf files for the surface (tin_series.xdmf) and the flow network (flow_series.xdmf) that read the xmf files through time.</p>
         <p><strong>Model files (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/polanco-2024-deltas/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/polanco-2024-deltas/catalog.html</a></p>
         <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
         <p><strong>Source repository:</strong><br><a href="https://github.com/ModelAtlasofTheEarth/polanco-2024-deltas" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/polanco-2024-deltas</a></p>
     </div>
 
-    <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2 class="anchored">Citation</h2>
       <blockquote class="blockquote">Polanco, S., Blum, M., Salles, T., Frederick, B., Farrington, R., Ding, X., Mather, B., Mallard, C., &amp; Moresi, L. (2024). Flexural isostatic response of continental-scale deltas to climatically driven sea level changes [Data set]. AuScope, National Computational Infrastructure. https://doi.org/4m82-y773</blockquote>
@@ -283,6 +273,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 
+</main> <!-- /main -->
 <script>
 function switchTab(btn, id) {
   var container = btn.closest('.tab-container');
@@ -292,10 +283,6 @@ function switchTab(btn, id) {
   container.querySelector('#tab-' + id).classList.add('active');
 }
 </script>
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -700,14 +687,14 @@ function switchTab(btn, id) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© M@TE — Model Atlas of the Earth</p>
-</div>   
+      <div class="footer-contents">© M@TE — Model Atlas of the Earth</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://quarto.org">Quarto</a></p>
-</div>
+      <div class="footer-contents">Built with [Quarto](https://quarto.org)</div>  
+    </div>
   </div>
 </footer>
 

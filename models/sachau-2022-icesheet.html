@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-12aad574f12230f14341193ceed9da8e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-69f2f15562cd42e0a1719f3e91d490d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles/mate.css">
 </head>
@@ -167,7 +196,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="model-page">
 
-  <!-- ── Header ─────────────────────────────────────────────────────────── -->
   <h1>ISMIP-HOM benchmark experiments using Underworld</h1>
 
   <div class="model-meta-block">
@@ -181,7 +209,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="badge-creator" href="../creators/louis-moresi.html">Louis Moresi</a>
   </div>
 
-  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
   <div class="tab-container">
     <div class="tab-nav">
       <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
@@ -191,7 +218,6 @@ ul.task-list li input[type="checkbox"] {
       <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
     </div>
 
-    <!-- Tab 1: Snapshot -->
     <div id="tab-snapshot" class="tab-panel active">
       <p>Knowledge of the internal structures of the major continental ice sheets is improving, thanks to new investigative techniques. These structures are an essential indication of the flow behavior and dynamics of ice transport, which in turn is important for understanding the actual impact of the vast amounts of water trapped in continental ice sheets on global sea-level rise. The software studied here is specifically designed to simulate such structures and their evolution.</p>
       <div class="animation-container">
@@ -199,7 +225,6 @@ ul.task-list li input[type="checkbox"] {
       </div>
     </div>
 
-    <!-- Tab 2: Science Overview -->
     <div id="tab-overview" class="tab-panel">
       <h2 class="anchored">Research Tags</h2>
       <div>
@@ -219,24 +244,10 @@ ul.task-list li input[type="checkbox"] {
         </p>
 
       <h2 class="anchored">Abstract</h2>
-      <p>Abstract. Numerical models have become an indispensable tool for
-understanding and predicting the flow of ice sheets and glaciers. Here we
-present the full-Stokes software package Underworld to the glaciological
-community. The code is already well established in simulating complex
-geodynamic systems. Advantages for glaciology are that it provides a
-full-Stokes solution for elastic–viscous–plastic materials and includes
-mechanical anisotropy. Underworld uses a material point method to track the
-full history information of Lagrangian material points, of stratigraphic
-layers and of free surfaces. We show that Underworld successfully reproduces
-the results of other full-Stokes models for the benchmark experiments of the Ice Sheet Model Intercomparison Project for Higher-Order Models
-(ISMIP-HOM). Furthermore, we test finite-element meshes with different
-geometries and highlight the need to be able to adapt the finite-element
-grid to discontinuous interfaces between materials with strongly different
-properties, such as the ice–bedrock boundary.</p>
+      <p>Abstract. Numerical models have become an indispensable tool for understanding and predicting the flow of ice sheets and glaciers. Here we present the full-Stokes software package Underworld to the glaciological community. The code is already well established in simulating complex geodynamic systems. Advantages for glaciology are that it provides a full-Stokes solution for elastic–viscous–plastic materials and includes mechanical anisotropy. Underworld uses a material point method to track the full history information of Lagrangian material points, of stratigraphic layers and of free surfaces. We show that Underworld successfully reproduces the results of other full-Stokes models for the benchmark experiments of the Ice Sheet Model Intercomparison Project for Higher-Order Models (ISMIP-HOM). Furthermore, we test finite-element meshes with different geometries and highlight the need to be able to adapt the finite-element grid to discontinuous interfaces between materials with strongly different properties, such as the ice–bedrock boundary.</p>
       <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/graphic_abstract.png" alt="Graphic abstract" style="width:100%; border-radius:6px; margin-top:1rem;" onerror="this.style.display='none'">
     </div>
 
-    <!-- Tab 3: Software & Setup -->
     <div id="tab-setup" class="tab-panel">
       <h2 class="anchored">Compute Tags</h2>
       <div>
@@ -254,7 +265,6 @@ properties, such as the ice–bedrock boundary.</p>
       <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">(a) 2D geometry of Experiment B. This is identical to a section parallel X located at yˆ = 0.25 in Experiment A (right). Sloping angle α is given in degrees. Also depicted is the velocity field of the flowing ice, resulting for a model width L of 5000 m from the simulations described below. Color and arrow length visualize the amount of velocity. (b) Bedrock topography for Experiment A and general naming scheme for the axes of 3D experiments.</p>
     </div>
 
-    <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
         <p><strong>Dataset (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sachau-2022-icesheet/catalog.html</a></p>
         <p><strong>Dataset existing identifier:</strong><br><a href="https://doi.org/10.25914/fhew-h678" target="_blank" rel="noopener">10.25914/fhew-h678</a></p>
@@ -264,7 +274,6 @@ properties, such as the ice–bedrock boundary.</p>
         <p><strong>Source repository:</strong><br><a href="https://github.com/ModelAtlasofTheEarth/sachau-2022-icesheet" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/sachau-2022-icesheet</a></p>
     </div>
 
-    <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2 class="anchored">Citation</h2>
       <blockquote class="blockquote">Sachau, T., Yang, H., Bons, P., &amp; Moresi, Louis. (2024). ISMIP-HOM benchmark experiments using Underworld [Data set]. AuScope, National Computational Infrastructure. https://doi.org/fhew-h678</blockquote>
@@ -284,6 +293,7 @@ properties, such as the ice–bedrock boundary.</p>
 
 </div>
 
+</main> <!-- /main -->
 <script>
 function switchTab(btn, id) {
   var container = btn.closest('.tab-container');
@@ -293,10 +303,6 @@ function switchTab(btn, id) {
   container.querySelector('#tab-' + id).classList.add('active');
 }
 </script>
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -701,14 +707,14 @@ function switchTab(btn, id) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© M@TE — Model Atlas of the Earth</p>
-</div>   
+      <div class="footer-contents">© M@TE — Model Atlas of the Earth</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://quarto.org">Quarto</a></p>
-</div>
+      <div class="footer-contents">Built with [Quarto](https://quarto.org)</div>  
+    </div>
   </div>
 </footer>
 

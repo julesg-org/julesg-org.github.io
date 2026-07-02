@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-12aad574f12230f14341193ceed9da8e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-69f2f15562cd42e0a1719f3e91d490d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles/mate.css">
 </head>
@@ -167,7 +196,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="model-page">
 
-  <!-- ── Header ─────────────────────────────────────────────────────────── -->
   <h1>Plate bending earthquakes and the strength distribution of the lithosphere</h1>
 
   <div class="model-meta-block">
@@ -179,7 +207,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="badge-creator" href="../creators/timothy-j-craig.html">Timothy J Craig</a>
   </div>
 
-  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
   <div class="tab-container">
     <div class="tab-nav">
       <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
@@ -189,19 +216,17 @@ ul.task-list li input[type="checkbox"] {
       <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
     </div>
 
-    <!-- Tab 1: Snapshot -->
     <div id="tab-snapshot" class="tab-panel active">
-      <p>Tectonic plates are recycled into the mantle through subduction, where they bend and deform in various ways, such as brittle failure. This process creates deep sea trenches and results in characteristic earthquake patterns and gravity anomalies. In this study, we used a numerical model to investigate plate bending dynamics, complementing simpler approaches like flexural yield strength envelopes. We focused on the competition between bending stress and sources of net in-plane stress, such as slab pull, which influences the plate's neutral plane depth. It is difficult to reconcile the 'apparent' neutral plane depth with a net slab pull force greater than about 2 TN/m. Deviatoric compression in subducting plates more easily explains reverse earthquakes at depths of 20-50 km in the bending plate.</p>
+      <p>Tectonic plates are recycled into the mantle through subduction, where they bend and deform in various ways, such as brittle failure. This process creates deep sea trenches and results in characteristic earthquake patterns and gravity anomalies. In this study, we used a numerical model to investigate plate bending dynamics, complementing simpler approaches like flexural yield strength envelopes. We focused on the competition between bending stress and sources of net in-plane stress, such as slab pull, which influences the plate’s neutral plane depth. It is difficult to reconcile the apparent neutral plane depth with a net slab pull force greater than about 2 TN/m. Deviatoric compression in subducting plates more easily explains reverse earthquakes at depths of 20-50 km in the bending plate.</p>
       <div class="animation-container">
         <video controls="" autoplay="" loop="" muted="" playsinline="" style="max-width:100%; border-radius:6px;">
           <source src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sandifordcraig-2023-subduction/main/.website_material/graphics/animation.mp4" type="video/mp4">
           Your browser does not support video playback.
         </video>
       </div>
-      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">Animation shows the model domain at 2x vertical exaggeration. The scalar field is the effective strain rate, i.e. $\dot\epsilon_{II} =  \sqrt{J2} = \sqrt{0.5(\dot\epsilon_{i,j}: \dot\epsilon_{i,j})}$. Upper panel shows the evolution of the model topography (a true free surface). The topographic profile reveals the long-wavelength isostatic thermal subsidence, as well as the flexural topography associated with the subduction zone. The model exhibits a very short-wavelength instability in the free surface of the over-riding plate, which begins approximately 3 Ma after the start of the simulation.</p>
+      <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">Animation shows the model domain at 2x vertical exaggeration. The scalar field is the effective strain rate, i.e.&nbsp;\dot\epsilon_{II} =  \sqrt{J2} = \sqrt{0.5(\dot\epsilon_{i,j}: \dot\epsilon_{i,j})}. Upper panel shows the evolution of the model topography (a true free surface). The topographic profile reveals the long-wavelength isostatic thermal subsidence, as well as the flexural topography associated with the subduction zone. The model exhibits a very short-wavelength instability in the free surface of the over-riding plate, which begins approximately 3 Ma after the start of the simulation.</p>
     </div>
 
-    <!-- Tab 2: Science Overview -->
     <div id="tab-overview" class="tab-panel">
       <h2 class="anchored">Research Tags</h2>
       <div>
@@ -220,11 +245,10 @@ ul.task-list li input[type="checkbox"] {
         </p>
 
       <h2 class="anchored">Abstract</h2>
-      <p>This study investigates the dynamics and constitutive behaviour of the oceanic lithosphere as it bends and yields during subduction. Two main observational constraints are considered: the maximum bending moment that can be supported by the lithosphere, and the inferred neutral plane depth in bending. We particularly focus on regions of old lithosphere where the ‘apparent’ neutral plane depth is about 30&nbsp;km. We use subduction modelling approaches to investigate these flexural characteristics. We reassess bending moment estimates from a range of previous studies, and show a significant convergence towards what we call the ‘intermediate’ range of lithosphere strength: weaker than some classical models predict, but stronger than recent inferences at seamounts. We consider the non-uniqueness that arises due to the trade-offs in strength as well background (tectonic) stress state. We outline this problem with several end-member models, which differ in regard to relative strength in the brittle and ductile regimes. We evaluate the consistency of these models in terms of a range of constraints, primarily the seismic expression of the outer rise. We show that a 30&nbsp;km neutral plane depth implies that net slab pull is not greater than about 2 TN m−1. In contrast, models with low brittle strength imply that regions with a 30&nbsp;km neutral plane depth are under moderate net axial compression. Under these conditions, reverse faulting is predicted beneath the neutral plane at depths &amp;gt;30&nbsp;km. We show that moderate variations in background stress have a large impact on the predicted anelastic dissipation. We suggest brittle reverse faulting is a marginal phenomenon which may be inhibited by moderate changes in background stress.</p>
+      <p>This study investigates the dynamics and constitutive behaviour of the oceanic lithosphere as it bends and yields during subduction. Two main observational constraints are considered: the maximum bending moment that can be supported by the lithosphere, and the inferred neutral plane depth in bending. We particularly focus on regions of old lithosphere where the ‘apparent’ neutral plane depth is about 30&nbsp;km. We use subduction modelling approaches to investigate these flexural characteristics. We reassess bending moment estimates from a range of previous studies, and show a significant convergence towards what we call the ‘intermediate’ range of lithosphere strength: weaker than some classical models predict, but stronger than recent inferences at seamounts. We consider the non-uniqueness that arises due to the trade-offs in strength as well background (tectonic) stress state. We outline this problem with several end-member models, which differ in regard to relative strength in the brittle and ductile regimes. We evaluate the consistency of these models in terms of a range of constraints, primarily the seismic expression of the outer rise. We show that a 30&nbsp;km neutral plane depth implies that net slab pull is not greater than about 2 TN m−1. In contrast, models with low brittle strength imply that regions with a 30&nbsp;km neutral plane depth are under moderate net axial compression. Under these conditions, reverse faulting is predicted beneath the neutral plane at depths &gt;30&nbsp;km. We show that moderate variations in background stress have a large impact on the predicted anelastic dissipation. We suggest brittle reverse faulting is a marginal phenomenon which may be inhibited by moderate changes in background stress.</p>
       <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sandifordcraig-2023-subduction/main/.website_material/graphics/gpe_fm26.png" alt="Graphic abstract" style="width:100%; border-radius:6px; margin-top:1rem;" onerror="this.style.display='none'">
     </div>
 
-    <!-- Tab 3: Software & Setup -->
     <div id="tab-setup" class="tab-panel">
       <h2 class="anchored">Compute Tags</h2>
       <div>
@@ -241,22 +265,16 @@ ul.task-list li input[type="checkbox"] {
       <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">The main panel shows the full model domain and initial temperature field. The texture is generated with a line integral convolution of the velocity field. Contours show evolution of the slab during the 10 Myr simulation. Velocity arrows show convergence rates at 5 Myr into the simulation. Inset panels show details of the adaptive mesh refinement during the simulation.</p>
     </div>
 
-    <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
         <p><strong>Dataset (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sandifordcraig-2023-subduction/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sandifordcraig-2023-subduction/catalog.html</a></p>
         <p><strong>Dataset existing identifier:</strong><br><a href="https://doi.org/10.25914/t13d-0r63" target="_blank" rel="noopener">10.25914/t13d-0r63</a></p>
-        <p><strong>Dataset notes:</strong> Computations were done using the ASPECT code version 2.4.0. ASPECT output data from 2 simulations are included with this model. The reference model is the same model setup/data described in Sandiford and Craig, (2023). An alternative model is included in which the over-riding plate is welded to the left sidewall at the start of the simulation (whereas the initial temperature field in the reference model has a ridge). Note that both simulations develop a short-wavelength instability in the free surface of the over-riding plate, which begins approximately 3 Ma after the start of the simulation. The top level directories contains typical ASPECT output files, including log.txt and restart files. The primary output data consists of:
-
--  plain text files representing model topography (e.g. topography.00000)
-- a range of "field" data, in .vtu format in the `./solution` sub-directory (e.g. solution-00000.0000.vtu). At each output step, there are 48 vtu files written. These can be opened with Paraview using the solution.pvd file in the top level. Quantities generally have SI units. Velocities are output as meters/year. 
--  particle information stored as .vtu files (16 per timestep). Particles were used to track the 2-km-thick weak entrained layer that facilitates the plate interface decoupling zone.</p>
+        <p><strong>Dataset notes:</strong> Computations were done using the ASPECT code version 2.4.0. ASPECT output data from 2 simulations are included with this model. The reference model is the same model setup/data described in Sandiford and Craig, (2023). An alternative model is included in which the over-riding plate is welded to the left sidewall at the start of the simulation (whereas the initial temperature field in the reference model has a ridge). Note that both simulations develop a short-wavelength instability in the free surface of the over-riding plate, which begins approximately 3 Ma after the start of the simulation. The top level directories contains typical ASPECT output files, including log.txt and restart files. The primary output data consists of: plain text files representing model topography (e.g.&nbsp;topography.00000)a range of field data, in .vtu format in the ./solution sub-directory (e.g.&nbsp;solution-00000.0000.vtu). At each output step, there are 48 vtu files written. These can be opened with Paraview using the solution.pvd file in the top level. Quantities generally have SI units. Velocities are output as meters/year. - particle information stored as .vtu files (16 per timestep). Particles were used to track the 2-km-thick weak entrained layer that facilitates the plate interface decoupling zone.</p>
         <p><strong>Model files (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sandifordcraig-2023-subduction/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/sandifordcraig-2023-subduction/catalog.html</a></p>
         <p><strong>Model files existing identifier:</strong><br><a href="https://github.com/dansand/subduction_GJI2022" target="_blank" rel="noopener">https://github.com/dansand/subduction_GJI2022</a></p>
         <p><strong>Model files notes:</strong> Code and inputs for computational model</p>
         <p><strong>Source repository:</strong><br><a href="https://github.com/ModelAtlasofTheEarth/sandifordcraig-2023-subduction" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/sandifordcraig-2023-subduction</a></p>
     </div>
 
-    <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2 class="anchored">Citation</h2>
       <blockquote class="blockquote">Sandiford, D., &amp; Craig, T. (2024). Plate bending earthquakes and the strength distribution of the lithosphere [Data set]. AuScope, National Computational Infrastructure. https://doi.org/t13d-0r63</blockquote>
@@ -277,6 +295,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 
+</main> <!-- /main -->
 <script>
 function switchTab(btn, id) {
   var container = btn.closest('.tab-container');
@@ -286,10 +305,6 @@ function switchTab(btn, id) {
   container.querySelector('#tab-' + id).classList.add('active');
 }
 </script>
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -694,14 +709,14 @@ function switchTab(btn, id) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© M@TE — Model Atlas of the Earth</p>
-</div>   
+      <div class="footer-contents">© M@TE — Model Atlas of the Earth</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://quarto.org">Quarto</a></p>
-</div>
+      <div class="footer-contents">Built with [Quarto](https://quarto.org)</div>  
+    </div>
   </div>
 </footer>
 

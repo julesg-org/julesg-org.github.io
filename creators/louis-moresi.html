@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-12aad574f12230f14341193ceed9da8e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-69f2f15562cd42e0a1719f3e91d490d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -169,7 +169,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="models-grid">
 
-  <!-- ── Model card: mather-2022-groundwater ─────────────────────────────────────────────── -->
   <a href="../models/mather-2022-groundwater.html" class="mc-card-container" data-title="constraining the response of continental-scale groundwater flow to climate change" data-tags="groundwater thermal-hydraulic bayesian water-management" data-creators="ben mather r. dietmar müller craig o’neill adam beall r. willem vervoort louis moresi">
     <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png" alt="Constraining the response of continental-scale groundwater flow to climate change" onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';">
     <h3 class="anchored">Constraining the response of continental-scale groundwater flow to climate change</h3>
@@ -189,7 +188,6 @@ ul.task-list li input[type="checkbox"] {
       </a>
     </div>
   
-  <!-- ── Model card: sachau-2022-icesheet ─────────────────────────────────────────────── -->
   <a href="../models/sachau-2022-icesheet.html" class="mc-card-container" data-title="ismip-hom benchmark experiments using underworld" data-tags="ice-sheet benchmark stokes anisotropy mechanical" data-creators="till sachau haibin yang paul d. bons louis moresi">
     <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/sachau-2022-icesheet/main/.website_material/graphics/gmd-15-8749-2022-f09.png" alt="ISMIP-HOM benchmark experiments using Underworld" onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';">
     <h3 class="anchored">ISMIP-HOM benchmark experiments using Underworld</h3>
@@ -210,7 +208,6 @@ ul.task-list li input[type="checkbox"] {
       </a>
     </div>
   
-  <!-- ── Model card: yang-2023-eqcycles ─────────────────────────────────────────────── -->
   <a href="../models/yang-2023-eqcycles.html" class="mc-card-container" data-title="numerical modeling of earthquake cycles based on navier-stokes equations with viscoelastic-plasticity rheology" data-tags="earthquake-cycles navier-stokes viscoelastic-plasticity cratonic-earthquakes" data-creators="haibin yang louis moresi huihui weng julian giordani">
     <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/yang-2023-eqcycles/main/.website_material/graphics/Fig5_Compare1100.jpg" alt="Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology" onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';">
     <h3 class="anchored">Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology</h3>
@@ -230,7 +227,6 @@ ul.task-list li input[type="checkbox"] {
       </a>
     </div>
   
-  <!-- ── Model card: RodriguezCorcho-2022-ArcCollision ─────────────────────────────────────────────── -->
   <a href="../models/RodriguezCorcho-2022-ArcCollision.html" class="mc-card-container" data-title="the role of lithospheric-deep mantle interactions on the style and stress evolution of arc-continent collision" data-tags="buoyancy-contrast gravitational-collapse arc-collision slab-folding slab-anchoring" data-creators="andrés felipe rodríguez corcho sara polanco rebecca farrington romain beucher camilo montes louis moresi">
     <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/RodriguezCorcho-2022-ArcCollision/main/.website_material/graphics/landing_image.png" alt="The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision" onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';">
     <h3 class="anchored">The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision</h3>
@@ -256,6 +252,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 </main> <!-- /main -->
+<script>
+function switchTab(btn, id) {
+  var container = btn.closest('.tab-container');
+  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  container.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  container.querySelector('#tab-' + id).classList.add('active');
+}
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

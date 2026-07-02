@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-12aad574f12230f14341193ceed9da8e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-69f2f15562cd42e0a1719f3e91d490d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles/mate.css">
 </head>
@@ -167,7 +196,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="model-page">
 
-  <!-- ── Header ─────────────────────────────────────────────────────────── -->
   <h1>Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic</h1>
 
   <div class="model-meta-block">
@@ -178,7 +206,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="badge-creator" href="../creators/ben-s-knight.html">Ben S. Knight</a>
   </div>
 
-  <!-- ── Tabbed content ──────────────────────────────────────────────────── -->
   <div class="tab-container">
     <div class="tab-nav">
       <button class="tab-btn active" onclick="switchTab(this,'snapshot')">Snapshot</button>
@@ -188,7 +215,6 @@ ul.task-list li input[type="checkbox"] {
       <button class="tab-btn" onclick="switchTab(this,'meta')">Metadata</button>
     </div>
 
-    <!-- Tab 1: Snapshot -->
     <div id="tab-snapshot" class="tab-panel active">
       <p>This model was developed to test the generation of non-orogenic granulites due to rifting. We implemented a melt generation and emplacement model and compared with analytical results obtained from the Fraser zone, SW WA.</p>
       <div class="animation-container">
@@ -197,7 +223,6 @@ ul.task-list li input[type="checkbox"] {
       <p style="font-size:13px;color:#777;text-align:center;margin-top:0.25rem;">Model evolution showing the generation and emplacement of melt during rifting.</p>
     </div>
 
-    <!-- Tab 2: Science Overview -->
     <div id="tab-overview" class="tab-panel">
       <h2 class="anchored">Research Tags</h2>
       <div>
@@ -215,11 +240,10 @@ ul.task-list li input[type="checkbox"] {
         </p>
 
       <h2 class="anchored">Abstract</h2>
-      <p>Mesoproterozoic orogens are unusual in that they commonly preserve a record of high geothermal gradients, low crustal thickness, and limited topography. One such terrane is the Fraser Zone in the Albany–Fraser Orogen (AFO), Western Australia, where granulite-facies rocks record a counterclockwise pressure–temperature (CCW $P–T$) evolution, the drivers of which remain the subject of debate. To understand how the Fraser Zone reached high temperatures followed by burial, a new geochronological and petrological dataset from a metamorphosed gabbronorite was collected. This data places direct temporal constraints on the up-pressure section of the CCW $P–T$ evolution. The gabbronorite preserves an original cumulate texture that crystallised at $\sim 6\ \text{kbar}$ and $\sim 810^{\circ}\text{C}$ that partially recrystallised at conditions of $\sim 9.5\ \text{kbar}$ and $850{-}950^{\circ}\text{C}$, as constrained by conventional thermobarometers and pseudosection modelling. Zircon grains with distinct textural and geochemical characteristics constrain the timing of emplacement, melt crystallisation at $1288 \pm 7\ \text{Ma}$, and subsequent up-pressure recrystallisation at $1284 \pm 7\ \text{Ma}$. These combined $P–T$ and geochronological constraints define a rapid burial path to $\sim 12\ \text{km}$ within $c.\ 4\ \text{Myr}$ of initial crystallisation, requiring a re-evaluation of the previous models involving collision and thickening as the timing of the up-pressure excursion pre-dates the established timing of collision between the Western Australian and South Australian Cratons. Thermomechanical geodynamic modelling elucidates a viable tectonic setting for the generation of the granulites of the Fraser Zone, involving rift foundering triggered by asymmetric extension in the backarc that was terminated by subsequent arc advance. Globally, a similar mechanism may have resulted in the ubiquitous high thermobaric ratio metamorphism, low crustal thickness, and limited elevation, associated with the Mesoproterozoic metamorphic record associated with the assembly of Rodinia.</p>
+      <p>Mesoproterozoic orogens are unusual in that they commonly preserve a record of high geothermal gradients, low crustal thickness, and limited topography. One such terrane is the Fraser Zone in the Albany–Fraser Orogen (AFO), Western Australia, where granulite-facies rocks record a counterclockwise pressure–temperature (CCW P–T) evolution, the drivers of which remain the subject of debate. To understand how the Fraser Zone reached high temperatures followed by burial, a new geochronological and petrological dataset from a metamorphosed gabbronorite was collected. This data places direct temporal constraints on the up-pressure section of the CCW P–T evolution. The gabbronorite preserves an original cumulate texture that crystallised at \sim 6\ \text{kbar} and \sim 810^{\circ}\text{C} that partially recrystallised at conditions of \sim 9.5\ \text{kbar} and 850{-}950^{\circ}\text{C}, as constrained by conventional thermobarometers and pseudosection modelling. Zircon grains with distinct textural and geochemical characteristics constrain the timing of emplacement, melt crystallisation at 1288 \pm 7\ \text{Ma}, and subsequent up-pressure recrystallisation at 1284 \pm 7\ \text{Ma}. These combined P–T and geochronological constraints define a rapid burial path to \sim 12\ \text{km} within c.\ 4\ \text{Myr} of initial crystallisation, requiring a re-evaluation of the previous models involving collision and thickening as the timing of the up-pressure excursion pre-dates the established timing of collision between the Western Australian and South Australian Cratons. Thermomechanical geodynamic modelling elucidates a viable tectonic setting for the generation of the granulites of the Fraser Zone, involving rift foundering triggered by asymmetric extension in the backarc that was terminated by subsequent arc advance. Globally, a similar mechanism may have resulted in the ubiquitous high thermobaric ratio metamorphism, low crustal thickness, and limited elevation, associated with the Mesoproterozoic metamorphic record associated with the assembly of Rodinia.</p>
       
     </div>
 
-    <!-- Tab 3: Software & Setup -->
     <div id="tab-setup" class="tab-panel">
       <h2 class="anchored">Compute Tags</h2>
       <div>
@@ -237,7 +261,6 @@ ul.task-list li input[type="checkbox"] {
       <p style="font-size:13px; color:#777; text-align:center; margin-top:0.25rem;">Model setup, showing the initial geotherm and material distribution.</p>
     </div>
 
-    <!-- Tab 4: Code & Data -->
     <div id="tab-data" class="tab-panel">
         <p><strong>Dataset (NCI catalogue):</strong><br><a href="https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html" target="_blank" rel="noopener">https://thredds.nci.org.au/thredds/catalog/nm08/MATE/Yu-2025-granulites/catalog.html</a></p>
         <p><strong>Dataset existing identifier:</strong><br><a href="https://doi.org/10.25914/0a2t-by03" target="_blank" rel="noopener">10.25914/0a2t-by03</a></p>
@@ -246,7 +269,6 @@ ul.task-list li input[type="checkbox"] {
         <p><strong>Source repository:</strong><br><a href="https://github.com/ModelAtlasofTheEarth/Yu-2025-granulites" target="_blank" rel="noopener">https://github.com/ModelAtlasofTheEarth/Yu-2025-granulites</a></p>
     </div>
 
-    <!-- Tab 5: Metadata -->
     <div id="tab-meta" class="tab-panel">
       <h2 class="anchored">Citation</h2>
       <blockquote class="blockquote">Knight, Ben S.. (2025). Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic [Data set]. AuScope, National Computational Infrastructure. https://doi.org/0a2t-by03</blockquote>
@@ -265,6 +287,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 
+</main> <!-- /main -->
 <script>
 function switchTab(btn, id) {
   var container = btn.closest('.tab-container');
@@ -274,10 +297,6 @@ function switchTab(btn, id) {
   container.querySelector('#tab-' + id).classList.add('active');
 }
 </script>
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -682,14 +701,14 @@ function switchTab(btn, id) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© M@TE — Model Atlas of the Earth</p>
-</div>   
+      <div class="footer-contents">© M@TE — Model Atlas of the Earth</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://quarto.org">Quarto</a></p>
-</div>
+      <div class="footer-contents">Built with [Quarto](https://quarto.org)</div>  
+    </div>
   </div>
 </footer>
 
