@@ -18,7 +18,7 @@
     "href": "index.html#featured-models",
     "title": "M@TE — Model Atlas of the Earth",
     "section": "Featured Models",
-    "text": "Featured Models\n\n\n  \n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      A highly scalable numerical framework to model continental groundwater flow, capturing\n      flow pathways between deep aquifers and the near-surface using a Bayesian framework.\n    \n    \n      Ben Mather\n      Dietmar Müller\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n\n  \n  \n    \n    Subduction zone dynamics — a numerical simulation (example)\n    \n      A high-resolution 3D model of subduction zone dynamics exploring the interplay between\n      slab geometry, mantle flow, and surface topography across geological timescales.\n    \n    \n      Jane Doe\n      John Smith\n      \n      subduction\n      tectonics\n      geodynamics\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n  \n  \n    \n    Mantle convection and thermal evolution of the Earth (example)\n    \n      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,\n      constrained by seismic tomography and geochemical data from ocean island basalts.\n    \n    \n      Alice Johnson\n      Bob Williams\n      \n      mantle\n      convection\n      thermal evolution\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n\n\n\n  \n    View all models →"
+    "text": "Featured Models\n\n\n  \n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n      \n        A highly scalable numerical framework to model continental groundwater flow, capturing\n        flow pathways between deep aquifers and the near-surface using a Bayesian framework.\n      \n    \n    \n      Ben Mather\n      Dietmar Müller\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n\n  \n  \n    \n      \n      Subduction zone dynamics — a numerical simulation (example)\n      \n        A high-resolution 3D model of subduction zone dynamics exploring the interplay between\n        slab geometry, mantle flow, and surface topography across geological timescales.\n      \n    \n    \n      Jane Doe\n      John Smith\n      \n      subduction\n      tectonics\n      geodynamics\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n  \n  \n    \n      \n      Mantle convection and thermal evolution of the Earth (example)\n      \n        Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,\n        constrained by seismic tomography and geochemical data from ocean island basalts.\n      \n    \n    \n      Alice Johnson\n      Bob Williams\n      \n      mantle\n      convection\n      thermal evolution\n      \n      \n        DOI\n        10.xxxxx/placeholder\n      \n    \n  \n\n\n\n\n  \n    View all models →"
   },
   {
     "objectID": "index.html#why-mte",
@@ -200,7 +200,7 @@
     "href": "models/index.html",
     "title": "Models",
     "section": "",
-    "text": "Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54\n      \n    \n  \n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63\n      \n    \n  \n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678\n      \n    \n  \n  \n    \n    Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03\n      \n    \n  \n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466\n      \n    \n  \n  \n    \n    Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33\n      \n    \n  \n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74\n      \n    \n  \n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44\n      \n    \n  \n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940\n      \n    \n  \n  \n    \n    \n    \n      \n    \n  \n  \n    \n    Subduction dynamics and plate coupling along seismically active margin: the role of slab steps\n    \n      Thyagarajulu Gollapalli\n      \n      \n      \n        DOI\n        10.25914/vw5k-q269\n      \n    \n  \n\n\n\nNo models matched your search."
+    "text": "Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54\n      \n    \n  \n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63\n      \n    \n  \n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678\n      \n    \n  \n  \n    \n      \n      Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03\n      \n    \n  \n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466\n      \n    \n  \n  \n    \n      \n      Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33\n      \n    \n  \n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74\n      \n    \n  \n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44\n      \n    \n  \n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940\n      \n    \n  \n  \n    \n      \n      \n    \n    \n      \n    \n  \n  \n    \n      \n      Subduction dynamics and plate coupling along seismically active margin: the role of slab steps\n    \n    \n      Thyagarajulu Gollapalli\n      \n      \n      \n        DOI\n        10.25914/vw5k-q269\n      \n    \n  \n\n\n\nNo models matched your search."
   },
   {
     "objectID": "models/gollapalli-2022-sunda-subduction.html",
@@ -249,14 +249,14 @@
     "href": "tags/navier-stokes.html",
     "title": "Tag: Navier-Stokes",
     "section": "",
-    "text": "Models tagged with Navier-Stokes:\n\n\n\n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models tagged with Navier-Stokes:\n\n\n\n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "tags/water-management.html",
     "href": "tags/water-management.html",
     "title": "Tag: water-management",
     "section": "",
-    "text": "Models tagged with water-management:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models tagged with water-management:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "tags/index.html",
@@ -270,378 +270,378 @@
     "href": "tags/stokes.html",
     "title": "Tag: Stokes",
     "section": "",
-    "text": "Models tagged with Stokes:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models tagged with Stokes:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "tags/cratonic-earthquakes.html",
     "href": "tags/cratonic-earthquakes.html",
     "title": "Tag: Cratonic Earthquakes",
     "section": "",
-    "text": "Models tagged with Cratonic Earthquakes:\n\n\n\n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models tagged with Cratonic Earthquakes:\n\n\n\n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "tags/granulites.html",
     "href": "tags/granulites.html",
     "title": "Tag: granulites",
     "section": "",
-    "text": "Models tagged with granulites:\n\n\n\n  \n    \n    Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
+    "text": "Models tagged with granulites:\n\n\n\n  \n    \n      \n      Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
   },
   {
     "objectID": "tags/stability.html",
     "href": "tags/stability.html",
     "title": "Tag: stability",
     "section": "",
-    "text": "Models tagged with stability:\n\n\n\n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
+    "text": "Models tagged with stability:\n\n\n\n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
   },
   {
     "objectID": "tags/slab-folding.html",
     "href": "tags/slab-folding.html",
     "title": "Tag: slab-folding",
     "section": "",
-    "text": "Models tagged with slab-folding:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models tagged with slab-folding:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "tags/anisotropy.html",
     "href": "tags/anisotropy.html",
     "title": "Tag: anisotropy",
     "section": "",
-    "text": "Models tagged with anisotropy:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models tagged with anisotropy:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "tags/viscoelastic-plasticity.html",
     "href": "tags/viscoelastic-plasticity.html",
     "title": "Tag: Viscoelastic-Plasticity",
     "section": "",
-    "text": "Models tagged with Viscoelastic-Plasticity:\n\n\n\n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models tagged with Viscoelastic-Plasticity:\n\n\n\n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "tags/arc-collision.html",
     "href": "tags/arc-collision.html",
     "title": "Tag: arc-collision",
     "section": "",
-    "text": "Models tagged with arc-collision:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models tagged with arc-collision:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "tags/slab-anchoring.html",
     "href": "tags/slab-anchoring.html",
     "title": "Tag: slab-anchoring",
     "section": "",
-    "text": "Models tagged with slab-anchoring:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models tagged with slab-anchoring:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "tags/bayesian.html",
     "href": "tags/bayesian.html",
     "title": "Tag: Bayesian",
     "section": "",
-    "text": "Models tagged with Bayesian:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models tagged with Bayesian:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "tags/mechanical.html",
     "href": "tags/mechanical.html",
     "title": "Tag: mechanical",
     "section": "",
-    "text": "Models tagged with mechanical:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models tagged with mechanical:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "tags/deltaic-depocenters.html",
     "href": "tags/deltaic-depocenters.html",
     "title": "Tag: Deltaic depocenters",
     "section": "",
-    "text": "Models tagged with Deltaic depocenters:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models tagged with Deltaic depocenters:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "tags/buoyancy-contrast.html",
     "href": "tags/buoyancy-contrast.html",
     "title": "Tag: buoyancy contrast",
     "section": "",
-    "text": "Models tagged with buoyancy contrast:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models tagged with buoyancy contrast:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "tags/dynamics-of-lithosphere.html",
     "href": "tags/dynamics-of-lithosphere.html",
     "title": "Tag: Dynamics of lithosphere",
     "section": "",
-    "text": "Models tagged with Dynamics of lithosphere:\n\n\n\n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
+    "text": "Models tagged with Dynamics of lithosphere:\n\n\n\n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
   },
   {
     "objectID": "tags/tectonics.html",
     "href": "tags/tectonics.html",
     "title": "Tag: tectonics",
     "section": "",
-    "text": "Models tagged with tectonics:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models tagged with tectonics:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "creators/adam-beall.html",
     "href": "creators/adam-beall.html",
     "title": "Adam Beall",
     "section": "",
-    "text": "Models by Adam Beall:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models by Adam Beall:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "creators/r-dietmar-müller.html",
     "href": "creators/r-dietmar-müller.html",
     "title": "R. Dietmar Müller",
     "section": "",
-    "text": "Models by R. Dietmar Müller:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models by R. Dietmar Müller:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "creators/craig-oneill.html",
     "href": "creators/craig-oneill.html",
     "title": "Craig O’Neill",
     "section": "",
-    "text": "Models by Craig O’Neill:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models by Craig O’Neill:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "creators/rebecca-farrington.html",
     "href": "creators/rebecca-farrington.html",
     "title": "Rebecca Farrington",
     "section": "",
-    "text": "Models by Rebecca Farrington:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models by Rebecca Farrington:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "creators/diane-arcay.html",
     "href": "creators/diane-arcay.html",
     "title": "Diane Arcay",
     "section": "",
-    "text": "Models by Diane Arcay:\n\n\n\n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466\n      \n    \n  \n  \n    \n    Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33"
+    "text": "Models by Diane Arcay:\n\n\n\n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466\n      \n    \n  \n  \n    \n      \n      Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33"
   },
   {
     "objectID": "creators/joanne-m-whittaker.html",
     "href": "creators/joanne-m-whittaker.html",
     "title": "Joanne M. Whittaker",
     "section": "",
-    "text": "Models by Joanne M. Whittaker:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models by Joanne M. Whittaker:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "creators/ben-s-knight.html",
     "href": "creators/ben-s-knight.html",
     "title": "Ben S. Knight",
     "section": "",
-    "text": "Models by Ben S. Knight:\n\n\n\n  \n    \n    Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
+    "text": "Models by Ben S. Knight:\n\n\n\n  \n    \n      \n      Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
   },
   {
     "objectID": "creators/maria-gema-llorens.html",
     "href": "creators/maria-gema-llorens.html",
     "title": "Maria-Gema Llorens",
     "section": "",
-    "text": "Models by Maria-Gema Llorens:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by Maria-Gema Llorens:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/dan-sandiford.html",
     "href": "creators/dan-sandiford.html",
     "title": "Dan Sandiford",
     "section": "",
-    "text": "Models by Dan Sandiford:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54\n      \n    \n  \n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
+    "text": "Models by Dan Sandiford:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54\n      \n    \n  \n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
   },
   {
     "objectID": "creators/camilo-montes.html",
     "href": "creators/camilo-montes.html",
     "title": "Camilo Montes",
     "section": "",
-    "text": "Models by Camilo Montes:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models by Camilo Montes:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "creators/john-naliboff.html",
     "href": "creators/john-naliboff.html",
     "title": "John Naliboff",
     "section": "",
-    "text": "Models by John Naliboff:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models by John Naliboff:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "creators/anne-glerum.html",
     "href": "creators/anne-glerum.html",
     "title": "Anne Glerum",
     "section": "",
-    "text": "Models by Anne Glerum:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models by Anne Glerum:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "creators/julian-giordani.html",
     "href": "creators/julian-giordani.html",
     "title": "Julian Giordani",
     "section": "",
-    "text": "Models by Julian Giordani:\n\n\n\n  \n    \n    Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33\n      \n    \n  \n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models by Julian Giordani:\n\n\n\n  \n    \n      \n      Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33\n      \n    \n  \n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "creators/paul-d-bons.html",
     "href": "creators/paul-d-bons.html",
     "title": "Paul D. Bons",
     "section": "",
-    "text": "Models by Paul D. Bons:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models by Paul D. Bons:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "creators/tristan-salles.html",
     "href": "creators/tristan-salles.html",
     "title": "Tristan Salles",
     "section": "",
-    "text": "Models by Tristan Salles:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models by Tristan Salles:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "creators/michael-blum.html",
     "href": "creators/michael-blum.html",
     "title": "Michael Blum",
     "section": "",
-    "text": "Models by Michael Blum:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models by Michael Blum:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "creators/thyagarajulu-gollapalli.html",
     "href": "creators/thyagarajulu-gollapalli.html",
     "title": "Thyagarajulu Gollapalli",
     "section": "",
-    "text": "Models by Thyagarajulu Gollapalli:\n\n\n\n  \n    \n    Subduction dynamics and plate coupling along seismically active margin: the role of slab steps\n    \n      Thyagarajulu Gollapalli\n      \n      \n      \n        DOI\n        10.25914/vw5k-q269"
+    "text": "Models by Thyagarajulu Gollapalli:\n\n\n\n  \n    \n      \n      Subduction dynamics and plate coupling along seismically active margin: the role of slab steps\n    \n    \n      Thyagarajulu Gollapalli\n      \n      \n      \n        DOI\n        10.25914/vw5k-q269"
   },
   {
     "objectID": "creators/xuesong-ding.html",
     "href": "creators/xuesong-ding.html",
     "title": "Xuesong Ding",
     "section": "",
-    "text": "Models by Xuesong Ding:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models by Xuesong Ding:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "creators/florian-steinbach.html",
     "href": "creators/florian-steinbach.html",
     "title": "Florian Steinbach",
     "section": "",
-    "text": "Models by Florian Steinbach:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by Florian Steinbach:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/bénédicte-cenki-tok-or-cenki.html",
     "href": "creators/bénédicte-cenki-tok-or-cenki.html",
     "title": "Bénédicte Cenki-Tok or Cenki",
     "section": "",
-    "text": "Models by Bénédicte Cenki-Tok or Cenki:\n\n\n\n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466\n      \n    \n  \n  \n    \n    Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33"
+    "text": "Models by Bénédicte Cenki-Tok or Cenki:\n\n\n\n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466\n      \n    \n  \n  \n    \n      \n      Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33"
   },
   {
     "objectID": "creators/till-sachau.html",
     "href": "creators/till-sachau.html",
     "title": "Till Sachau",
     "section": "",
-    "text": "Models by Till Sachau:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models by Till Sachau:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "creators/romain-beucher.html",
     "href": "creators/romain-beucher.html",
     "title": "Romain Beucher",
     "section": "",
-    "text": "Models by Romain Beucher:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models by Romain Beucher:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "creators/louis-noel-moresi.html",
     "href": "creators/louis-noel-moresi.html",
     "title": "Louis-Noel Moresi",
     "section": "",
-    "text": "Models by Louis-Noel Moresi:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models by Louis-Noel Moresi:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "creators/huihui-weng.html",
     "href": "creators/huihui-weng.html",
     "title": "Huihui Weng",
     "section": "",
-    "text": "Models by Huihui Weng:\n\n\n\n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models by Huihui Weng:\n\n\n\n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "creators/h-ran.html",
     "href": "creators/h-ran.html",
     "title": "H. Ran",
     "section": "",
-    "text": "Models by H. Ran:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by H. Ran:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/patrice-f-rey.html",
     "href": "creators/patrice-f-rey.html",
     "title": "Patrice F. Rey",
     "section": "",
-    "text": "Models by Patrice F. Rey:\n\n\n\n  \n    \n    Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33"
+    "text": "Models by Patrice F. Rey:\n\n\n\n  \n    \n      \n      Timing of partial melting and granulite formation during the genesis of high to ultra‐high temperature terranes: Insight from numerical experiments\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice F. Rey\n      Diane Arcay\n      \n      \n      \n        DOI\n        10.25914/aaen-nc33"
   },
   {
     "objectID": "creators/sara-polanco.html",
     "href": "creators/sara-polanco.html",
     "title": "Sara Polanco",
     "section": "",
-    "text": "Models by Sara Polanco:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models by Sara Polanco:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "creators/ben-mather.html",
     "href": "creators/ben-mather.html",
     "title": "Ben Mather",
     "section": "",
-    "text": "Models by Ben Mather:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models by Ben Mather:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773\n      \n    \n  \n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "creators/louis-moresi.html",
     "href": "creators/louis-moresi.html",
     "title": "Louis Moresi",
     "section": "",
-    "text": "Models by Louis Moresi:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678\n      \n    \n  \n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44\n      \n    \n  \n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models by Louis Moresi:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81\n      \n    \n  \n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678\n      \n    \n  \n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44\n      \n    \n  \n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "creators/melanie-finch.html",
     "href": "creators/melanie-finch.html",
     "title": "Melanie Finch",
     "section": "",
-    "text": "Models by Melanie Finch:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by Melanie Finch:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/sascha-brune.html",
     "href": "creators/sascha-brune.html",
     "title": "Sascha Brune",
     "section": "",
-    "text": "Models by Sascha Brune:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models by Sascha Brune:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "creators/r-willem-vervoort.html",
     "href": "creators/r-willem-vervoort.html",
     "title": "R. Willem Vervoort",
     "section": "",
-    "text": "Models by R. Willem Vervoort:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models by R. Willem Vervoort:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "creators/pd-bons.html",
     "href": "creators/pd-bons.html",
     "title": "P.D. Bons",
     "section": "",
-    "text": "Models by P.D. Bons:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by P.D. Bons:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/bruce-c-frederick.html",
     "href": "creators/bruce-c-frederick.html",
     "title": "Bruce C Frederick",
     "section": "",
-    "text": "Models by Bruce C Frederick:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models by Bruce C Frederick:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "creators/e-gomez-rivas.html",
     "href": "creators/e-gomez-rivas.html",
     "title": "E. Gomez-Rivas",
     "section": "",
-    "text": "Models by E. Gomez-Rivas:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by E. Gomez-Rivas:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/andrés-felipe-rodríguez-corcho.html",
     "href": "creators/andrés-felipe-rodríguez-corcho.html",
     "title": "Andrés Felipe Rodríguez Corcho",
     "section": "",
-    "text": "Models by Andrés Felipe Rodríguez Corcho:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models by Andrés Felipe Rodríguez Corcho:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "creators/t-de-riese.html",
     "href": "creators/t-de-riese.html",
     "title": "T. de Riese",
     "section": "",
-    "text": "Models by T. de Riese:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by T. de Riese:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/claire-a-mallard.html",
     "href": "creators/claire-a-mallard.html",
     "title": "Claire A. Mallard",
     "section": "",
-    "text": "Models by Claire A. Mallard:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models by Claire A. Mallard:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "creators/haibin-yang.html",
     "href": "creators/haibin-yang.html",
     "title": "Haibin Yang",
     "section": "",
-    "text": "Models by Haibin Yang:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678\n      \n    \n  \n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models by Haibin Yang:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678\n      \n    \n  \n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "creators/index.html",
@@ -655,147 +655,147 @@
     "href": "creators/albert-griera-artigas.html",
     "title": "Albert Griera Artigas",
     "section": "",
-    "text": "Models by Albert Griera Artigas:\n\n\n\n  \n    \n    The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
+    "text": "Models by Albert Griera Artigas:\n\n\n\n  \n    \n      \n      The ephemeral development of C′ shear bands: A numerical modelling approach\n    \n    \n      Melanie Finch\n      P.D. Bons\n      Florian Steinbach\n      \n      \n      \n        DOI\n        10.25914/whbg-hd74"
   },
   {
     "objectID": "creators/timothy-j-craig.html",
     "href": "creators/timothy-j-craig.html",
     "title": "Timothy J Craig",
     "section": "",
-    "text": "Models by Timothy J Craig:\n\n\n\n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
+    "text": "Models by Timothy J Craig:\n\n\n\n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
   },
   {
     "objectID": "creators/patrice-rey.html",
     "href": "creators/patrice-rey.html",
     "title": "Patrice Rey",
     "section": "",
-    "text": "Models by Patrice Rey:\n\n\n\n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
+    "text": "Models by Patrice Rey:\n\n\n\n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
   },
   {
     "objectID": "tags/ice-sheet.html",
     "href": "tags/ice-sheet.html",
     "title": "Tag: ice-sheet",
     "section": "",
-    "text": "Models tagged with ice-sheet:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models tagged with ice-sheet:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "tags/benchmark.html",
     "href": "tags/benchmark.html",
     "title": "Tag: benchmark",
     "section": "",
-    "text": "Models tagged with benchmark:\n\n\n\n  \n    \n    ISMIP-HOM benchmark experiments using Underworld\n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
+    "text": "Models tagged with benchmark:\n\n\n\n  \n    \n      \n      ISMIP-HOM benchmark experiments using Underworld\n    \n    \n      Till Sachau\n      Haibin Yang\n      Paul D. Bons\n      \n      ice-sheet\n      benchmark\n      Stokes\n      anisotropy\n      mechanical\n      \n      \n        DOI\n        10.25914/fhew-h678"
   },
   {
     "objectID": "tags/retrogression.html",
     "href": "tags/retrogression.html",
     "title": "Tag: retrogression",
     "section": "",
-    "text": "Models tagged with retrogression:\n\n\n\n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
+    "text": "Models tagged with retrogression:\n\n\n\n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
   },
   {
     "objectID": "tags/emplacement.html",
     "href": "tags/emplacement.html",
     "title": "Tag: emplacement",
     "section": "",
-    "text": "Models tagged with emplacement:\n\n\n\n  \n    \n    Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
+    "text": "Models tagged with emplacement:\n\n\n\n  \n    \n      \n      Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
   },
   {
     "objectID": "tags/groundwater.html",
     "href": "tags/groundwater.html",
     "title": "Tag: groundwater",
     "section": "",
-    "text": "Models tagged with groundwater:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models tagged with groundwater:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "tags/faulting.html",
     "href": "tags/faulting.html",
     "title": "Tag: faulting",
     "section": "",
-    "text": "Models tagged with faulting:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models tagged with faulting:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "tags/crustal-roots.html",
     "href": "tags/crustal-roots.html",
     "title": "Tag: crustal roots",
     "section": "",
-    "text": "Models tagged with crustal roots:\n\n\n\n  \n    \n    Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
+    "text": "Models tagged with crustal roots:\n\n\n\n  \n    \n      \n      Strain and retrogression partitioning explain long-term stability of crustal roots in stable continents\n    \n    \n      Bénédicte Cenki-Tok or Cenki\n      Patrice Rey\n      Diane Arcay\n      \n      crustal roots\n      stability\n      retrogression\n      \n      \n        DOI\n        10.25914/tm6d-t466"
   },
   {
     "objectID": "tags/melt.html",
     "href": "tags/melt.html",
     "title": "Tag: melt",
     "section": "",
-    "text": "Models tagged with melt:\n\n\n\n  \n    \n    Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
+    "text": "Models tagged with melt:\n\n\n\n  \n    \n      \n      Rift foundering and the generation of non-orogenic granulites during the Mesoproterozoic\n    \n    \n      Ben S. Knight\n      \n      granulites\n      melt\n      emplacement\n      \n      \n        DOI\n        10.25914/0a2t-by03"
   },
   {
     "objectID": "tags/lithospheric-flexure.html",
     "href": "tags/lithospheric-flexure.html",
     "title": "Tag: Lithospheric flexure",
     "section": "",
-    "text": "Models tagged with Lithospheric flexure:\n\n\n\n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
+    "text": "Models tagged with Lithospheric flexure:\n\n\n\n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
   },
   {
     "objectID": "tags/gravitational-collapse.html",
     "href": "tags/gravitational-collapse.html",
     "title": "Tag: gravitational collapse",
     "section": "",
-    "text": "Models tagged with gravitational collapse:\n\n\n\n  \n    \n    The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
+    "text": "Models tagged with gravitational collapse:\n\n\n\n  \n    \n      \n      The Role of Lithospheric-Deep Mantle Interactions on the Style and Stress Evolution of Arc-Continent Collision\n    \n    \n      Andrés Felipe Rodríguez Corcho\n      Sara Polanco\n      Rebecca Farrington\n      \n      buoyancy contrast\n      gravitational collapse\n      arc-collision\n      slab-folding\n      slab-anchoring\n      \n      \n        DOI\n        10.25914/xy60-b940"
   },
   {
     "objectID": "tags/detachment-faults.html",
     "href": "tags/detachment-faults.html",
     "title": "Tag: detachment faults",
     "section": "",
-    "text": "Models tagged with detachment faults:\n\n\n\n  \n    \n    Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
+    "text": "Models tagged with detachment faults:\n\n\n\n  \n    \n      \n      Kinematics of Footwall Exhumation at Oceanic Detachment faults: Solid‐Block Rotation and Apparent Unbending\n    \n    \n      Dan Sandiford\n      Sascha Brune\n      Anne Glerum\n      \n      tectonics\n      faulting\n      detachment faults\n      \n      \n        DOI\n        10.25914/r3ya-bg54"
   },
   {
     "objectID": "tags/flexural-isostasy.html",
     "href": "tags/flexural-isostasy.html",
     "title": "Tag: Flexural isostasy",
     "section": "",
-    "text": "Models tagged with Flexural isostasy:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models tagged with Flexural isostasy:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "tags/stratigraphic-record.html",
     "href": "tags/stratigraphic-record.html",
     "title": "Tag: Stratigraphic record",
     "section": "",
-    "text": "Models tagged with Stratigraphic record:\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models tagged with Stratigraphic record:\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "tags/subduction.html",
     "href": "tags/subduction.html",
     "title": "Tag: Subduction",
     "section": "",
-    "text": "Models tagged with Subduction:\n\n\n\n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
+    "text": "Models tagged with Subduction:\n\n\n\n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
   },
   {
     "objectID": "tags/earthquake-cycles.html",
     "href": "tags/earthquake-cycles.html",
     "title": "Tag: Earthquake Cycles",
     "section": "",
-    "text": "Models tagged with Earthquake Cycles:\n\n\n\n  \n    \n    Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
+    "text": "Models tagged with Earthquake Cycles:\n\n\n\n  \n    \n      \n      Numerical Modeling of Earthquake Cycles Based On Navier-Stokes Equations With Viscoelastic-Plasticity Rheology\n    \n    \n      Haibin Yang\n      Louis Moresi\n      Huihui Weng\n      \n      Earthquake Cycles\n      Navier-Stokes\n      Viscoelastic-Plasticity\n      Cratonic Earthquakes\n      \n      \n        DOI\n        10.25914/3jz9-mv44"
   },
   {
     "objectID": "tags/thermal-hydraulic.html",
     "href": "tags/thermal-hydraulic.html",
     "title": "Tag: thermal-hydraulic",
     "section": "",
-    "text": "Models tagged with thermal-hydraulic:\n\n\n\n  \n    \n    Constraining the response of continental-scale groundwater flow to climate change\n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
+    "text": "Models tagged with thermal-hydraulic:\n\n\n\n  \n    \n      \n      Constraining the response of continental-scale groundwater flow to climate change\n    \n    \n      Ben Mather\n      R. Dietmar Müller\n      Craig O’Neill\n      \n      groundwater\n      thermal-hydraulic\n      Bayesian\n      water-management\n      \n      \n        DOI\n        10.25914/t2mn-bk81"
   },
   {
     "objectID": "tags/glacial-isostatic-adjustment-gia.html",
     "href": "tags/glacial-isostatic-adjustment-gia.html",
     "title": "Tag: Glacial isostatic adjustment (GIA)",
     "section": "",
-    "text": "Models tagged with Glacial isostatic adjustment (GIA):\n\n\n\n  \n    \n    Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
+    "text": "Models tagged with Glacial isostatic adjustment (GIA):\n\n\n\n  \n    \n      \n      Flexural isostatic response of continental-scale deltas to climatically driven sea level changes\n    \n    \n      Sara Polanco\n      Michael Blum\n      Tristan Salles\n      \n      Flexural isostasy\n      Glacial isostatic adjustment (GIA)\n      Deltaic depocenters\n      Stratigraphic record\n      \n      \n        DOI\n        10.25914/4m82-y773"
   },
   {
     "objectID": "tags/earthquakes.html",
     "href": "tags/earthquakes.html",
     "title": "Tag: Earthquakes",
     "section": "",
-    "text": "Models tagged with Earthquakes:\n\n\n\n  \n    \n    Plate bending earthquakes and the strength distribution of the lithosphere\n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
+    "text": "Models tagged with Earthquakes:\n\n\n\n  \n    \n      \n      Plate bending earthquakes and the strength distribution of the lithosphere\n    \n    \n      Dan Sandiford\n      Timothy J Craig\n      \n      Dynamics of lithosphere\n      Lithospheric flexure\n      Subduction\n      Earthquakes\n      \n      \n        DOI\n        10.25914/t13d-0r63"
   },
   {
     "objectID": "models/cenki-2022-uht-granulitic-terranes.html",
