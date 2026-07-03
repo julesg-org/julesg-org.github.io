@@ -12,6 +12,7 @@ project:
   output-dir: _site
   resources:
     - models/_graphics/
+    - models/featured.json
 
 website:
   title: "M@TE"
@@ -55,4 +56,6 @@ format:
     toc: false
     filters:
       - _extensions/mate/model-page.py
-    include-after-body: scripts/model-tabs.js
+    include-after-body:
+      - scripts/model-tabs.js
+      - scripts/featured-carousel.js

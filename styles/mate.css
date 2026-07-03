@@ -216,6 +216,82 @@ a:hover {
   -webkit-box-orient: vertical;
 }
 
+/* ── Featured carousel (home page) ────────────────────────────────────────── */
+.featured-carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 0 -0.625rem;        /* counter padding so arrows can sit at edges */
+  padding: 0 0.625rem;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  will-change: transform;
+}
+
+.carousel-track .mc-card-container {
+  flex: 0 0 calc((100% - 2.5rem) / 3);
+  min-width: 0;
+}
+
+/* ── Carousel arrow buttons ───────────────────────────────────────────────── */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.carousel-btn:hover {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--mate-link);
+  outline-offset: 2px;
+}
+
+.carousel-prev { left: 0.25rem; }
+.carousel-next { right: 0.25rem; }
+
+/* ── Carousel dot indicators ──────────────────────────────────────────────── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.carousel-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: background 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--mate-primary);
+}
+
 /* ── Models grid ──────────────────────────────────────────────────────────── */
 .models-grid {
   display: grid;

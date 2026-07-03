@@ -900,6 +900,50 @@ title: "{yaml_esc(name)}"
 
 
 # ---------------------------------------------------------------------------
+# Featured JSON generator (home page carousel)
+# ---------------------------------------------------------------------------
+
+
+def write_featured_json(models: List[dict]) -> None:
+    """Write ``models/_featured.json`` — a lightweight JSON snapshot of every
+    model used by the home-page carousel (``scripts/featured-carousel.js``).
+
+    Each entry contains only the fields needed to render a model card in the
+    carousel, keeping the file small and avoiding the full model schema.
+
+    Args:
+        models: List of normalised model dicts (the same list passed to
+            ``write_models_index()``).
+    """
+    featured = []
+    for m in models:
+        featured.append(
+            {
+                "slug": m["slug"],
+                "title": m["title"],
+                "img_url": m["landing_image_url"] or model_renderer.PLACEHOLDER_IMG,
+                "creators": [
+                    {"full_name": c["full_name"], "slug": model_renderer._creator_slug(c["full_name"])}
+                    for c in m["creators"]
+                    if c["full_name"]
+                ],
+                "tags": [
+                    {"name": t, "slug": model_renderer._tag_slug(t)}
+                    for t in m["tags"]
+                    if t
+                ],
+                "doi": m["doi"],
+                "doi_href": model_renderer.safe_doi(m["doi"]),
+                "doi_display": m["doi"].replace("https://doi.org/", "") if m["doi"] else "",
+            }
+        )
+    path = os.path.join(MODELS_DIR, "featured.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(featured, f, indent=2)
+    print(f"  Wrote {path}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -984,6 +1028,9 @@ def main() -> None:
     write_creators_index(all_creators)
     for name, creator_models in all_creators.items():
         write_creator_page(name, creator_models)
+
+    # Write models/_featured.json (carousel data for the home page)
+    write_featured_json(models)
 
     print("\nDone. Commit the generated .qmd files and run `quarto render`.")
 
