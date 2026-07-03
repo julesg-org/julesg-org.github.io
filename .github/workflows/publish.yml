@@ -27,13 +27,12 @@ jobs:
           publish_dir: ./_site
           publish_branch: gh-pages
 
-#  TODO uncomment to deploy to netlify
-#      - name: Deploy to Netlify
-#        uses: nwtgck/actions-netlify@v3
-#        with:
-#          publish-dir: ./_site
-#          production-branch: main
-#          production-deploy: true
-#        env:
-#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: ./_site
+          production-branch: main
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
