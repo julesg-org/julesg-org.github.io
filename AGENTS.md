@@ -2,7 +2,7 @@
 
 ## Branch & CI
 
-- Default branch: **`jmate`** (not `main`). All work on `jmate`; CI triggers on push here.
+- Default branch: `main`. CI triggers on push here.
 - CI: `.github/workflows/publish.yml` — `prefix-dev/setup-pixi@v0.9.6` → `pixi run build` → deploy to `gh-pages` **and** Netlify (via `nwtgck/actions-netlify`).
 - Netlify deploys require two GitHub Actions secrets: `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID`.
 
@@ -73,7 +73,7 @@ Two known edge cases fixed in this codebase:
      - slug: my-model
        repo: ModelAtlasofTheEarth/my-model
    ```
-2. Run `pixi run build` (or push to `jmate` — CI handles it).
+2. Run `pixi run build` (or push to `main` — CI handles it).
 3. Never commit generated files — they are gitignored.
 
 ## Generated files (all gitignored, never commit)

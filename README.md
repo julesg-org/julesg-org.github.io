@@ -1,6 +1,6 @@
-# julesg-org.github.io — M@TE Quarto Replica (`jmate` branch)
+# julesg-org.github.io — M@TE Quarto Replica
 
-[![Publish Quarto Site (jmate)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml/badge.svg)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml)
+[![Publish Quarto Site](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml/badge.svg)](https://github.com/julesg-org/julesg-org.github.io/actions/workflows/publish.yml)
 
 A **Quarto-based static website** that replicates the design and structure of the
 [M@TE (Model Atlas of the Earth)](https://mate.science/) website, with a
@@ -192,7 +192,7 @@ full workflow.
 
 ### GitHub Pages
 
-1. Push to the `jmate` branch
+1. Push to the `main` branch
 2. GitHub Actions runs `prefix-dev/setup-pixi@v0.9.6` (installs pixi and all
    dependencies from `pixi.toml` — Python, Quarto, poppler — with caching)
 3. `pixi run build` fetches model metadata from GitHub, generates all pages,

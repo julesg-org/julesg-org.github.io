@@ -1,8 +1,8 @@
-name: Publish Quarto Site (jmate)
+name: Publish Quarto Site
 
 on:
   push:
-    branches: [jmate]
+    branches: [main]
 
 jobs:
   build-deploy:
@@ -32,7 +32,7 @@ jobs:
 #        uses: nwtgck/actions-netlify@v3
 #        with:
 #          publish-dir: ./_site
-#          production-branch: jmate
+#          production-branch: main
 #          production-deploy: true
 #        env:
 #          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
