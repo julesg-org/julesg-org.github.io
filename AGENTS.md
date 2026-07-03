@@ -13,7 +13,7 @@
 | `pixi run ingest` | Fetch model metadata from GitHub, generate `.qmd` pages |
 | `pixi run render` | `quarto render` — produce HTML in `_site/` |
 | `pixi run build` | **ingest → render** (order matters; use this in CI) |
-| `pixi run heymate` | ingest → render → preview (full local dev) |
+| `pixi run heymate` | ingest → preview (full local dev) |
 | `pixi run clean` | Wipe all generated files (`_site/`, `_freeze/`, `.quarto/`, `models/*.qmd`, `models/_graphics/`, `tags/`, `creators/`) |
 
 **Build order**: `ingest` must run before `render`. Prefer `pixi run build` or `pixi run heymate` to get the order right.

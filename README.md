@@ -103,9 +103,9 @@ pixi run heymate
 |---------|-------------|
 | `pixi run ingest` | Fetch model metadata from GitHub, discover graphics, generate `.qmd` files |
 | `pixi run render` | Render the site with Quarto to `_site/` |
-| `pixi run preview` | Start a local Quarto preview server |
+| `pixi run preview` | 'render' + start a local Quarto server |
 | `pixi run build` | Ingest + render (no preview) — used in CI |
-| `pixi run heymate` | Ingest + render + preview — full local version of m@te website |
+| `pixi run heymate` | Ingest + preview — full local version of m@te website |
 | `pixi run clean` | Remove all generated files to force a fresh rebuild |
 
 The ingest must run **before** every render to ensure model pages reflect
