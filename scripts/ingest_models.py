@@ -911,17 +911,27 @@ def write_featured_json(models: List[dict]) -> None:
     Each entry contains only the fields needed to render a model card in the
     carousel, keeping the file small and avoiding the full model schema.
 
+    When ``landing_image_url`` is a local relative path (starts with
+    ``_graphics/``), it is rewritten to ``models/_graphics/…`` so that the
+    URL resolves correctly from the home page at the site root (``/``).
+
     Args:
         models: List of normalised model dicts (the same list passed to
             ``write_models_index()``).
     """
     featured = []
     for m in models:
+        img_url = m["landing_image_url"] or model_renderer.PLACEHOLDER_IMG
+        # Model pages at /models/{slug}.html resolve a relative _graphics/…
+        # path correctly, but the home page at / needs an explicit
+        # /models/ prefix so the browser finds the file.
+        if img_url.startswith("_graphics/"):
+            img_url = "models/" + img_url
         featured.append(
             {
                 "slug": m["slug"],
                 "title": m["title"],
-                "img_url": m["landing_image_url"] or model_renderer.PLACEHOLDER_IMG,
+                "img_url": img_url,
                 "creators": [
                     {"full_name": c["full_name"], "slug": model_renderer._creator_slug(c["full_name"])}
                     for c in m["creators"]

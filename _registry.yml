@@ -30,7 +30,5 @@ models:
     repo: ModelAtlasofTheEarth/yang-2023-eqcycles
   - slug: RodriguezCorcho-2022-ArcCollision
     repo: ModelAtlasofTheEarth/RodriguezCorcho-2022-ArcCollision
-  - slug: giordani-2026-heymate
-    repo: ModelAtlasofTheEarth/giordani-2026-heymate
   - slug: gollapalli-2022-sunda-subduction
     repo: ModelAtlasofTheEarth/gollapalli-2022-sunda-subduction
