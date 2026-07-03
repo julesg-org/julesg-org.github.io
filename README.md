@@ -97,7 +97,7 @@ cd julesg-org.github.io
 pixi run heymate
 ```
 
-**Breakdown of pixi tasks:**
+**All pixi tasks:**
 
 | Command | What it does |
 |---------|-------------|
