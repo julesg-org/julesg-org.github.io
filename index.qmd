@@ -13,9 +13,18 @@ toc: false
   <h1>M@TE</h1>
   <p class="mate-subtitle">Model Atlas of the Earth</p>
   <p>
-    A curated, open atlas of geoscientific numerical models — reproducible,
-    reusable, and FAIR.
+    M@TE is a purpose-built digital platform for geoscience that provides access to computational models of Earth's processes, from the Geosphere to the Hydrosphere, like Zenodo for geoscience but bigger and better.
+  <!-- A curated, open atlas of geoscientific numerical models — reproducible,
+  reusable, and FAIR. -->
   </p>
+  <br/>
+  Funded by:
+  <br/>
+
+<img src="images/AuScopeLogo.webp" alt="AuScopeLogo" style="height:40px; vertical-alingn:middle;" />
+
+  <br/>
+  <br/>
   <br/>
   <a href="models/index.html" class="btn btn-primary" style="background:#D64000; border-color:#D64000; font-size:18px; padding:0.5rem 1.5rem;">
     Browse Models
@@ -51,15 +60,17 @@ traditional geology and numerical geosciences.
 <div class="models-grid">
 
   <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
-  <a href="models/mather-2022-groundwater.html" class="mc-card-container">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
-         alt="Groundwater flow model"
-         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
-    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
-    <p class="mc-card-abstract">
-      A highly scalable numerical framework to model continental groundwater flow, capturing
-      flow pathways between deep aquifers and the near-surface using a Bayesian framework.
-    </p>
+  <div class="mc-card-container">
+    <a href="models/mather-2022-groundwater.html" class="mc-card-link">
+      <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
+           alt="Groundwater flow model"
+           onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+      <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
+      <p class="mc-card-abstract">
+        A highly scalable numerical framework to model continental groundwater flow, capturing
+        flow pathways between deep aquifers and the near-surface using a Bayesian framework.
+      </p>
+    </a>
     <div class="mc-card-meta">
       <span class="badge-creator">Ben Mather</span>
       <span class="badge-creator">Dietmar Müller</span>
@@ -73,17 +84,19 @@ traditional geology and numerical geosciences.
         <span class="badge-doi-right">10.25914/t2mn-bk81</span>
       </span>
     </div>
-  </a>
+  </div>
 
   <!-- ── Placeholder card 2 ──────────────────────────────────────────────── -->
   <div class="mc-card-container">
-    <img src="https://placehold.co/600x300/2c8ec7/white?text=Subduction+Model"
-         alt="Subduction zone model placeholder" />
-    <h3>Subduction zone dynamics — a numerical simulation (example)</h3>
-    <p class="mc-card-abstract">
-      A high-resolution 3D model of subduction zone dynamics exploring the interplay between
-      slab geometry, mantle flow, and surface topography across geological timescales.
-    </p>
+    <a href="#" class="mc-card-link">
+      <img src="https://placehold.co/600x300/2c8ec7/white?text=Subduction+Model"
+           alt="Subduction zone model placeholder" />
+      <h3>Subduction zone dynamics — a numerical simulation (example)</h3>
+      <p class="mc-card-abstract">
+        A high-resolution 3D model of subduction zone dynamics exploring the interplay between
+        slab geometry, mantle flow, and surface topography across geological timescales.
+      </p>
+    </a>
     <div class="mc-card-meta">
       <span class="badge-creator">Jane Doe</span>
       <span class="badge-creator">John Smith</span>
@@ -101,13 +114,15 @@ traditional geology and numerical geosciences.
 
   <!-- ── Placeholder card 3 ──────────────────────────────────────────────── -->
   <div class="mc-card-container">
-    <img src="https://placehold.co/600x300/555/white?text=Mantle+Convection"
-         alt="Mantle convection model placeholder" />
-    <h3>Mantle convection and thermal evolution of the Earth (example)</h3>
-    <p class="mc-card-abstract">
-      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,
-      constrained by seismic tomography and geochemical data from ocean island basalts.
-    </p>
+    <a href="#" class="mc-card-link">
+      <img src="https://placehold.co/600x300/555/white?text=Mantle+Convection"
+           alt="Mantle convection model placeholder" />
+      <h3>Mantle convection and thermal evolution of the Earth (example)</h3>
+      <p class="mc-card-abstract">
+        Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,
+        constrained by seismic tomography and geochemical data from ocean island basalts.
+      </p>
+    </a>
     <div class="mc-card-meta">
       <span class="badge-creator">Alice Johnson</span>
       <span class="badge-creator">Bob Williams</span>
@@ -136,6 +151,30 @@ traditional geology and numerical geosciences.
 
 ## Why M@TE?
 
+The field of numerical modeling of Earth's systems is rapidly
+expanding, enabling new insights into the coevolution of the solid
+Earth and surface processes. These models often require
+specialized high-performance computing resources, can take days
+to weeks to run, and generate large volumes of heterogeneous
+output data. Without proper curation and community standards, it
+is difficult to access, interpret, and build upon published work.
+
+M@TE addresses these needs by providing:
+
+ * Integrated management of the full model life cycle: code,
+                documentation, output data, publications, figures, animations
+                and metadata 
+ * Purpose-built infrastructure for storing, preserving, and
+                sharing computational models
+ * A central hub connecting educators, model developers, and
+                geoscientists
+ * Support for reproducibility and reuse
+ * Built-in DOI creation for persistent, citable results
+ * Scalable and sustainable research infrastructure
+ * Flexibility for users with different levels of expertise
+ * Capabilities beyond general-purpose repositories
+                (e.g., Zenodo, Figshare)
+
 ```{=html}
 <ul class="mate-highlights">
   <li>✅ Open source and free</li>
@@ -145,7 +184,3 @@ traditional geology and numerical geosciences.
   <li>📦 RO-Crate packaging</li>
   <li>🆔 DOI-assigned datasets</li>
 </ul>
-```
-
-**Together we build reproducible, reusable, robust models — it takes a village — so please cite the models you use.**
-

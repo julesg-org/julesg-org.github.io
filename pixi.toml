@@ -1,0 +1,24 @@
+[workspace]
+name = "mate-website"
+version = "0.1.0"
+description = "M@TE Model Atlas of the Earth — Quarto website with live model ingestion"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tasks]
+ingest = { cmd = "python scripts/ingest_models.py", description = "Read in M@TE model repositories - essential for quarto site building" }
+render = "quarto render"
+preview = "quarto preview"
+build = { depends-on = ["ingest", "render"] }
+heymate = { depends-on = [
+  "ingest",
+  "preview",
+], description = "Runs a local version of the M@TE website" }
+clean = { cmd = "rm -rf _site _freeze .quarto models/_graphics/ models/*.qmd tags/ creators/", description = "Remove all website material" }
+
+[dependencies]
+python = ">=3.10"
+requests = "*"
+pyyaml = "*"
+poppler = "*"
+quarto = ">=1.9"

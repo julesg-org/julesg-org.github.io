@@ -10,6 +10,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - models/_graphics/
 
 website:
   title: "M@TE"
@@ -25,6 +27,10 @@ website:
         href: index.qmd
       - text: "Models"
         href: models/index.qmd
+      - text: "Tags"
+        href: tags/index.qmd
+      - text: "Creators"
+        href: creators/index.qmd
       - text: "News"
         href: news/index.qmd
       - text: "About"
@@ -47,3 +53,6 @@ format:
     theme: cosmo
     css: styles/mate.css
     toc: false
+    filters:
+      - _extensions/mate/model-page.py
+    include-after-body: scripts/model-tabs.js

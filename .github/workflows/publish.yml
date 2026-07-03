@@ -10,17 +10,30 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Set up Pixi environment
+        uses: prefix-dev/setup-pixi@v0.9.6
+        with:
+          cache: true
 
-      - name: Render Quarto site
-        run: quarto render
+      - name: Build site
+        run: pixi run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: gh-pages
+
+#  TODO uncomment to deploy to netlify
+#      - name: Deploy to Netlify
+#        uses: nwtgck/actions-netlify@v3
+#        with:
+#          publish-dir: ./_site
+#          production-branch: jmate
+#          production-deploy: true
+#        env:
+#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
