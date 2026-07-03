@@ -672,6 +672,7 @@ def yaml_esc(val: str) -> str:
 # Model .qmd page generator
 # ---------------------------------------------------------------------------
 
+
 def write_model_qmd(m: dict, path: str) -> None:
     """Write a model QMD with all data in YAML frontmatter (no HTML body).
     The pandoc filter _extensions/mate/model-page.py renders the HTML
@@ -685,6 +686,10 @@ def write_model_qmd(m: dict, path: str) -> None:
 
 
 def write_models_index(models: List[dict]) -> None:
+    """Write the main models page for MATE website.
+    Using model_renderer for a HTML version of each model and
+    injects javascipt to perform the search feature and linking to tags/creators"""
+
     cards_html = ""
     for m in models:
         cards_html += model_renderer.model_card_html(m)
@@ -919,9 +924,15 @@ def main() -> None:
     for m in models:
         # Resolve PDF URLs before writing to YAML frontmatter
         slug = m["slug"]
-        m["landing_image_url"] = _convert_pdf_to_png(m["landing_image_url"], slug, "landing")
-        m["model_setup_image_url"] = _convert_pdf_to_png(m["model_setup_image_url"], slug, "setup")
-        m["graphic_abstract_url"] = _convert_pdf_to_png(m["graphic_abstract_url"], slug, "abstract")
+        m["landing_image_url"] = _convert_pdf_to_png(
+            m["landing_image_url"], slug, "landing"
+        )
+        m["model_setup_image_url"] = _convert_pdf_to_png(
+            m["model_setup_image_url"], slug, "setup"
+        )
+        m["graphic_abstract_url"] = _convert_pdf_to_png(
+            m["graphic_abstract_url"], slug, "abstract"
+        )
 
         path = os.path.join(MODELS_DIR, f"{slug}.qmd")
         write_model_qmd(m, path)

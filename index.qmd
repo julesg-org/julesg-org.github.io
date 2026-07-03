@@ -60,15 +60,17 @@ traditional geology and numerical geosciences.
 <div class="models-grid">
 
   <!-- ── Model card: mather-2022-groundwater ─────────────────────────────── -->
-  <a href="models/mather-2022-groundwater.html" class="mc-card-container">
-    <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
-         alt="Groundwater flow model"
-         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
-    <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
-    <p class="mc-card-abstract">
-      A highly scalable numerical framework to model continental groundwater flow, capturing
-      flow pathways between deep aquifers and the near-surface using a Bayesian framework.
-    </p>
+  <div class="mc-card-container">
+    <a href="models/mather-2022-groundwater.html" class="mc-card-link">
+      <img src="https://raw.githubusercontent.com/ModelAtlasofTheEarth/mather-2022-groundwater/main/.website_material/graphics/fig1.png"
+           alt="Groundwater flow model"
+           onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+      <h3>Constraining the response of continental-scale groundwater flow to climate change</h3>
+      <p class="mc-card-abstract">
+        A highly scalable numerical framework to model continental groundwater flow, capturing
+        flow pathways between deep aquifers and the near-surface using a Bayesian framework.
+      </p>
+    </a>
     <div class="mc-card-meta">
       <span class="badge-creator">Ben Mather</span>
       <span class="badge-creator">Dietmar Müller</span>
@@ -82,17 +84,19 @@ traditional geology and numerical geosciences.
         <span class="badge-doi-right">10.25914/t2mn-bk81</span>
       </span>
     </div>
-  </a>
+  </div>
 
   <!-- ── Placeholder card 2 ──────────────────────────────────────────────── -->
   <div class="mc-card-container">
-    <img src="https://placehold.co/600x300/2c8ec7/white?text=Subduction+Model"
-         alt="Subduction zone model placeholder" />
-    <h3>Subduction zone dynamics — a numerical simulation (example)</h3>
-    <p class="mc-card-abstract">
-      A high-resolution 3D model of subduction zone dynamics exploring the interplay between
-      slab geometry, mantle flow, and surface topography across geological timescales.
-    </p>
+    <a href="#" class="mc-card-link">
+      <img src="https://placehold.co/600x300/2c8ec7/white?text=Subduction+Model"
+           alt="Subduction zone model placeholder" />
+      <h3>Subduction zone dynamics — a numerical simulation (example)</h3>
+      <p class="mc-card-abstract">
+        A high-resolution 3D model of subduction zone dynamics exploring the interplay between
+        slab geometry, mantle flow, and surface topography across geological timescales.
+      </p>
+    </a>
     <div class="mc-card-meta">
       <span class="badge-creator">Jane Doe</span>
       <span class="badge-creator">John Smith</span>
@@ -110,13 +114,15 @@ traditional geology and numerical geosciences.
 
   <!-- ── Placeholder card 3 ──────────────────────────────────────────────── -->
   <div class="mc-card-container">
-    <img src="https://placehold.co/600x300/555/white?text=Mantle+Convection"
-         alt="Mantle convection model placeholder" />
-    <h3>Mantle convection and thermal evolution of the Earth (example)</h3>
-    <p class="mc-card-abstract">
-      Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,
-      constrained by seismic tomography and geochemical data from ocean island basalts.
-    </p>
+    <a href="#" class="mc-card-link">
+      <img src="https://placehold.co/600x300/555/white?text=Mantle+Convection"
+           alt="Mantle convection model placeholder" />
+      <h3>Mantle convection and thermal evolution of the Earth (example)</h3>
+      <p class="mc-card-abstract">
+        Global mantle convection model simulating 4.5 billion years of Earth thermal evolution,
+        constrained by seismic tomography and geochemical data from ocean island basalts.
+      </p>
+    </a>
     <div class="mc-card-meta">
       <span class="badge-creator">Alice Johnson</span>
       <span class="badge-creator">Bob Williams</span>

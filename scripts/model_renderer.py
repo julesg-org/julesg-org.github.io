@@ -486,15 +486,17 @@ def model_card_html(m: dict) -> str:
       </a>"""
 
     return f"""
-  <a href="/models/{slug}.html" class="mc-card-container"
-     data-title="{title_lc}"
-     data-tags="{tags_lc}"
-     data-creators="{creators_lc}">
-    <img src="{img_url}"
-         alt="{title}"
-         onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
-    <h3>{title}</h3>
+  <div class="mc-card-container"
+       data-title="{title_lc}"
+       data-tags="{tags_lc}"
+       data-creators="{creators_lc}">
+    <a href="/models/{slug}.html" class="mc-card-link">
+      <img src="{img_url}"
+           alt="{title}"
+           onerror="this.src='https://placehold.co/600x300/D64000/white?text=M%40TE+Model';" />
+      <h3>{title}</h3>
+    </a>
     <div class="mc-card-meta">{creator_badges}
       <br/>{tag_badges}{doi_block}
     </div>
-  </a>"""
+  </div>"""

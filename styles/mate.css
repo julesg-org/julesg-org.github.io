@@ -186,9 +186,23 @@ a:hover {
   line-height: 1.3;
 }
 
+/* Link wrapper inside card (image + title + optional abstract are the main clickable area) */
+.mc-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mc-card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .mc-card-meta {
   margin-top: auto;
-  padding: 0.5rem 0.75rem 0.75rem;
+  padding: 0.6rem 0.75rem 0.75rem;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
 }
 
 .mc-card-abstract {
