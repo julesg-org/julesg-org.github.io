@@ -26,6 +26,8 @@ traditional geology and numerical geosciences.
 
 **Together we build reproducible, reusable, robust models — it takes a village — so please cite the models you use.**
 
+![The M@TE trinity](./images/Mate_trinity.jpg)
+
 ---
 
 ## How does M@TE work?
@@ -41,8 +43,7 @@ long-term preservation.
 
 ### RO-Crates for packaging
 
-Model metadata is packaged using the [RO-Crate standard](https://www.researchobject.org/ro-crate/),
-a lightweight JSON-LD format that captures rich metadata and
+Model metadata is packaged using the [RO-Crate standard](https://www.researchobject.org/ro-crate/mate), a lightweight JSON-LD format that captures rich metadata and
 references model components (e.g. code, inputs, outputs,
 publications, authors and persistent identifiers). This
 ensures models are machine-readable and FAIR (Findable,
