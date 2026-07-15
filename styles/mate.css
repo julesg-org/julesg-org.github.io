@@ -403,21 +403,6 @@ a:hover {
   max-height: 700px;
 }
 
-/* ── Contact form ─────────────────────────────────────────────────────────── */
-.contact-section {
-  max-width: 650px;
-  margin: 0 auto;
-  font-size: 18px;
-}
-
-.contact-section h1 {
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--mate-primary);
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
 /* ── News page ────────────────────────────────────────────────────────────── */
 .news-section {
   max-width: 800px;
@@ -482,3 +467,112 @@ a.badge-creator:hover { background-color: #444; text-decoration: none; }
 /* ── Creator list ─────────────────────────────────────────────────────────── */
 .creator-list { list-style: none; padding: 0; }
 .creator-list li { padding: 0.4rem 0; border-bottom: 1px solid #eee; font-size: 16px; }
+
+/* ── People / Team grid ──────────────────────────────────────────────────── */
+.people-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.people-section h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.people-section .people-intro {
+  text-align: center;
+  font-size: 18px;
+  color: var(--mate-body);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.people-card {
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.people-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.people-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(30%);
+  transition: filter 0.3s ease;
+  margin-bottom: 0.75rem;
+}
+
+.people-card:hover img {
+  filter: grayscale(0%);
+}
+
+.people-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  margin: 0.25rem 0 0.15rem;
+  line-height: 1.3;
+}
+
+.people-card .people-title {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.people-card .people-orcid {
+  font-size: 13px;
+  color: var(--mate-link);
+  word-break: break-all;
+}
+
+/* ── Contact form (below team section) ───────────────────────────────────── */
+.contact-section {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.contact-section h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--mate-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .people-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .people-card img {
+    width: 100px;
+    height: 100px;
+  }
+}
